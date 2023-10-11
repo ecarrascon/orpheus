@@ -1,0 +1,12 @@
+{
+	"required": true,
+	"package": "com.ecarrascon.mixin",
+	"compatibilityLevel": "JAVA_17",
+	"mixins": [
+		"ExampleMixin",
+		"ServerPlayerMixin"
+	],
+	"injectors": {
+		"defaultRequire": 1
+	}
+}
