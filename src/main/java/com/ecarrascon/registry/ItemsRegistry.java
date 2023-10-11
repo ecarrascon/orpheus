@@ -15,8 +15,8 @@ public enum ItemsRegistry {
     CALLIOPE_POEM("calliope_poem", () -> new Item(epicFireProof())),
     SHEEP_BOWEL("sheep_bowel", () -> new Item(base())),
     CLEAN_SHEEP_BOWEL("clean_sheep_bowel", () -> new Item(base())),
+    PLAIN_STRING("plain_string", () -> new Item(base())),
     LYRA("lyra", () -> new Item(noStackable()));
-
     private final String pathName;
     private final Supplier<Item> itemSupplier;
     private final Integer burnTime;
