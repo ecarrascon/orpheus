@@ -1,6 +1,8 @@
 package com.ecarrascon.orpheus;
 
+import com.ecarrascon.orpheus.registry.BlocksRegistry;
 import com.ecarrascon.orpheus.registry.ItemsRegistry;
+import com.ecarrascon.orpheus.villager.Villager;
 import com.ecarrascon.orpheus.world.dimension.ModDimensions;
 import net.fabricmc.api.ModInitializer;
 import net.fabricmc.fabric.api.client.itemgroup.FabricItemGroupBuilder;
@@ -30,12 +32,12 @@ public class OrpheusMod implements ModInitializer {
 	@Override
 	public void onInitialize() {
 		ItemsRegistry.registerAll();
+		BlocksRegistry.registerAll();
+		Villager.registerVillager();
 		lootTablesIni();
 		ModDimensions.register();
 
 		LOGGER.info("Done");
-
-
 	}
 
 
