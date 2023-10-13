@@ -1,7 +1,7 @@
-package com.ecarrascon.world.dimension;
+package com.ecarrascon.orpheus.world.dimension;
 
-import com.ecarrascon.OrpheusMod;
-import com.ecarrascon.registry.ItemsRegistry;
+import com.ecarrascon.orpheus.OrpheusMod;
+import com.ecarrascon.orpheus.registry.ItemsRegistry;
 import net.kyrptonaught.customportalapi.api.CustomPortalBuilder;
 import net.minecraft.block.Blocks;
 import net.minecraft.util.Identifier;

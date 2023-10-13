@@ -1,22 +1,22 @@
-package com.ecarrascon.registry;
+package com.ecarrascon.orpheus.registry;
 
-import com.ecarrascon.OrpheusMod;
+import com.ecarrascon.orpheus.OrpheusMod;
 import net.minecraft.item.Item;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.registry.Registry;
 
 import java.util.function.Supplier;
+import com.ecarrascon.orpheus.item.setting.ItemSettingsHelper;
 
-import static com.ecarrascon.item.setting.ModItemSettings.*;
 
 public enum ItemsRegistry {
 
-    ORPHEUS_LYRA("orpheus_lyra", () -> new Item(epicFireProof())),
-    CALLIOPE_POEM("calliope_poem", () -> new Item(epicFireProof())),
-    SHEEP_BOWEL("sheep_bowel", () -> new Item(base())),
-    CLEAN_SHEEP_BOWEL("clean_sheep_bowel", () -> new Item(base())),
-    PLAIN_STRING("plain_string", () -> new Item(base())),
-    LYRA("lyra", () -> new Item(noStackable()));
+    ORPHEUS_LYRA("orpheus_lyra", () -> new Item(ItemSettingsHelper.epicFireProofSettings())),
+    CALLIOPE_POEM("calliope_poem", () -> new Item(ItemSettingsHelper.epicFireProofSettings())),
+    SHEEP_BOWEL("sheep_bowel", () -> new Item(ItemSettingsHelper.baseSettings())),
+    CLEAN_SHEEP_BOWEL("clean_sheep_bowel", () -> new Item(ItemSettingsHelper.baseSettings())),
+    PLAIN_STRING("plain_string", () -> new Item(ItemSettingsHelper.baseSettings())),
+    LYRA("lyra", () -> new Item(ItemSettingsHelper.noStackableSettings()));
     private final String pathName;
     private final Supplier<Item> itemSupplier;
     private final Integer burnTime;

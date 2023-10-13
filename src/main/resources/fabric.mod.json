@@ -16,10 +16,10 @@
 	"environment": "*",
 	"entrypoints": {
 		"main": [
-          "com.ecarrascon.OrpheusMod"
+			"com.ecarrascon.orpheus.OrpheusMod"
 		],
 		"fabric-datagen": [
-			"com.ecarrascon.OrpheusDataGenerator"
+			"com.ecarrascon.orpheus.OrpheusDataGenerator"
 		]
 	},
 	"mixins": [

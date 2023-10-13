@@ -1,7 +1,7 @@
-package com.ecarrascon;
+package com.ecarrascon.orpheus;
 
-import com.ecarrascon.registry.ItemsRegistry;
-import com.ecarrascon.world.dimension.ModDimensions;
+import com.ecarrascon.orpheus.registry.ItemsRegistry;
+import com.ecarrascon.orpheus.world.dimension.ModDimensions;
 import net.fabricmc.api.ModInitializer;
 import net.fabricmc.fabric.api.client.itemgroup.FabricItemGroupBuilder;
 import net.fabricmc.fabric.api.loot.v2.LootTableEvents;
