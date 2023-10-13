@@ -1,8 +1,8 @@
 package com.ecarrascon;
 
 import com.ecarrascon.registry.ItemsRegistry;
+import com.ecarrascon.world.dimension.ModDimensions;
 import net.fabricmc.api.ModInitializer;
-
 import net.fabricmc.fabric.api.client.itemgroup.FabricItemGroupBuilder;
 import net.fabricmc.fabric.api.loot.v2.LootTableEvents;
 import net.minecraft.entity.EntityType;
@@ -10,6 +10,7 @@ import net.minecraft.item.ItemGroup;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.Items;
 import net.minecraft.loot.LootPool;
+import net.minecraft.loot.condition.RandomChanceLootCondition;
 import net.minecraft.loot.entry.ItemEntry;
 import net.minecraft.util.Identifier;
 import org.slf4j.Logger;
@@ -30,6 +31,7 @@ public class OrpheusMod implements ModInitializer {
 	public void onInitialize() {
 		ItemsRegistry.registerAll();
 		lootTablesIni();
+		ModDimensions.register();
 
 		LOGGER.info("Done");
 
@@ -42,6 +44,7 @@ public class OrpheusMod implements ModInitializer {
 		LootTableEvents.MODIFY.register((resourceManager, lootManager, id, tableBuilder, source) -> {
 			if (source.isBuiltin() && TURTLE_LOOT_TABLE_ID.equals(id)) {
 				LootPool.Builder poolBuilder = LootPool.builder()
+						.conditionally(RandomChanceLootCondition.builder(0.3f))
 						.with(ItemEntry.builder(Items.SCUTE));
 
 				tableBuilder.pool(poolBuilder);

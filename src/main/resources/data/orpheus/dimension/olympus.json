@@ -1,0 +1,15 @@
+{
+  "type": "orpheus:olympus",
+  "generator": {
+    "type": "minecraft:noise",
+    "settings": "minecraft:floating_islands",
+    "biome_source": {
+      "type": "minecraft:checkerboard",
+      "scale": 1,
+      "biomes": [
+        "minecraft:soul_sand_valley",
+        "minecraft:ice_spikes"
+      ]
+    }
+  }
+}
