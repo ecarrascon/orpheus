@@ -13,6 +13,9 @@ public enum ItemsRegistry {
 
     ORPHEUS_LYRA("orpheus_lyra", () -> new Item(epicFireProof())),
     CALLIOPE_POEM("calliope_poem", () -> new Item(epicFireProof())),
+    SHEEP_BOWEL("sheep_bowel", () -> new Item(base())),
+    CLEAN_SHEEP_BOWEL("clean_sheep_bowel", () -> new Item(base())),
+
 
     LYRA("lyra", () -> new Item(noStackable()));
 
