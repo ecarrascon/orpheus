@@ -1,8 +1,7 @@
 package com.ecarrascon.orpheus.registry;
 
 import com.ecarrascon.orpheus.OrpheusMod;
-import net.minecraft.item.BlockItem;
-import net.minecraft.item.Item;
+import net.minecraft.item.*;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.registry.Registry;
 
@@ -14,7 +13,10 @@ public enum ItemsRegistry {
 
     // Block items
     PEGASUS_FEATHERS_BLOCK("pegasus_feathers_block", () -> new BlockItem(BlocksRegistry.PEGASUS_FEATHERS_BLOCK.get(), ItemSettingsHelper.baseSettings())),
+    EPIPHANY_TABLE("epiphany_table", () -> new BlockItem(BlocksRegistry.EPIPHANY_TABLE.get(), ItemSettingsHelper.baseSettings())),
 
+
+    // Items
     ORPHEUS_LYRA("orpheus_lyra", () -> new Item(ItemSettingsHelper.epicFireProofSettings())),
     CALLIOPE_POEM("calliope_poem", () -> new Item(ItemSettingsHelper.epicFireProofSettings())),
     SHEEP_BOWEL("sheep_bowel", () -> new Item(ItemSettingsHelper.baseSettings())),

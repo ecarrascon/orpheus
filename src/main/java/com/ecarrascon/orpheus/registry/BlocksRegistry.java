@@ -21,6 +21,13 @@ import java.util.function.Supplier;
 public enum BlocksRegistry {
 
 
+    EPIPHANY_TABLE("epiphany_table", () -> new Block(FabricBlockSettings
+            .of(Material.DECORATION)
+            .sounds(BlockSoundGroup.LANTERN)
+            .resistance(1f)
+            .hardness(1f)
+            .nonOpaque()
+    )),
 
     PEGASUS_FEATHERS_BLOCK("pegasus_feathers_block", () -> new Block(FabricBlockSettings
             .of(Material.WOOL)
