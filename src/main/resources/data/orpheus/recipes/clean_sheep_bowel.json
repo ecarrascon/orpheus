@@ -5,10 +5,10 @@
       "item": "minecraft:water_bucket"
     },
     {
-      "item": "orpheus:sheep_bowel"
+      "item": "orpheus:cow_gut"
     }
   ],
   "result": {
-    "item": "orpheus:clean_sheep_bowel"
+    "item": "orpheus:clean_cow_gut"
   }
 }

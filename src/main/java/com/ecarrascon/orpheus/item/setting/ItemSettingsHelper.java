@@ -1,13 +1,13 @@
 package com.ecarrascon.orpheus.item.setting;
 
-import com.ecarrascon.orpheus.OrpheusMod;
+import com.ecarrascon.orpheus.Orpheus;
 import net.fabricmc.fabric.api.item.v1.FabricItemSettings;
 import net.minecraft.util.Rarity;
 
 public class ItemSettingsHelper {
 
     public static FabricItemSettings baseSettings() {
-        return new FabricItemSettings().group(OrpheusMod.ITEM_GROUP);
+        return new FabricItemSettings().group(Orpheus.ITEM_GROUP);
     }
 
     public static FabricItemSettings noStackableSettings() {

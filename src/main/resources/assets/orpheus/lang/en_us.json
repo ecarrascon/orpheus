@@ -1,3 +1,31 @@
 {
-  "item.orpheus.orpheus_lyra": "Orpheus Lyra"
+  "itemGroup.orpheus.main": "Orpheus",
+
+  "item.orpheus.orpheus_lyre": "Orpheus Lyre",
+  "item.orpheus.aristotles_nicomachean_ethics_scrol_fragment": "Aristotle's Nicomachean Ethics Scroll Fragment",
+  "item.orpheus.brotoi_nectar": "Brotoi Nectar",
+  "item.orpheus.calliope_poem_fragment": "Calliope's Poem Fragment",
+  "item.orpheus.clean_cow_gut": "Clean Cow Gut",
+  "item.orpheus.cow_gut": "Cow Gut",
+  "item.orpheus.heraclitian_flux_fragment": "Heraclitian's Flux Fragment",
+  "item.orpheus.heraclitian_flux_potion": "Heraclitian's Flux Potion",
+  "item.orpheus.homers_the_iliad_scroll_fragment": "Homer's The Iliad Scroll Fragment",
+  "item.orpheus.homers_the_odyssey_scroll_fragment": "Homer's The Odyssey Scroll Fragment",
+  "item.orpheus.nectar_seed": "Nectar Seed",
+  "item.orpheus.pegasus_feather": "Pegasus Feather",
+  "item.orpheus.stoic_meditative_stone": "Stoic Meditative Stone",
+  "item.orpheus.thucydides_peloponnesian_war_scroll_fragment": "Thucydides Peloponnesian War Scroll Fragment",
+  "item.orpheus.calliope_statue": "Calliope Statue",
+  "item.orpheus.dionysian_wine_bottle": "Dionysian Wine Bottle",
+  "item.orpheus.lyre": "Lyre",
+  "item.orpheus.palladium_wooden_fragment": "Palladium Wooden Fragment",
+  "item.orpheus.pandoras_pithos": "Pandora's Pithos",
+  "item.orpheus.plain_string": "Plain String",
+  "item.orpheus.hephaestus_armor_fragment": "Hephaestus Armor Fragment",
+
+  "block.orpheus.moly_herb": "Moly Herb",
+  "block.orpheus.epiphany_table": "Epiphany Table",
+  "block.orpheus.nectar_crop": "Nectar Crop",
+  "block.orpheus.potted_moly_herb": "Potted Moly Herb",
+  "block.orpheus.pegasus_feathers_block": "Pegasus Feathers Block"
 }

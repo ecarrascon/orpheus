@@ -1,15 +1,17 @@
 {
-  "type": "orpheus:olympus",
+  "type": "minecraft:overworld",
   "generator": {
-    "type": "minecraft:noise",
-    "settings": "minecraft:floating_islands",
-    "biome_source": {
-      "type": "minecraft:checkerboard",
-      "scale": 1,
-      "biomes": [
-        "minecraft:soul_sand_valley",
-        "minecraft:ice_spikes"
-      ]
+    "type": "minecraft:flat",
+    "settings": {
+      "lakes": false,
+      "features": false,
+      "layers": [
+        {
+          "block": "minecraft:air",
+          "height": 1
+        }
+      ],
+      "structure_overrides": []
     }
   }
 }

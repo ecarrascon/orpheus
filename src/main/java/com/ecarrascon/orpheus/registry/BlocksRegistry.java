@@ -1,17 +1,17 @@
 package com.ecarrascon.orpheus.registry;
 
-import com.ecarrascon.orpheus.OrpheusMod;
+import com.ecarrascon.orpheus.Orpheus;
+import com.ecarrascon.orpheus.block.MythosPortaliteBlock;
+import com.ecarrascon.orpheus.block.NectarCropBlock;
 import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;
 import net.fabricmc.fabric.api.blockrenderlayer.v1.BlockRenderLayerMap;
 import net.fabricmc.fabric.api.object.builder.v1.block.FabricBlockSettings;
 import net.fabricmc.fabric.api.registry.FlammableBlockRegistry;
-import net.minecraft.block.Block;
-import net.minecraft.block.Blocks;
-import net.minecraft.block.Material;
+import net.minecraft.block.*;
 import net.minecraft.client.render.RenderLayer;
+import net.minecraft.entity.effect.StatusEffects;
 import net.minecraft.sound.BlockSoundGroup;
-import net.minecraft.util.DyeColor;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.registry.Registry;
 
@@ -22,18 +22,34 @@ public enum BlocksRegistry {
 
 
     EPIPHANY_TABLE("epiphany_table", () -> new Block(FabricBlockSettings
-            .of(Material.DECORATION)
-            .sounds(BlockSoundGroup.LANTERN)
-            .resistance(1f)
-            .hardness(1f)
+            .of(Material.STONE)
+            .sounds(BlockSoundGroup.WOOD)
+            .strength(2.5f)
             .nonOpaque()
     )),
+
+    MOLY_HERB("moly_herb", () -> new FlowerBlock(
+            StatusEffects.SLOW_FALLING, 50,
+            FabricBlockSettings.copy(Blocks.OXEYE_DAISY)
+    )),
+    POTTED_MOLY_HERB("potted_moly_herb", () -> new FlowerPotBlock(
+            BlocksRegistry.MOLY_HERB.block,
+            FabricBlockSettings.copy(Blocks.POTTED_OXEYE_DAISY)
+    )),
+    NECTAR_CROP("nectar_crop", () -> new NectarCropBlock(
+            FabricBlockSettings.copy(Blocks.WHEAT))),
+
+    MYTHOS_PORTALITE_BLOCK("mythos_portalite_block", () -> new MythosPortaliteBlock(FabricBlockSettings
+            .of(Material.WOOL)
+            .sounds(BlockSoundGroup.WOOL)
+            .strength(0.8f)
+    )),
+
 
     PEGASUS_FEATHERS_BLOCK("pegasus_feathers_block", () -> new Block(FabricBlockSettings
             .of(Material.WOOL)
             .sounds(BlockSoundGroup.WOOL)
-            .resistance(0.2f)
-            .hardness(0.2f)
+            .strength(0.8f)
             ));
 
     private static FlammableBlockRegistry.Entry flammable(int burnChance, @SuppressWarnings("SameParameterValue") int spreadChance) {
@@ -68,7 +84,7 @@ public enum BlocksRegistry {
     public static void registerAll() {
         for (BlocksRegistry value : values()) {
             Block block = value.get();
-            Registry.register(Registry.BLOCK, new Identifier(OrpheusMod.MOD_ID, value.pathName), block);
+            Registry.register(Registry.BLOCK, new Identifier(Orpheus.MOD_ID, value.pathName), block);
             if (isValidFlammableEntry(value.flammableRate)) {
                 FlammableBlockRegistry.getDefaultInstance().add(block, value.flammableRate);
             }

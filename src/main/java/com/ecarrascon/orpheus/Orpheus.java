@@ -18,13 +18,13 @@ import net.minecraft.util.Identifier;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-public class OrpheusMod implements ModInitializer {
+public class Orpheus implements ModInitializer {
     public static final Logger LOGGER = LoggerFactory.getLogger("Orpheus Mod");
 
 	public static final String MOD_ID = "orpheus";
 
 	public static final ItemGroup ITEM_GROUP = FabricItemGroupBuilder.build(new Identifier(MOD_ID, "main"),
-			() -> new ItemStack(ItemsRegistry.ORPHEUS_LYRA.get()));
+			() -> new ItemStack(ItemsRegistry.ORPHEUS_LYRE.get()));
 
 
 	private static final Identifier TURTLE_LOOT_TABLE_ID = EntityType.TURTLE.getLootTableId();
@@ -34,8 +34,10 @@ public class OrpheusMod implements ModInitializer {
 		ItemsRegistry.registerAll();
 		BlocksRegistry.registerAll();
 		Villager.registerVillager();
-		lootTablesIni();
+		Villager.registerVillagerTradeOffer();
 		ModDimensions.register();
+		lootTablesIni();
+
 
 		LOGGER.info("Done");
 	}

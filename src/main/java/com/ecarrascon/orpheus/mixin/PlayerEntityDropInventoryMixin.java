@@ -15,7 +15,7 @@ public abstract class PlayerEntityDropInventoryMixin {
 	private void noEnterTheIfToNotDropTheItems(CallbackInfo info) {
 
 		if (!((PlayerEntity) (Object) this).world.getGameRules().getBoolean(GameRules.KEEP_INVENTORY)
-				&& ((PlayerEntity)(Object)this).getInventory().contains(ItemsRegistry.ORPHEUS_LYRA.get().getDefaultStack())) {
+				&& ((PlayerEntity)(Object)this).getInventory().contains(ItemsRegistry.ORPHEUS_LYRE.get().getDefaultStack())) {
 			info.cancel();
 		}
 	}
