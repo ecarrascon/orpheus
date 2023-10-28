@@ -1,7 +1,9 @@
 package com.ecarrascon.orpheus.registry;
 
 import com.ecarrascon.orpheus.Orpheus;
+import com.ecarrascon.orpheus.item.OrpheusArmorMaterials;
 import com.ecarrascon.orpheus.item.RandomPotionEffectItem;
+import net.minecraft.entity.EquipmentSlot;
 import net.minecraft.item.*;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.registry.Registry;
@@ -46,7 +48,17 @@ public enum ItemsRegistry {
     BROTOI_NECTAR("brotoi_nectar", () -> new HoneyBottleItem(ItemSettingsHelper.baseSettings()
             .food(new FoodComponent.Builder().hunger(5).saturationModifier(19.4f).build()))),
     HEPHAESTUS_ARMOR_FRAGMENT("hephaestus_armor_fragment", () -> new Item(ItemSettingsHelper.baseSettings())),
+    HEPHAESTUS_HELMET("hephaestus_helmet", () -> new ArmorItem(OrpheusArmorMaterials.HEPHAESTUS, EquipmentSlot.HEAD,
+            ItemSettingsHelper.baseSettings())),
+    HEPHAESTUS_CHESTPLATE("hephaestus_chestplate", () -> new ArmorItem(OrpheusArmorMaterials.HEPHAESTUS, EquipmentSlot.CHEST,
+            ItemSettingsHelper.baseSettings())),
+    HEPHAESTUS_LEGGINGS("hephaestus_leggings", () -> new ArmorItem(OrpheusArmorMaterials.HEPHAESTUS, EquipmentSlot.LEGS,
+            ItemSettingsHelper.baseSettings())),
+    HEPHAESTUS_BOOTS("hephaestus_boots", () -> new ArmorItem(OrpheusArmorMaterials.HEPHAESTUS, EquipmentSlot.FEET,
+            ItemSettingsHelper.baseSettings())),
+
     HERACLITIAN_FLUX_POTION("heraclitian_flux_potion", () -> new RandomPotionEffectItem(ItemSettingsHelper.baseSettings())),
+
 
 
     LYRE("lyre", () -> new Item(ItemSettingsHelper.noStackableSettings()));

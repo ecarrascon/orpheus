@@ -13,7 +13,6 @@ public class OrpheusClient implements ClientModInitializer {
     public void onInitializeClient() {
         BlockRenderLayerMap.INSTANCE.putBlock(BlocksRegistry.NECTAR_CROP.get(), RenderLayer.getCutout());
 
-
         BlockRenderLayerMap.INSTANCE.putBlock(BlocksRegistry.MOLY_HERB.get(), RenderLayer.getCutout());
         BlockRenderLayerMap.INSTANCE.putBlock(BlocksRegistry.POTTED_MOLY_HERB.get(), RenderLayer.getCutout());
     }
