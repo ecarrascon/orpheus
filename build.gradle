@@ -56,8 +56,8 @@ dependencies {
 
 	// Fabric API. This is technically optional, but you probably want it anyway.
 	modImplementation "net.fabricmc.fabric-api:fabric-api:${project.fabric_version}"
-	modImplementation 'net.kyrptonaught:customportalapi:0.0.1-beta63-1.19.X'
-	include 'net.kyrptonaught:customportalapi:0.0.1-beta63-1.19.X'
+	modImplementation "net.kyrptonaught:customportalapi:${project.customportalapi_version}"
+	include "net.kyrptonaught:customportalapi:${project.customportalapi_version}"
 
 
 	
