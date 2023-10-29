@@ -40,7 +40,6 @@ public enum ItemsRegistry {
     STOIC_MEDITATIVE_STONE("stoic_meditative_stone", () -> new Item(ItemSettingsHelper.baseSettings())),
     PANDORAS_PITHOS("pandoras_pithos", () -> new Item(ItemSettingsHelper.baseSettings())),
     PALLADIUM_WOODEN_FRAGMENT("palladium_wooden_fragment", () -> new Item(ItemSettingsHelper.baseSettings())),
-    DIONYSIAN_WINE_BOTTLE("dionysian_wine_bottle", () -> new Item(ItemSettingsHelper.baseSettings())),
     COW_GUT("cow_gut", () -> new Item(ItemSettingsHelper.baseSettings())),
     CLEAN_COW_GUT("clean_cow_gut", () -> new Item(ItemSettingsHelper.baseSettings())),
     PLAIN_STRING("plain_string", () -> new Item(ItemSettingsHelper.baseSettings())),
