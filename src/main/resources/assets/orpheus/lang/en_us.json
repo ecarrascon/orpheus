@@ -16,16 +16,22 @@
   "item.orpheus.stoic_meditative_stone": "Stoic Meditative Stone",
   "item.orpheus.thucydides_peloponnesian_war_scroll_fragment": "Thucydides Peloponnesian War Scroll Fragment",
   "item.orpheus.calliope_statue": "Calliope Statue",
-  "item.orpheus.dionysian_wine_bottle": "Dionysian Wine Bottle",
   "item.orpheus.lyre": "Lyre",
   "item.orpheus.palladium_wooden_fragment": "Palladium Wooden Fragment",
   "item.orpheus.pandoras_pithos": "Pandora's Pithos",
   "item.orpheus.plain_string": "Plain String",
+  "item.orpheus.platos_republic_scroll_fragment": "Plato's Republic Scroll Fragment",
   "item.orpheus.hephaestus_armor_fragment": "Hephaestus Armor Fragment",
+  "item.orpheus.hephaestus_helmet": "Hephaestus Helmet",
+  "item.orpheus.hephaestus_chestplate": "Hephaestus Chestplate",
+  "item.orpheus.hephaestus_leggings": "Hephaestus Leggings",
+  "item.orpheus.hephaestus_boots": "Hephaestus Boots",
+
 
   "block.orpheus.moly_herb": "Moly Herb",
   "block.orpheus.epiphany_table": "Epiphany Table",
   "block.orpheus.nectar_crop": "Nectar Crop",
   "block.orpheus.potted_moly_herb": "Potted Moly Herb",
-  "block.orpheus.pegasus_feathers_block": "Pegasus Feathers Block"
+  "block.orpheus.pegasus_feathers_block": "Pegasus Feathers Block",
+  "block.orpheus.mythos_portalite_block": "Mythos Portalite Block"
 }
