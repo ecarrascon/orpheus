@@ -15,7 +15,9 @@
   "item.orpheus.pegasus_feather": "Pegasus Feather",
   "item.orpheus.stoic_meditative_stone": "Stoic Meditative Stone",
   "item.orpheus.thucydides_peloponnesian_war_scroll_fragment": "Thucydides Peloponnesian War Scroll Fragment",
-  "item.orpheus.calliope_statue": "Calliope Statue",
+  "item.orpheus.calliopes_love": "Calliope's Love",
+  "item.orpheus.apollos_son": "Apollo's son",
+
   "item.orpheus.lyre": "Lyre",
   "item.orpheus.palladium_wooden_fragment": "Palladium Wooden Fragment",
   "item.orpheus.pandoras_pithos": "Pandora's Pithos",
@@ -33,5 +35,5 @@
   "block.orpheus.nectar_crop": "Nectar Crop",
   "block.orpheus.potted_moly_herb": "Potted Moly Herb",
   "block.orpheus.pegasus_feathers_block": "Pegasus Feathers Block",
-  "block.orpheus.mythos_portalite_block": "Mythos Portalite Block"
+  "block.orpheus.mythos_block": "Mythos Block"
 }

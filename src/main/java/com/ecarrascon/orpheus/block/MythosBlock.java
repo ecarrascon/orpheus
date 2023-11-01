@@ -5,8 +5,8 @@ import net.minecraft.block.BlockState;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.WorldView;
 
-public class MythosPortaliteBlock extends Block {
-    public MythosPortaliteBlock(Settings settings) {
+public class MythosBlock extends Block {
+    public MythosBlock(Settings settings) {
         super(settings);
     }
 

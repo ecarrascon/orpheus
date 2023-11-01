@@ -17,8 +17,8 @@ public enum ItemsRegistry {
     // Block items
     PEGASUS_FEATHERS_BLOCK("pegasus_feathers_block", () -> new
             BlockItem(BlocksRegistry.PEGASUS_FEATHERS_BLOCK.get(), ItemSettingsHelper.baseSettings())),
-    MYTHOS_PORTALITE_BLOCK("mythos_portalite_block", () -> new
-            BlockItem(BlocksRegistry.MYTHOS_PORTALITE_BLOCK.get(), ItemSettingsHelper.baseSettings())),
+    MYTHOS_BLOCK("mythos_block", () -> new
+            BlockItem(BlocksRegistry.MYTHOS_BLOCK.get(), ItemSettingsHelper.baseSettings())),
     EPIPHANY_TABLE("epiphany_table", () -> new BlockItem(BlocksRegistry.EPIPHANY_TABLE.get(), ItemSettingsHelper.baseSettings())),
     MOLY_HERB("moly_herb", () -> new BlockItem(BlocksRegistry.MOLY_HERB.get(), ItemSettingsHelper.baseSettings())),
 
@@ -27,7 +27,9 @@ public enum ItemsRegistry {
     // Items
     ORPHEUS_LYRE("orpheus_lyre", () -> new Item(ItemSettingsHelper.epicFireProofSettings())),
     CALLIOPE_POEM_FRAGMENT("calliope_poem_fragment", () -> new Item(ItemSettingsHelper.baseSettings())),
-    CALLIOPE_STATUE("calliope_statue", () -> new Item(ItemSettingsHelper.epicFireProofSettings())),
+    CALLIOPES_LOVE("calliopes_love", () -> new Item(ItemSettingsHelper.epicFireProofSettings())),
+    APOLLOS_SON("apollos_son", () -> new Item(ItemSettingsHelper.epicFireProofSettings())),
+
     HOMERS_THE_ILIAD_SCROLL_FRAGMENT("homers_the_iliad_scroll_fragment", () -> new Item(ItemSettingsHelper.baseSettings())),
     HOMERS_THE_ODYSSEY_SCROLL_FRAGMENT("homers_the_odyssey_scroll_fragment", () -> new Item(ItemSettingsHelper.baseSettings())),
     PLATOS_REPUBLIC_SCROLL_FRAGMENT("platos_republic_scroll_fragment", () -> new Item(ItemSettingsHelper.baseSettings())),

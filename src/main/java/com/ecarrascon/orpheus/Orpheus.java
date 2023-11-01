@@ -3,7 +3,6 @@ package com.ecarrascon.orpheus;
 import com.ecarrascon.orpheus.registry.BlocksRegistry;
 import com.ecarrascon.orpheus.registry.ItemsRegistry;
 import com.ecarrascon.orpheus.villager.Villager;
-import com.ecarrascon.orpheus.world.dimension.ModDimensions;
 import net.fabricmc.api.ModInitializer;
 import net.fabricmc.fabric.api.client.itemgroup.FabricItemGroupBuilder;
 import net.fabricmc.fabric.api.loot.v2.LootTableEvents;
@@ -35,7 +34,6 @@ public class Orpheus implements ModInitializer {
 		BlocksRegistry.registerAll();
 		Villager.registerVillager();
 		Villager.registerVillagerTradeOffer();
-		ModDimensions.register();
 		lootTablesIni();
 
 

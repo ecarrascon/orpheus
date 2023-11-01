@@ -1,7 +1,7 @@
 package com.ecarrascon.orpheus.registry;
 
 import com.ecarrascon.orpheus.Orpheus;
-import com.ecarrascon.orpheus.block.MythosPortaliteBlock;
+import com.ecarrascon.orpheus.block.MythosBlock;
 import com.ecarrascon.orpheus.block.NectarCropBlock;
 import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;
@@ -39,7 +39,7 @@ public enum BlocksRegistry {
     NECTAR_CROP("nectar_crop", () -> new NectarCropBlock(
             FabricBlockSettings.copy(Blocks.WHEAT))),
 
-    MYTHOS_PORTALITE_BLOCK("mythos_portalite_block", () -> new MythosPortaliteBlock(FabricBlockSettings
+    MYTHOS_BLOCK("mythos_block", () -> new MythosBlock(FabricBlockSettings
             .of(Material.WOOL)
             .sounds(BlockSoundGroup.WOOL)
             .strength(0.8f)

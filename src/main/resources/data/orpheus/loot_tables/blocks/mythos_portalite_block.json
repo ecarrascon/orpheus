@@ -6,7 +6,7 @@
       "entries": [
         {
           "type": "minecraft:item",
-          "name": "orpheus:mythos_portalite_block"
+          "name": "orpheus:mythos_block"
         }
       ]
     }

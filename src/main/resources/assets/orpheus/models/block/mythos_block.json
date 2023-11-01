@@ -1,6 +1,6 @@
 {
   "parent": "block/cube_all",
   "textures": {
-    "all": "orpheus:block/mythos_portalite_block"
+    "all": "orpheus:block/mythos_block"
   }
 }
