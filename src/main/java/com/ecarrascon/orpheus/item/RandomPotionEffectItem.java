@@ -26,8 +26,7 @@ public class RandomPotionEffectItem extends HoneyBottleItem {
     @Override
     public ItemStack finishUsing(ItemStack stack, World world, LivingEntity user) {
         if (!world.isClient) {
-            StatusEffectInstance effect = getRandomEffect(world);
-            user.addStatusEffect(effect);
+            user.addStatusEffect(getRandomEffect(world));
         }
 
 
