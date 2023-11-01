@@ -103,7 +103,7 @@ public class Villager {
 
             factories.add((entity, random) -> new TradeOffer(
                     new ItemStack(ItemsRegistry.CALLIOPE_POEM_FRAGMENT.get(), 1),
-                    new ItemStack(ItemsRegistry.CALLIOPE_STATUE.get(), 1),
+                    new ItemStack(ItemsRegistry.CALLIOPES_LOVE.get(), 1),
                     1, 12, 0f
             ));
         });
@@ -112,7 +112,7 @@ public class Villager {
         TradeOfferHelper.registerVillagerOffers(PHILOSOPHER, 5, factories -> {
             factories.add((entity, random) -> new TradeOffer(
                     new ItemStack(Items.NETHER_STAR, 1),
-                    new ItemStack(ItemsRegistry.CALLIOPE_STATUE.get(), 8),
+                    new ItemStack(ItemsRegistry.CALLIOPES_LOVE.get(), 8),
                     16, 2, 0f
             ));
         });
