@@ -112,8 +112,8 @@ public class Villager {
         TradeOfferHelper.registerVillagerOffers(PHILOSOPHER, 5, factories -> {
             factories.add((entity, random) -> new TradeOffer(
                     new ItemStack(Items.NETHER_STAR, 1),
-                    new ItemStack(ItemsRegistry.CALLIOPES_LOVE.get(), 8),
-                    16, 2, 0f
+                    new ItemStack(ItemsRegistry.APOLLOS_SON.get(), 1),
+                    1, 2, 0f
             ));
         });
 

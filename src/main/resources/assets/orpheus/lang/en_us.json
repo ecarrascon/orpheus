@@ -17,7 +17,6 @@
   "item.orpheus.thucydides_peloponnesian_war_scroll_fragment": "Thucydides Peloponnesian War Scroll Fragment",
   "item.orpheus.calliopes_love": "Calliope's Love",
   "item.orpheus.apollos_son": "Apollo's son",
-
   "item.orpheus.lyre": "Lyre",
   "item.orpheus.palladium_wooden_fragment": "Palladium Wooden Fragment",
   "item.orpheus.pandoras_pithos": "Pandora's Pithos",
@@ -28,6 +27,8 @@
   "item.orpheus.hephaestus_chestplate": "Hephaestus Chestplate",
   "item.orpheus.hephaestus_leggings": "Hephaestus Leggings",
   "item.orpheus.hephaestus_boots": "Hephaestus Boots",
+
+  "entity.minecraft.villager.philosopher": "Philosopher",
 
 
   "block.orpheus.moly_herb": "Moly Herb",
