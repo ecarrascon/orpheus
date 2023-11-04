@@ -1,6 +1,7 @@
 package com.ecarrascon.orpheus.registry;
 
 import com.ecarrascon.orpheus.Orpheus;
+import com.ecarrascon.orpheus.entity.OrpheusEntities;
 import com.ecarrascon.orpheus.item.OrpheusArmorMaterials;
 import com.ecarrascon.orpheus.item.RandomPotionEffectItem;
 import net.minecraft.entity.EquipmentSlot;
@@ -59,6 +60,8 @@ public enum ItemsRegistry {
             ItemSettingsHelper.baseSettings())),
 
     HERACLITIAN_FLUX_POTION("heraclitian_flux_potion", () -> new RandomPotionEffectItem(ItemSettingsHelper.baseSettings())),
+    VIPERA_AMMODYTES_SPAWN_EGG("vipera_ammodytes_spawn_egg", () -> new SpawnEggItem(OrpheusEntities.VIPER,0xB6D7A8, 0xCEBB80, ItemSettingsHelper.baseSettings())),
+
 
 
 

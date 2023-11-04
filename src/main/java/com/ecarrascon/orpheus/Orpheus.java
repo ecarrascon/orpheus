@@ -1,11 +1,14 @@
 package com.ecarrascon.orpheus;
 
+import com.ecarrascon.orpheus.entity.OrpheusEntities;
+import com.ecarrascon.orpheus.entity.custom.ViperEntity;
 import com.ecarrascon.orpheus.registry.BlocksRegistry;
 import com.ecarrascon.orpheus.registry.ItemsRegistry;
 import com.ecarrascon.orpheus.villager.Villager;
 import net.fabricmc.api.ModInitializer;
 import net.fabricmc.fabric.api.client.itemgroup.FabricItemGroupBuilder;
 import net.fabricmc.fabric.api.loot.v2.LootTableEvents;
+import net.fabricmc.fabric.api.object.builder.v1.entity.FabricDefaultAttributeRegistry;
 import net.minecraft.entity.EntityType;
 import net.minecraft.item.ItemGroup;
 import net.minecraft.item.ItemStack;
@@ -37,6 +40,7 @@ public class Orpheus implements ModInitializer {
 		lootTablesIni();
 
 
+		FabricDefaultAttributeRegistry.register(OrpheusEntities.VIPER, ViperEntity.createViperAttributes());
 		LOGGER.info("Done");
 	}
 
