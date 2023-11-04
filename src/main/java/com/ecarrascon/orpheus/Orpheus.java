@@ -37,6 +37,7 @@ public class Orpheus implements ModInitializer {
 		BlocksRegistry.registerAll();
 		Villager.registerVillager();
 		Villager.registerVillagerTradeOffer();
+		Villager.registerPhilosopherHouses();
 		lootTablesIni();
 
 

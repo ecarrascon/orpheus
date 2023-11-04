@@ -4,6 +4,8 @@ import com.ecarrascon.orpheus.Orpheus;
 import com.ecarrascon.orpheus.registry.BlocksRegistry;
 import com.ecarrascon.orpheus.registry.ItemsRegistry;
 import com.google.common.collect.ImmutableSet;
+import fzzyhmstrs.structurized_reborn.api.FabricStructurePool;
+import fzzyhmstrs.structurized_reborn.impl.FabricStructurePoolRegistry;
 import net.fabricmc.fabric.api.object.builder.v1.trade.TradeOfferHelper;
 import net.fabricmc.fabric.api.object.builder.v1.villager.VillagerProfessionBuilder;
 import net.fabricmc.fabric.api.object.builder.v1.world.poi.PointOfInterestHelper;
@@ -30,6 +32,29 @@ public class Villager {
         return Registry.register(Registry.VILLAGER_PROFESSION, new Identifier(Orpheus.MOD_ID, name),
                 VillagerProfessionBuilder.create().id(new Identifier(Orpheus.MOD_ID, name)).workstation(type)
                         .workSound(SoundEvents.ENTITY_VILLAGER_WORK_LIBRARIAN).build());
+    }
+
+    public static void registerPhilosopherHouses() {
+        FabricStructurePoolRegistry.registerSimple(
+                new Identifier("minecraft:village/plains/houses"),
+                new Identifier(Orpheus.MOD_ID, "philosopher_house_village"),
+                1
+        );
+        FabricStructurePoolRegistry.registerSimple(
+                new Identifier("minecraft:village/desert/houses"),
+                new Identifier(Orpheus.MOD_ID, "philosopher_house_village_desert"),
+                1
+        );
+        FabricStructurePoolRegistry.registerSimple(
+                new Identifier("minecraft:village/savanna/houses"),
+                new Identifier(Orpheus.MOD_ID, "philosopher_house_village_savanna"),
+                1
+        );
+        FabricStructurePoolRegistry.registerSimple(
+                new Identifier("minecraft:village/snowy/houses"),
+                new Identifier(Orpheus.MOD_ID, "philosopher_house_village_snowy"),
+                1
+        );
     }
 
     public static PointOfInterestType registerInterestPoint(String name, Block block) {

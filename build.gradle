@@ -17,9 +17,12 @@ repositories {
 	// See https://docs.gradle.org/current/userguide/declaring_repositories.html
 	// for more information about repositories.
 
-	maven {url = "https://maven.kyrptonaught.dev"}
 	maven {
-		url 'https://api.modrinth.com/maven'
+		name = "Modrinth"
+		url = uri("https://api.modrinth.com/maven")
+		content {
+			includeGroup("maven.modrinth")
+		}
 	}
 }
 
@@ -56,10 +59,10 @@ dependencies {
 
 	// Fabric API. This is technically optional, but you probably want it anyway.
 	modImplementation "net.fabricmc.fabric-api:fabric-api:${project.fabric_version}"
-	modImplementation "net.kyrptonaught:customportalapi:${project.customportalapi_version}"
-	include "net.kyrptonaught:customportalapi:${project.customportalapi_version}"
 
-
+	// Registry that allows you to add custom structures to StructurePool like villages
+	modImplementation("maven.modrinth:Wd844r7Q:${project.structurized_reborn}")
+	include("maven.modrinth:Wd844r7Q:${project.structurized_reborn}")
 	
 	// Uncomment the following line to enable the deprecated Fabric API modules. 
 	// These are included in the Fabric API production distribution and allow you to update your mod to the latest modules at a later more convenient time.
