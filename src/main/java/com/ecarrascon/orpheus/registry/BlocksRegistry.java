@@ -13,6 +13,7 @@ import net.minecraft.client.render.RenderLayer;
 import net.minecraft.entity.effect.StatusEffects;
 import net.minecraft.sound.BlockSoundGroup;
 import net.minecraft.util.Identifier;
+import net.minecraft.util.math.intprovider.UniformIntProvider;
 import net.minecraft.util.registry.Registry;
 
 
@@ -50,7 +51,29 @@ public enum BlocksRegistry {
             .of(Material.WOOL)
             .sounds(BlockSoundGroup.WOOL)
             .strength(0.8f)
+            )),
+
+    TEARS_OF_HADES_ORE("tears_of_hades_ore", () -> new OreBlock(FabricBlockSettings
+            .of(Material.STONE)
+            .requiresTool().strength(3.0f, 3.0f)
+            .sounds(BlockSoundGroup.METAL),
+            UniformIntProvider.create(3, 7)
+    )),
+
+    DEEPSLATE_TEARS_OF_HADES_ORE("deepslate_tears_of_hades_ore", () -> new OreBlock(FabricBlockSettings
+            .of(Material.STONE)
+            .requiresTool().strength(3.0f, 3.0f)
+            .sounds(BlockSoundGroup.METAL),
+            UniformIntProvider.create(3, 7)
+    )),
+
+    TEARS_OF_HADES_BLOCK("tears_of_hades_block", () -> new Block(FabricBlockSettings
+            .of(Material.METAL, MapColor.GRAY)
+            .requiresTool().strength(5.0f, 6.0f)
+            .sounds(BlockSoundGroup.METAL)
             ));
+
+
 
     private static FlammableBlockRegistry.Entry flammable(int burnChance, @SuppressWarnings("SameParameterValue") int spreadChance) {
         return new FlammableBlockRegistry.Entry(burnChance, spreadChance);

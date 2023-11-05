@@ -6,6 +6,8 @@ import com.ecarrascon.orpheus.registry.BlocksRegistry;
 import com.ecarrascon.orpheus.registry.ItemsRegistry;
 import com.ecarrascon.orpheus.registry.LootRegistry;
 import com.ecarrascon.orpheus.villager.Villager;
+import com.ecarrascon.orpheus.world.feature.OrpheusConfiguredFeatures;
+import com.ecarrascon.orpheus.world.gen.OrpheusOreGeneration;
 import net.fabricmc.api.ModInitializer;
 import net.fabricmc.fabric.api.client.itemgroup.FabricItemGroupBuilder;
 import net.fabricmc.fabric.api.object.builder.v1.entity.FabricDefaultAttributeRegistry;
@@ -27,12 +29,14 @@ public class Orpheus implements ModInitializer {
 
 	@Override
 	public void onInitialize() {
+		OrpheusConfiguredFeatures.registerConfiguredFeatures();
 		ItemsRegistry.registerAll();
 		BlocksRegistry.registerAll();
 		Villager.registerVillager();
 		Villager.registerVillagerTradeOffer();
 		Villager.registerPhilosopherHouses();
 		LootRegistry.registerAll();
+		OrpheusOreGeneration.generateOres();
 
 
 		FabricDefaultAttributeRegistry.register(OrpheusEntities.VIPER, ViperEntity.createViperAttributes());

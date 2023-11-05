@@ -22,9 +22,13 @@ public enum ItemsRegistry {
             BlockItem(BlocksRegistry.MYTHOS_BLOCK.get(), ItemSettingsHelper.baseSettings())),
     EPIPHANY_TABLE("epiphany_table", () -> new BlockItem(BlocksRegistry.EPIPHANY_TABLE.get(), ItemSettingsHelper.baseSettings())),
     MOLY_HERB("moly_herb", () -> new BlockItem(BlocksRegistry.MOLY_HERB.get(), ItemSettingsHelper.baseSettings())),
+    TEARS_OF_HADES_BLOCK("tears_of_hades_block", () -> new BlockItem(BlocksRegistry.TEARS_OF_HADES_BLOCK.get(), ItemSettingsHelper.baseSettings())),
+    TEARS_OF_HADES_ORE("tears_of_hades_ore", () -> new BlockItem(BlocksRegistry.TEARS_OF_HADES_ORE.get(), ItemSettingsHelper.baseSettings())),
+    DEEPSLATE_TEARS_OF_HADES_ORE("deepslate_tears_of_hades_ore", () -> new BlockItem(BlocksRegistry.DEEPSLATE_TEARS_OF_HADES_ORE.get(), ItemSettingsHelper.baseSettings())),
 
 
     // Items
+    TEARS_OF_HADES("tears_of_hades", () -> new Item(ItemSettingsHelper.baseSettings())),
     ORPHEUS_LYRE("orpheus_lyre", () -> new Item(ItemSettingsHelper.epicFireProofSettings())),
     CALLIOPE_POEM_FRAGMENT("calliope_poem_fragment", () -> new Item(ItemSettingsHelper.baseSettings())),
     CALLIOPES_LOVE("calliopes_love", () -> new Item(ItemSettingsHelper.epicFireProofSettings())),
