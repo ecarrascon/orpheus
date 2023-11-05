@@ -24,13 +24,11 @@ public enum ItemsRegistry {
     MOLY_HERB("moly_herb", () -> new BlockItem(BlocksRegistry.MOLY_HERB.get(), ItemSettingsHelper.baseSettings())),
 
 
-
     // Items
     ORPHEUS_LYRE("orpheus_lyre", () -> new Item(ItemSettingsHelper.epicFireProofSettings())),
     CALLIOPE_POEM_FRAGMENT("calliope_poem_fragment", () -> new Item(ItemSettingsHelper.baseSettings())),
     CALLIOPES_LOVE("calliopes_love", () -> new Item(ItemSettingsHelper.epicFireProofSettings())),
     APOLLOS_SON("apollos_son", () -> new Item(ItemSettingsHelper.epicFireProofSettings())),
-
     HOMERS_THE_ILIAD_SCROLL_FRAGMENT("homers_the_iliad_scroll_fragment", () -> new Item(ItemSettingsHelper.baseSettings())),
     HOMERS_THE_ODYSSEY_SCROLL_FRAGMENT("homers_the_odyssey_scroll_fragment", () -> new Item(ItemSettingsHelper.baseSettings())),
     PLATOS_REPUBLIC_SCROLL_FRAGMENT("platos_republic_scroll_fragment", () -> new Item(ItemSettingsHelper.baseSettings())),
@@ -58,12 +56,9 @@ public enum ItemsRegistry {
             ItemSettingsHelper.baseSettings())),
     HEPHAESTUS_BOOTS("hephaestus_boots", () -> new ArmorItem(OrpheusArmorMaterials.HEPHAESTUS, EquipmentSlot.FEET,
             ItemSettingsHelper.baseSettings())),
-
     HERACLITIAN_FLUX_POTION("heraclitian_flux_potion", () -> new RandomPotionEffectItem(ItemSettingsHelper.baseSettings())),
     VIPERA_AMMODYTES_SPAWN_EGG("vipera_ammodytes_spawn_egg", () -> new SpawnEggItem(OrpheusEntities.VIPER,0xB6D7A8, 0xCEBB80, ItemSettingsHelper.baseSettings())),
-
-
-
+    HELLENIC_CODEX("hellenic_codex", () -> new Item(ItemSettingsHelper.baseSettings())),
 
     LYRE("lyre", () -> new Item(ItemSettingsHelper.noStackableSettings()));
 
@@ -94,6 +89,7 @@ public enum ItemsRegistry {
         }
         return item;
     }
+
 
     public String getId() {
         return Registry.ITEM.getId(get()).toString();
