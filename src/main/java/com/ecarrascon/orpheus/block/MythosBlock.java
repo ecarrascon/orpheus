@@ -4,6 +4,8 @@ import com.ecarrascon.orpheus.registry.ItemsRegistry;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
 import net.minecraft.entity.Entity;
+import net.minecraft.entity.EntityType;
+import net.minecraft.entity.LightningEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.ItemStack;
 import net.minecraft.tag.BlockTags;
@@ -20,16 +22,22 @@ public class MythosBlock extends Block {
         if (!world.isClient() && entity instanceof PlayerEntity player) {
             if ( player.getMainHandStack().isItemEqual(ItemsRegistry.HELLENIC_CODEX.get().getDefaultStack())
                     && player.isSneaking() && isSurroundedByFlowers(world, pos)) {
-                    player.getMainHandStack().decrement(1);
-            giveCalliopesLoveItem(player, world);
+                summonLightning(player, world);
+                player.getMainHandStack().decrement(1);
+                giveCalliopesLoveItem(player, world);
+                world.breakBlock(pos,false);
+
         }
     }
-        super.
-
-    onSteppedOn(world, pos, state, entity);
+        super.onSteppedOn(world, pos, state, entity);
 
 }
-
+    private void summonLightning(PlayerEntity player, World world) {
+        LightningEntity lightning = new LightningEntity(EntityType.LIGHTNING_BOLT, world);
+        lightning.setCosmetic(true);
+        lightning.setPosition(player.getPos());
+        world.spawnEntity(lightning);
+    }
     private boolean isSurroundedByFlowers(World world, BlockPos pos) {
         int yPos = pos.getY() + 1;
 
