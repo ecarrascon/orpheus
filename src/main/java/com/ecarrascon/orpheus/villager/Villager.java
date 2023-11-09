@@ -4,14 +4,12 @@ import com.ecarrascon.orpheus.Orpheus;
 import com.ecarrascon.orpheus.registry.BlocksRegistry;
 import com.ecarrascon.orpheus.registry.ItemsRegistry;
 import com.google.common.collect.ImmutableSet;
-import fzzyhmstrs.structurized_reborn.api.FabricStructurePool;
 import fzzyhmstrs.structurized_reborn.impl.FabricStructurePoolRegistry;
 import net.fabricmc.fabric.api.object.builder.v1.trade.TradeOfferHelper;
 import net.fabricmc.fabric.api.object.builder.v1.villager.VillagerProfessionBuilder;
 import net.fabricmc.fabric.api.object.builder.v1.world.poi.PointOfInterestHelper;
 import net.minecraft.block.Block;
 import net.minecraft.item.ItemStack;
-import net.minecraft.item.Items;
 import net.minecraft.sound.SoundEvents;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.registry.Registry;
@@ -123,22 +121,16 @@ public class Villager {
             factories.add((entity, random) -> new TradeOffer(
                     new ItemStack(ItemsRegistry.STOIC_MEDITATIVE_STONE.get(), 1),
                     new ItemStack(ItemsRegistry.PANDORAS_PITHOS.get(), 1),
-                    2, 12, 0f
-            ));
-
-            factories.add((entity, random) -> new TradeOffer(
-                    new ItemStack(ItemsRegistry.CALLIOPE_POEM_FRAGMENT.get(), 1),
-                    new ItemStack(ItemsRegistry.CALLIOPES_LOVE.get(), 1),
-                    1, 12, 0f
+                    2, 27, 0f
             ));
         });
 
         // Level 5
         TradeOfferHelper.registerVillagerOffers(PHILOSOPHER, 5, factories -> {
             factories.add((entity, random) -> new TradeOffer(
-                    new ItemStack(Items.NETHER_STAR, 1),
-                    new ItemStack(ItemsRegistry.APOLLOS_SON.get(), 1),
-                    1, 2, 0f
+                    new ItemStack(ItemsRegistry.HELLENIC_CODEX.get(), 1),
+                    new ItemStack(ItemsRegistry.TEARS_OF_HADES.get(), 3),
+                    5, 2, 0f
             ));
         });
 

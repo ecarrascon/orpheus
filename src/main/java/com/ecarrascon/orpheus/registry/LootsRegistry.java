@@ -8,7 +8,7 @@ import net.minecraft.loot.condition.RandomChanceLootCondition;
 import net.minecraft.loot.entry.ItemEntry;
 import net.minecraft.util.Identifier;
 
-public class LootRegistry {
+public class LootsRegistry {
     private static final Identifier TURTLE_LOOT_TABLE_ID = EntityType.TURTLE.getLootTableId();
     private static final Identifier COW_LOOT_TABLE_ID = EntityType.COW.getLootTableId();
 

@@ -1,7 +1,7 @@
 package com.ecarrascon.orpheus;
 
 import com.ecarrascon.orpheus.entity.OrpheusEntities;
-import com.ecarrascon.orpheus.entity.client.NoseHornedViperModel;
+import com.ecarrascon.orpheus.entity.client.ViperModel;
 import com.ecarrascon.orpheus.entity.client.OrpheusModelLayers;
 import com.ecarrascon.orpheus.entity.client.ViperRenderer;
 import com.ecarrascon.orpheus.registry.BlocksRegistry;
@@ -24,6 +24,6 @@ public class OrpheusClient implements ClientModInitializer {
 
 
         EntityRendererRegistry.register(OrpheusEntities.VIPER, ViperRenderer::new);
-        EntityModelLayerRegistry.registerModelLayer(OrpheusModelLayers.VIPER, NoseHornedViperModel::getTexturedModelData);
+        EntityModelLayerRegistry.registerModelLayer(OrpheusModelLayers.VIPER, ViperModel::getTexturedModelData);
     }
 }

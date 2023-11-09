@@ -9,11 +9,11 @@ import net.minecraft.client.render.entity.model.SinglePartEntityModel;
 import net.minecraft.client.util.math.MatrixStack;
 import net.minecraft.util.math.MathHelper;
 
-public class NoseHornedViperModel<T extends ViperEntity> extends SinglePartEntityModel<T> {
+public class ViperModel<T extends ViperEntity> extends SinglePartEntityModel<T> {
 	private final ModelPart viperaammodytes;
 	private final ModelPart head;
 
-	public NoseHornedViperModel(ModelPart root) {
+	public ViperModel(ModelPart root) {
 		this.viperaammodytes = root.getChild("viperaammodytes");
 		this.head = viperaammodytes.getChild("body").getChild("head");
 

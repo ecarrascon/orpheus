@@ -8,12 +8,12 @@ import net.minecraft.client.render.entity.MobEntityRenderer;
 import net.minecraft.client.util.math.MatrixStack;
 import net.minecraft.util.Identifier;
 
-public class ViperRenderer extends MobEntityRenderer<ViperEntity, NoseHornedViperModel<ViperEntity>> {
+public class ViperRenderer extends MobEntityRenderer<ViperEntity, ViperModel<ViperEntity>> {
 
     private static final Identifier TEXTURE = new Identifier(Orpheus.MOD_ID, "textures/entity/vipera_ammodytes.png");
 
     public ViperRenderer(EntityRendererFactory.Context context) {
-        super(context, new NoseHornedViperModel<>(context.getPart(OrpheusModelLayers.VIPER)), 0.5f); // Shadow
+        super(context, new ViperModel<>(context.getPart(OrpheusModelLayers.VIPER)), 0.5f); // Shadow
     }
 
     @Override
