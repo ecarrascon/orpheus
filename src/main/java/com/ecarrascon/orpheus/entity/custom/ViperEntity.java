@@ -30,7 +30,6 @@ public class ViperEntity extends HostileEntity {
         this.targetSelector.add(1, new RevengeGoal(this));
         this.targetSelector.add(2, new ViperEntity.TargetGoal<>(this, PlayerEntity.class));
         this.targetSelector.add(3, new ViperEntity.TargetGoal<>(this, IronGolemEntity.class));
-
     }
 
     @Override
@@ -47,8 +46,6 @@ public class ViperEntity extends HostileEntity {
     protected SoundEvent getDeathSound() {
         return SoundsRegistry.ENTITY_VIPER_DEATH.get();
     }
-
-
 
 
     public static DefaultAttributeContainer.Builder createViperAttributes() {
