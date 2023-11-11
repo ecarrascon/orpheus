@@ -15,7 +15,7 @@ public class OrpheusEntities {
     public static final EntityType<ViperEntity> VIPER = Registry.register(Registry.ENTITY_TYPE,
             new Identifier(Orpheus.MOD_ID, "viper"),
             FabricEntityTypeBuilder.create(SpawnGroup.CREATURE, ViperEntity::new)
-                    .dimensions(EntityDimensions.fixed(1f, 1f)).build());
+                    .dimensions(EntityDimensions.fixed(0.6f, 0.3f)).build());
 
 
 }

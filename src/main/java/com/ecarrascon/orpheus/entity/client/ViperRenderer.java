@@ -13,7 +13,7 @@ public class ViperRenderer extends MobEntityRenderer<ViperEntity, ViperModel<Vip
     private static final Identifier TEXTURE = new Identifier(Orpheus.MOD_ID, "textures/entity/vipera_ammodytes.png");
 
     public ViperRenderer(EntityRendererFactory.Context context) {
-        super(context, new ViperModel<>(context.getPart(OrpheusModelLayers.VIPER)), 0.5f); // Shadow
+        super(context, new ViperModel<>(context.getPart(OrpheusModelLayers.VIPER)), 0.1f); // Shadow
     }
 
     @Override
@@ -25,7 +25,7 @@ public class ViperRenderer extends MobEntityRenderer<ViperEntity, ViperModel<Vip
     public void render(ViperEntity mobEntity, float f, float g, MatrixStack matrixStack,
                        VertexConsumerProvider vertexConsumerProvider, int i) {
         if (mobEntity.isBaby()) {
-            matrixStack.scale(2f,2f,2f);
+            matrixStack.scale(0.5f,0.5f,0.5f);
         } else {
             matrixStack.scale(1f,1f,1f);
         }
