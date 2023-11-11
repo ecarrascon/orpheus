@@ -4,13 +4,15 @@ import com.ecarrascon.orpheus.Orpheus;
 import com.ecarrascon.orpheus.entity.OrpheusEntities;
 import com.ecarrascon.orpheus.item.OrpheusArmorMaterials;
 import com.ecarrascon.orpheus.item.RandomPotionEffectItem;
+import com.ecarrascon.orpheus.item.TearsBow;
+import com.ecarrascon.orpheus.item.setting.ItemModelPredicate;
+import com.ecarrascon.orpheus.item.setting.ItemSettingsHelper;
 import net.minecraft.entity.EquipmentSlot;
 import net.minecraft.item.*;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.registry.Registry;
 
 import java.util.function.Supplier;
-import com.ecarrascon.orpheus.item.setting.ItemSettingsHelper;
 
 
 public enum ItemsRegistry {
@@ -29,6 +31,8 @@ public enum ItemsRegistry {
 
     // Items
     TEARS_OF_HADES("tears_of_hades", () -> new Item(ItemSettingsHelper.baseSettings())),
+    TEARS_BOW("tears_bow", () -> new TearsBow(ItemSettingsHelper.noStackableSettings().maxDamage(192))),
+
     ORPHEUS_LYRE("orpheus_lyre", () -> new Item(ItemSettingsHelper.epicFireProofSettings())),
     CALLIOPE_POEM_FRAGMENT("calliope_poem_fragment", () -> new Item(ItemSettingsHelper.baseSettings())),
     CALLIOPES_LOVE("calliopes_love", () -> new Item(ItemSettingsHelper.epicFireProofSettings())),
@@ -85,6 +89,7 @@ public enum ItemsRegistry {
         for (ItemsRegistry value : values()) {
             Registry.register(Registry.ITEM, new Identifier(Orpheus.MOD_ID, value.pathName), value.get());
         }
+        ItemModelPredicate.registerBowPulling();
     }
 
     public Item get() {
