@@ -16,49 +16,9 @@ import net.minecraft.util.Identifier;
 import net.minecraft.util.math.intprovider.UniformIntProvider;
 import net.minecraft.util.registry.Registry;
 
-
 import java.util.function.Supplier;
 
 public enum BlocksRegistry {
-
-
-    EPIPHANY_TABLE("epiphany_table", () -> new Block(FabricBlockSettings
-            .of(Material.STONE)
-            .sounds(BlockSoundGroup.WOOD)
-            .strength(2.5f)
-            .nonOpaque()
-    )),
-
-    MOLY_HERB("moly_herb", () -> new FlowerBlock(
-            StatusEffects.SLOW_FALLING, 50,
-            FabricBlockSettings.copy(Blocks.OXEYE_DAISY)
-    )),
-    POTTED_MOLY_HERB("potted_moly_herb", () -> new FlowerPotBlock(
-            BlocksRegistry.MOLY_HERB.block,
-            FabricBlockSettings.copy(Blocks.POTTED_OXEYE_DAISY)
-    )),
-    NECTAR_CROP("nectar_crop", () -> new NectarCropBlock(
-            FabricBlockSettings.copy(Blocks.WHEAT))),
-
-    MYTHOS_BLOCK("mythos_block", () -> new MythosBlock(FabricBlockSettings
-            .of(Material.WOOL)
-            .sounds(BlockSoundGroup.WOOL)
-            .strength(0.8f)
-    )),
-
-
-    PEGASUS_FEATHERS_BLOCK("pegasus_feathers_block", () -> new Block(FabricBlockSettings
-            .of(Material.WOOL)
-            .sounds(BlockSoundGroup.WOOL)
-            .strength(0.8f)
-            )),
-
-    TEARS_OF_HADES_ORE("tears_of_hades_ore", () -> new OreBlock(FabricBlockSettings
-            .of(Material.STONE)
-            .requiresTool().strength(3.0f, 3.0f)
-            .sounds(BlockSoundGroup.METAL),
-            UniformIntProvider.create(3, 7)
-    )),
 
     DEEPSLATE_TEARS_OF_HADES_ORE("deepslate_tears_of_hades_ore", () -> new OreBlock(FabricBlockSettings
             .of(Material.STONE)
@@ -66,13 +26,43 @@ public enum BlocksRegistry {
             .sounds(BlockSoundGroup.METAL),
             UniformIntProvider.create(3, 7)
     )),
-
+    EPIPHANY_TABLE("epiphany_table", () -> new Block(FabricBlockSettings
+            .of(Material.STONE)
+            .sounds(BlockSoundGroup.WOOD)
+            .strength(2.5f)
+            .nonOpaque()
+    )),
+    MYTHOS_BLOCK("mythos_block", () -> new MythosBlock(FabricBlockSettings
+            .of(Material.WOOL)
+            .sounds(BlockSoundGroup.WOOL)
+            .strength(0.8f)
+    )),
+    MOLY_HERB("moly_herb", () -> new FlowerBlock(
+            StatusEffects.SLOW_FALLING, 50,
+            FabricBlockSettings.copy(Blocks.OXEYE_DAISY)
+    )),
+    NECTAR_CROP("nectar_crop", () -> new NectarCropBlock(
+            FabricBlockSettings.copy(Blocks.WHEAT))),
+    POTTED_MOLY_HERB("potted_moly_herb", () -> new FlowerPotBlock(
+            BlocksRegistry.MOLY_HERB.block,
+            FabricBlockSettings.copy(Blocks.POTTED_OXEYE_DAISY)
+    )),
+    PEGASUS_FEATHERS_BLOCK("pegasus_feathers_block", () -> new Block(FabricBlockSettings
+            .of(Material.WOOL)
+            .sounds(BlockSoundGroup.WOOL)
+            .strength(0.8f)
+    )),
+    TEARS_OF_HADES_ORE("tears_of_hades_ore", () -> new OreBlock(FabricBlockSettings
+            .of(Material.STONE)
+            .requiresTool().strength(3.0f, 3.0f)
+            .sounds(BlockSoundGroup.METAL),
+            UniformIntProvider.create(3, 7)
+    )),
     TEARS_OF_HADES_BLOCK("tears_of_hades_block", () -> new Block(FabricBlockSettings
             .of(Material.METAL, MapColor.GRAY)
             .requiresTool().strength(5.0f, 6.0f)
             .sounds(BlockSoundGroup.METAL)
             ));
-
 
 
     private static FlammableBlockRegistry.Entry flammable(int burnChance, @SuppressWarnings("SameParameterValue") int spreadChance) {

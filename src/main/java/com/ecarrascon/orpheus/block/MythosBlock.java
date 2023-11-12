@@ -26,7 +26,6 @@ public class MythosBlock extends Block {
                 player.getMainHandStack().decrement(1);
                 giveCalliopesLoveItem(player, world);
                 world.breakBlock(pos,false);
-
         }
     }
         super.onSteppedOn(world, pos, state, entity);

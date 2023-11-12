@@ -46,7 +46,7 @@ public class TearsBow extends BowItem {
             ArrowItem arrowItem = (ArrowItem)(itemStack.getItem() instanceof ArrowItem ? itemStack.getItem() : Items.ARROW);
             PersistentProjectileEntity persistentProjectileEntity = arrowItem.createArrow(world, itemStack, playerEntity);
             // Changed "speed: f * 3.0f, divergence: 1.0f" to: "f * 5.0f, 0.5f"
-            persistentProjectileEntity.setVelocity(playerEntity, playerEntity.getPitch(), playerEntity.getYaw(), 0.0f, f * 5.0f, 0.3f);
+            persistentProjectileEntity.setVelocity(playerEntity, playerEntity.getPitch(), playerEntity.getYaw(), 0.0f, f * 5.5f, 0.25f);
             if (f == 1.0f) {
                 persistentProjectileEntity.setCritical(true);
             }

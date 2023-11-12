@@ -86,7 +86,7 @@ public class Villager {
         // Level 2
         TradeOfferHelper.registerVillagerOffers(PHILOSOPHER, 2, factories -> {
             factories.add((entity, random) -> new TradeOffer(
-                    new ItemStack(ItemsRegistry.ARISTOTLES_NICOMACHEAN_ETHICS_SCROL_FRAGMENT.get(), 1),
+                    new ItemStack(ItemsRegistry.ARISTOTLES_NICOMACHEAN_ETHICS_SCROLL_FRAGMENT.get(), 1),
                     new ItemStack(ItemsRegistry.PALLADIUM_WOODEN_FRAGMENT.get(), 1),
                     9, 4, 0f
             ));

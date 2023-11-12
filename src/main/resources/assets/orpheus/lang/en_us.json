@@ -2,7 +2,11 @@
   "itemGroup.orpheus.main": "Orpheus",
 
   "item.orpheus.orpheus_lyre": "Orpheus Lyre",
-  "item.orpheus.aristotles_nicomachean_ethics_scrol_fragment": "Aristotle's Nicomachean Ethics Scroll Fragment",
+  "item.orpheus.tears_of_hades": "Tears Of Hades",
+  "item.orpheus.tears_bow": "Tears Bow",
+  "item.orpheus.vipera_ammodytes_spawn_egg": "Vipera Ammodytes Spawn Egg",
+  "item.orpheus.hellenic_codex": "Hellenic Codex",
+  "item.orpheus.aristotles_nicomachean_ethics_scroll_fragment": "Aristotle's Nicomachean Ethics Scroll Fragment",
   "item.orpheus.brotoi_nectar": "Brotoi Nectar",
   "item.orpheus.calliope_poem_fragment": "Calliope's Poem Fragment",
   "item.orpheus.clean_cow_gut": "Clean Cow Gut",
@@ -16,7 +20,7 @@
   "item.orpheus.stoic_meditative_stone": "Stoic Meditative Stone",
   "item.orpheus.thucydides_peloponnesian_war_scroll_fragment": "Thucydides Peloponnesian War Scroll Fragment",
   "item.orpheus.calliopes_love": "Calliope's Love",
-  "item.orpheus.apollos_son": "Apollo's son",
+  "item.orpheus.apollos_son": "Apollo's Son",
   "item.orpheus.lyre": "Lyre",
   "item.orpheus.palladium_wooden_fragment": "Palladium Wooden Fragment",
   "item.orpheus.pandoras_pithos": "Pandora's Pithos",
@@ -29,6 +33,7 @@
   "item.orpheus.hephaestus_boots": "Hephaestus Boots",
 
   "entity.minecraft.villager.philosopher": "Philosopher",
+  "entity.orpheus.viper": "Vipera Ammodytes",
 
 
   "block.orpheus.moly_herb": "Moly Herb",
@@ -36,5 +41,13 @@
   "block.orpheus.nectar_crop": "Nectar Crop",
   "block.orpheus.potted_moly_herb": "Potted Moly Herb",
   "block.orpheus.pegasus_feathers_block": "Pegasus Feathers Block",
-  "block.orpheus.mythos_block": "Mythos Block"
+  "block.orpheus.mythos_block": "Mythos Block",
+  "block.orpheus.deepslate_tears_of_hades_ore": "Deepslate Tears of Hades Ore",
+  "block.orpheus.tears_of_hades_ore": "Tears of Hades Ore",
+  "block.orpheus.tears_of_hades_block": "Tears of Hades Block",
+
+
+  "entity.orpheus.viper.ambient": "Viper Hissing",
+  "entity.orpheus.viper.death": "Viper Death",
+  "entity.orpheus.viper.hurt": "Viper Hurt"
 }

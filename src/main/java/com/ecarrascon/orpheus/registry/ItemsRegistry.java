@@ -40,7 +40,7 @@ public enum ItemsRegistry {
     HOMERS_THE_ILIAD_SCROLL_FRAGMENT("homers_the_iliad_scroll_fragment", () -> new Item(ItemSettingsHelper.baseSettings())),
     HOMERS_THE_ODYSSEY_SCROLL_FRAGMENT("homers_the_odyssey_scroll_fragment", () -> new Item(ItemSettingsHelper.baseSettings())),
     PLATOS_REPUBLIC_SCROLL_FRAGMENT("platos_republic_scroll_fragment", () -> new Item(ItemSettingsHelper.baseSettings())),
-    ARISTOTLES_NICOMACHEAN_ETHICS_SCROL_FRAGMENT("aristotles_nicomachean_ethics_scrol_fragment", () -> new
+    ARISTOTLES_NICOMACHEAN_ETHICS_SCROLL_FRAGMENT("aristotles_nicomachean_ethics_scroll_fragment", () -> new
             Item(ItemSettingsHelper.baseSettings())),
     PEGASUS_FEATHER("pegasus_feather", () -> new Item(ItemSettingsHelper.baseSettings())),
     THUCYDIDES_PELOPONNESIAN_WAR_SCROLL_FRAGMENT("thucydides_peloponnesian_war_scroll_fragment", () -> new
