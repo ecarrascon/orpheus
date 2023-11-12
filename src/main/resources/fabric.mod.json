@@ -3,15 +3,15 @@
 	"id": "orpheus",
 	"version": "${version}",
 	"name": "Orpheus",
-	"description": "This is an example description! Tell everyone what your mod is about!",
+	"description": "Embark on a mythical journey to acquire the legendary Orpheus Lyre!",
 	"authors": [
-		"eCarrascon!"
+		"ECarrascon"
 	],
 	"contact": {
-		"homepage": "https://fabricmc.net/",
-		"sources": "https://github.com/FabricMC/fabric-example-mod"
+		"homepage": "https://legacy.curseforge.com/minecraft/mc-mods/orpheus",
+		"sources": "https://github.com/ecarrascon/orpheus"
 	},
-	"license": "CC0-1.0",
+	"license": "MIT",
 	"icon": "assets/orpheus/icon.png",
 	"environment": "*",
 	"entrypoints": {
