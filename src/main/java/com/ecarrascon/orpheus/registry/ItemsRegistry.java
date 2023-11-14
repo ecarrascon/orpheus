@@ -2,6 +2,7 @@ package com.ecarrascon.orpheus.registry;
 
 import com.ecarrascon.orpheus.Orpheus;
 import com.ecarrascon.orpheus.entity.OrpheusEntities;
+import com.ecarrascon.orpheus.item.BrotoiPalladium;
 import com.ecarrascon.orpheus.item.OrpheusArmorMaterials;
 import com.ecarrascon.orpheus.item.RandomPotionEffectItem;
 import com.ecarrascon.orpheus.item.TearsBow;
@@ -49,6 +50,8 @@ public enum ItemsRegistry {
     STOIC_MEDITATIVE_STONE("stoic_meditative_stone", () -> new Item(ItemSettingsHelper.baseSettings())),
     PANDORAS_PITHOS("pandoras_pithos", () -> new Item(ItemSettingsHelper.baseSettings())),
     PALLADIUM_WOODEN_FRAGMENT("palladium_wooden_fragment", () -> new Item(ItemSettingsHelper.baseSettings())),
+    BROTOI_PALLADIUM("brotoi_palladium", () -> new BrotoiPalladium(ItemSettingsHelper.noStackableSettings())),
+
     COW_GUT("cow_gut", () -> new Item(ItemSettingsHelper.baseSettings())),
     CLEAN_COW_GUT("clean_cow_gut", () -> new Item(ItemSettingsHelper.baseSettings())),
     PLAIN_STRING("plain_string", () -> new Item(ItemSettingsHelper.baseSettings())),
