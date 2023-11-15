@@ -2,10 +2,7 @@ package com.ecarrascon.orpheus.registry;
 
 import com.ecarrascon.orpheus.Orpheus;
 import com.ecarrascon.orpheus.entity.OrpheusEntities;
-import com.ecarrascon.orpheus.item.BrotoiPalladium;
-import com.ecarrascon.orpheus.item.OrpheusArmorMaterials;
-import com.ecarrascon.orpheus.item.RandomPotionEffectItem;
-import com.ecarrascon.orpheus.item.TearsBow;
+import com.ecarrascon.orpheus.item.*;
 import com.ecarrascon.orpheus.item.setting.ItemModelPredicate;
 import com.ecarrascon.orpheus.item.setting.ItemSettingsHelper;
 import net.minecraft.entity.EquipmentSlot;
@@ -48,7 +45,7 @@ public enum ItemsRegistry {
             Item(ItemSettingsHelper.baseSettings())),
     HERACLITIAN_FLUX_FRAGMENT("heraclitian_flux_fragment", () -> new Item(ItemSettingsHelper.baseSettings())),
     STOIC_MEDITATIVE_STONE("stoic_meditative_stone", () -> new Item(ItemSettingsHelper.baseSettings())),
-    PANDORAS_PITHOS("pandoras_pithos", () -> new Item(ItemSettingsHelper.baseSettings())),
+    PANDORAS_PITHOS("pandoras_pithos", () -> new PandorasPithos(ItemSettingsHelper.baseSettings())),
     PALLADIUM_WOODEN_FRAGMENT("palladium_wooden_fragment", () -> new Item(ItemSettingsHelper.baseSettings())),
     BROTOI_PALLADIUM("brotoi_palladium", () -> new BrotoiPalladium(ItemSettingsHelper.noStackableSettings())),
 
