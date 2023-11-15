@@ -22,7 +22,6 @@ public class OrpheusClient implements ClientModInitializer {
         BlockRenderLayerMap.INSTANCE.putBlock(BlocksRegistry.MOLY_HERB.get(), RenderLayer.getCutout());
         BlockRenderLayerMap.INSTANCE.putBlock(BlocksRegistry.POTTED_MOLY_HERB.get(), RenderLayer.getCutout());
 
-
         EntityRendererRegistry.register(OrpheusEntities.VIPER, ViperRenderer::new);
         EntityModelLayerRegistry.registerModelLayer(OrpheusModelLayers.VIPER, ViperModel::getTexturedModelData);
     }
