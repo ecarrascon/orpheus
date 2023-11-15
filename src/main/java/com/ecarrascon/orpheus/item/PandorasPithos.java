@@ -92,7 +92,14 @@ public class PandorasPithos extends Item {
 
         EntityType<?> randomEntityType = possibleEntities.get(world.getRandom().nextBetween(0, possibleEntities.size() - 1));
 
-        int random = world.getRandom().nextBetween(0, 7);
+        int witherPossiblity = world.getRandom().nextBetween(0, 199);
+
+        if (witherPossiblity == 0) {
+            randomEntityType = EntityType.WITHER; // 0.5% chance to spawn the Wither
+        }
+
+        int random = world.getRandom().nextBetween(0, 7); // After randomly choosing the entity it will spawn 0 to 6 entities
+
         for (int i = 0; i < random; i++) {
             Entity randomEntity = randomEntityType.create(world);
             if (randomEntity != null) {
@@ -101,6 +108,5 @@ public class PandorasPithos extends Item {
             }
         }
     }
-
 
 }
