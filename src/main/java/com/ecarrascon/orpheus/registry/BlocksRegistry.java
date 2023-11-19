@@ -11,16 +11,17 @@ import net.fabricmc.fabric.api.registry.FlammableBlockRegistry;
 import net.minecraft.block.*;
 import net.minecraft.client.render.RenderLayer;
 import net.minecraft.entity.effect.StatusEffects;
+import net.minecraft.registry.Registries;
+import net.minecraft.registry.Registry;
 import net.minecraft.sound.BlockSoundGroup;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.math.intprovider.UniformIntProvider;
-import net.minecraft.util.registry.Registry;
 
 import java.util.function.Supplier;
 
 public enum BlocksRegistry {
 
-    DEEPSLATE_TEARS_OF_HADES_ORE("deepslate_tears_of_hades_ore", () -> new OreBlock(FabricBlockSettings
+    DEEPSLATE_TEARS_OF_HADES_ORE("deepslate_tears_of_hades_ore", () -> new ExperienceDroppingBlock(FabricBlockSettings
             .of(Material.STONE)
             .requiresTool().strength(3.0f, 3.0f)
             .sounds(BlockSoundGroup.METAL),
@@ -52,7 +53,7 @@ public enum BlocksRegistry {
             .sounds(BlockSoundGroup.WOOL)
             .strength(0.8f)
     )),
-    TEARS_OF_HADES_ORE("tears_of_hades_ore", () -> new OreBlock(FabricBlockSettings
+    TEARS_OF_HADES_ORE("tears_of_hades_ore", () -> new ExperienceDroppingBlock(FabricBlockSettings
             .of(Material.STONE)
             .requiresTool().strength(3.0f, 3.0f)
             .sounds(BlockSoundGroup.METAL),
@@ -97,7 +98,7 @@ public enum BlocksRegistry {
     public static void registerAll() {
         for (BlocksRegistry value : values()) {
             Block block = value.get();
-            Registry.register(Registry.BLOCK, new Identifier(Orpheus.MOD_ID, value.pathName), block);
+            Registry.register(Registries.BLOCK, new Identifier(Orpheus.MOD_ID, value.pathName), block);
             if (isValidFlammableEntry(value.flammableRate)) {
                 FlammableBlockRegistry.getDefaultInstance().add(block, value.flammableRate);
             }
@@ -122,7 +123,7 @@ public enum BlocksRegistry {
     }
 
     public String getId() {
-        return Registry.BLOCK.getId(get()).toString();
+        return Registries.BLOCK.getId(get()).toString();
     }
 
 }

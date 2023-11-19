@@ -5,11 +5,13 @@ import com.ecarrascon.orpheus.entity.OrpheusEntities;
 import com.ecarrascon.orpheus.item.*;
 import com.ecarrascon.orpheus.item.setting.ItemModelPredicate;
 import com.ecarrascon.orpheus.item.setting.ItemSettingsHelper;
+import net.fabricmc.fabric.api.itemgroup.v1.ItemGroupEvents;
 import net.minecraft.entity.EquipmentSlot;
 import net.minecraft.item.*;
+import net.minecraft.registry.Registries;
+import net.minecraft.registry.Registry;
 import net.minecraft.util.Identifier;
-import net.minecraft.util.registry.Registry;
-
+import java.util.Arrays;
 import java.util.function.Supplier;
 
 
@@ -87,9 +89,13 @@ public enum ItemsRegistry {
 
     public static void registerAll() {
         for (ItemsRegistry value : values()) {
-            Registry.register(Registry.ITEM, new Identifier(Orpheus.MOD_ID, value.pathName), value.get());
+            Registry.register(Registries.ITEM, new Identifier(Orpheus.MOD_ID, value.pathName), value.get());
         }
-        ItemModelPredicate.registerBowPulling();
+
+        ItemGroupEvents.modifyEntriesEvent(Orpheus.ITEM_GROUP).register(entries -> entries.addAll(
+                Arrays.stream(values()).map(item -> item.get().getDefaultStack()).toList()));
+
+
     }
 
     public Item get() {
@@ -101,6 +107,6 @@ public enum ItemsRegistry {
 
 
     public String getId() {
-        return Registry.ITEM.getId(get()).toString();
+        return Registries.ITEM.getId(get()).toString();
     }
 }

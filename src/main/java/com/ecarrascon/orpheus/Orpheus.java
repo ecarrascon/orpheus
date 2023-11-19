@@ -10,7 +10,7 @@ import com.ecarrascon.orpheus.villager.Villager;
 import com.ecarrascon.orpheus.world.feature.OrpheusConfiguredFeatures;
 import com.ecarrascon.orpheus.world.gen.OrpheusOreGeneration;
 import net.fabricmc.api.ModInitializer;
-import net.fabricmc.fabric.api.client.itemgroup.FabricItemGroupBuilder;
+import net.fabricmc.fabric.api.itemgroup.v1.FabricItemGroup;
 import net.fabricmc.fabric.api.object.builder.v1.entity.FabricDefaultAttributeRegistry;
 import net.minecraft.item.ItemGroup;
 import net.minecraft.item.ItemStack;
@@ -23,14 +23,13 @@ public class Orpheus implements ModInitializer {
 
 	public static final String MOD_ID = "orpheus";
 
-	public static final ItemGroup ITEM_GROUP = FabricItemGroupBuilder.build(new Identifier(MOD_ID, "main"),
-			() -> new ItemStack(ItemsRegistry.ORPHEUS_LYRE.get()));
-
+	public static final ItemGroup ITEM_GROUP = FabricItemGroup.builder(new Identifier(MOD_ID, "main"))
+			.icon(() -> new ItemStack(ItemsRegistry.ORPHEUS_LYRE.get())).build();
 
 
 	@Override
 	public void onInitialize() {
-		OrpheusConfiguredFeatures.registerConfiguredFeatures();
+		OrpheusOreGeneration.generateOres();
 		SoundsRegistry.registerAll();
 		BlocksRegistry.registerAll();
 		ItemsRegistry.registerAll();

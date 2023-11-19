@@ -8,11 +8,11 @@ import net.minecraft.world.gen.GenerationStep;
 public class OrpheusOreGeneration {
     public static void generateOres() {
         BiomeModifications.addFeature(BiomeSelectors.foundInOverworld(),
-                GenerationStep.Feature.UNDERGROUND_ORES, OrpheusPlacedFeatures.TEARS_OF_HADES_ORE_PLACED.getKey().get());
+                GenerationStep.Feature.UNDERGROUND_ORES, OrpheusPlacedFeatures.TEARS_OF_HADES_ORE_PLACED_KEY);
         BiomeModifications.addFeature(BiomeSelectors.foundInOverworld(),
-                GenerationStep.Feature.UNDERGROUND_ORES, OrpheusPlacedFeatures.TEARS_OF_HADES_ORE_PLACED_LARGE.getKey().get());
+                GenerationStep.Feature.UNDERGROUND_ORES, OrpheusPlacedFeatures.TEARS_OF_HADES_ORE_PLACED_LARGE_KEY);
         BiomeModifications.addFeature(BiomeSelectors.foundInOverworld(),
-                GenerationStep.Feature.UNDERGROUND_ORES, OrpheusPlacedFeatures.TEARS_OF_HADES_ORE_PLACED_BURIED.getKey().get());
+                GenerationStep.Feature.UNDERGROUND_ORES, OrpheusPlacedFeatures.TEARS_OF_HADES_ORE_PLACED_BURIED_KEY);
 
     }
 }
