@@ -89,7 +89,6 @@ public enum ItemsRegistry {
         for (ItemsRegistry value : values()) {
             Registry.register(Registry.ITEM, new Identifier(Orpheus.MOD_ID, value.pathName), value.get());
         }
-        ItemModelPredicate.registerBowPulling();
     }
 
     public Item get() {

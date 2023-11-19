@@ -4,6 +4,7 @@ import com.ecarrascon.orpheus.entity.OrpheusEntities;
 import com.ecarrascon.orpheus.entity.client.ViperModel;
 import com.ecarrascon.orpheus.entity.client.OrpheusModelLayers;
 import com.ecarrascon.orpheus.entity.client.ViperRenderer;
+import com.ecarrascon.orpheus.item.setting.ItemModelPredicate;
 import com.ecarrascon.orpheus.registry.BlocksRegistry;
 import net.fabricmc.api.ClientModInitializer;
 import net.fabricmc.api.EnvType;
@@ -22,7 +23,10 @@ public class OrpheusClient implements ClientModInitializer {
         BlockRenderLayerMap.INSTANCE.putBlock(BlocksRegistry.MOLY_HERB.get(), RenderLayer.getCutout());
         BlockRenderLayerMap.INSTANCE.putBlock(BlocksRegistry.POTTED_MOLY_HERB.get(), RenderLayer.getCutout());
 
+
         EntityRendererRegistry.register(OrpheusEntities.VIPER, ViperRenderer::new);
         EntityModelLayerRegistry.registerModelLayer(OrpheusModelLayers.VIPER, ViperModel::getTexturedModelData);
+
+        ItemModelPredicate.registerBowPulling();
     }
 }
