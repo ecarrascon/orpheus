@@ -99,10 +99,6 @@ public class ViperEntity extends HostileEntity {
             return super.shouldContinue();
         }
 
-        @Override
-        protected double getSquaredMaxAttackDistance(LivingEntity entity) {
-            return 4.0f + entity.getWidth();
-        }
     }
 
 
