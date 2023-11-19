@@ -3,14 +3,13 @@ package com.ecarrascon.orpheus.registry;
 import com.ecarrascon.orpheus.Orpheus;
 import com.ecarrascon.orpheus.entity.OrpheusEntities;
 import com.ecarrascon.orpheus.item.*;
-import com.ecarrascon.orpheus.item.setting.ItemModelPredicate;
 import com.ecarrascon.orpheus.item.setting.ItemSettingsHelper;
 import net.fabricmc.fabric.api.itemgroup.v1.ItemGroupEvents;
-import net.minecraft.entity.EquipmentSlot;
 import net.minecraft.item.*;
 import net.minecraft.registry.Registries;
 import net.minecraft.registry.Registry;
 import net.minecraft.util.Identifier;
+
 import java.util.Arrays;
 import java.util.function.Supplier;
 
@@ -58,13 +57,13 @@ public enum ItemsRegistry {
     BROTOI_NECTAR("brotoi_nectar", () -> new HoneyBottleItem(ItemSettingsHelper.baseSettings()
             .food(new FoodComponent.Builder().hunger(5).saturationModifier(19.4f).build()))),
     HEPHAESTUS_ARMOR_FRAGMENT("hephaestus_armor_fragment", () -> new Item(ItemSettingsHelper.baseSettings())),
-    HEPHAESTUS_HELMET("hephaestus_helmet", () -> new ArmorItem(OrpheusArmorMaterials.HEPHAESTUS, EquipmentSlot.HEAD,
+    HEPHAESTUS_HELMET("hephaestus_helmet", () -> new ArmorItem(OrpheusArmorMaterials.HEPHAESTUS, ArmorItem.Type.HELMET,
             ItemSettingsHelper.baseSettings())),
-    HEPHAESTUS_CHESTPLATE("hephaestus_chestplate", () -> new ArmorItem(OrpheusArmorMaterials.HEPHAESTUS, EquipmentSlot.CHEST,
+    HEPHAESTUS_CHESTPLATE("hephaestus_chestplate", () -> new ArmorItem(OrpheusArmorMaterials.HEPHAESTUS, ArmorItem.Type.CHESTPLATE,
             ItemSettingsHelper.baseSettings())),
-    HEPHAESTUS_LEGGINGS("hephaestus_leggings", () -> new ArmorItem(OrpheusArmorMaterials.HEPHAESTUS, EquipmentSlot.LEGS,
+    HEPHAESTUS_LEGGINGS("hephaestus_leggings", () -> new ArmorItem(OrpheusArmorMaterials.HEPHAESTUS, ArmorItem.Type.LEGGINGS,
             ItemSettingsHelper.baseSettings())),
-    HEPHAESTUS_BOOTS("hephaestus_boots", () -> new ArmorItem(OrpheusArmorMaterials.HEPHAESTUS, EquipmentSlot.FEET,
+    HEPHAESTUS_BOOTS("hephaestus_boots", () -> new ArmorItem(OrpheusArmorMaterials.HEPHAESTUS, ArmorItem.Type.BOOTS,
             ItemSettingsHelper.baseSettings())),
     HERACLITIAN_FLUX_POTION("heraclitian_flux_potion", () -> new RandomPotionEffectItem(ItemSettingsHelper.baseSettings())),
     VIPERA_AMMODYTES_SPAWN_EGG("vipera_ammodytes_spawn_egg", () -> new SpawnEggItem(OrpheusEntities.VIPER,0xB6D7A8, 0xCEBB80, ItemSettingsHelper.baseSettings())),

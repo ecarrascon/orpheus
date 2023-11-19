@@ -1,9 +1,8 @@
 package com.ecarrascon.orpheus.item;
 
 import com.ecarrascon.orpheus.registry.ItemsRegistry;
-import net.minecraft.entity.EquipmentSlot;
+import net.minecraft.item.ArmorItem;
 import net.minecraft.item.ArmorMaterial;
-import net.minecraft.item.Items;
 import net.minecraft.recipe.Ingredient;
 import net.minecraft.sound.SoundEvent;
 import net.minecraft.sound.SoundEvents;
@@ -36,14 +35,16 @@ public enum OrpheusArmorMaterials implements ArmorMaterial {
         this.repairIngredientSupplier = new Lazy<Ingredient>(repairIngredientSupplier);
     }
 
+
     @Override
-    public int getDurability(EquipmentSlot slot) {
-        return BASE_DURABILITY[slot.getEntitySlotId()] * this.durabilityMultiplier;
+    public int getDurability(ArmorItem.Type type) {
+        return BASE_DURABILITY[type.getEquipmentSlot().getEntitySlotId()] * this.durabilityMultiplier;
+
     }
 
     @Override
-    public int getProtectionAmount(EquipmentSlot slot) {
-        return this.protectionAmounts[slot.getEntitySlotId()];
+    public int getProtection(ArmorItem.Type type) {
+        return this.protectionAmounts[type.getEquipmentSlot().getEntitySlotId()];
     }
 
     @Override
