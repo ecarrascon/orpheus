@@ -13,6 +13,11 @@ import net.fabricmc.fabric.api.itemgroup.v1.FabricItemGroup;
 import net.fabricmc.fabric.api.object.builder.v1.entity.FabricDefaultAttributeRegistry;
 import net.minecraft.item.ItemGroup;
 import net.minecraft.item.ItemStack;
+import net.minecraft.registry.Registries;
+import net.minecraft.registry.Registry;
+import net.minecraft.registry.RegistryKey;
+import net.minecraft.registry.RegistryKeys;
+import net.minecraft.text.Text;
 import net.minecraft.util.Identifier;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -22,12 +27,16 @@ public class Orpheus implements ModInitializer {
 
 	public static final String MOD_ID = "orpheus";
 
-	public static final ItemGroup ITEM_GROUP = FabricItemGroup.builder(new Identifier(MOD_ID, "main"))
-			.icon(() -> new ItemStack(ItemsRegistry.ORPHEUS_LYRE.get())).build();
+	public static final RegistryKey<ItemGroup> ITEM_GROUP = RegistryKey.of(RegistryKeys.ITEM_GROUP, new Identifier(MOD_ID, "main"));
 
 
 	@Override
 	public void onInitialize() {
+		Registry.register(Registries.ITEM_GROUP, ITEM_GROUP, FabricItemGroup.builder()
+				.displayName(Text.translatable("itemGroup.orpheus.main"))
+				.icon(() -> new ItemStack(ItemsRegistry.ORPHEUS_LYRE.get()))
+				.build());
+
 		BlocksRegistry.registerAll();
 		ItemsRegistry.registerAll();
 		OrpheusOreGeneration.generateOres();

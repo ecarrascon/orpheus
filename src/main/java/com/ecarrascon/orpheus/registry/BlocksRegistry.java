@@ -22,19 +22,19 @@ import java.util.function.Supplier;
 public enum BlocksRegistry {
 
     DEEPSLATE_TEARS_OF_HADES_ORE("deepslate_tears_of_hades_ore", () -> new ExperienceDroppingBlock(FabricBlockSettings
-            .of(Material.STONE)
+            .copyOf(Blocks.STONE)
             .requiresTool().strength(3.0f, 3.0f)
             .sounds(BlockSoundGroup.METAL),
             UniformIntProvider.create(3, 7)
     )),
     EPIPHANY_TABLE("epiphany_table", () -> new Block(FabricBlockSettings
-            .of(Material.STONE)
+            .copyOf(Blocks.STONE)
             .sounds(BlockSoundGroup.WOOD)
             .strength(2.5f)
             .nonOpaque()
     )),
     MYTHOS_BLOCK("mythos_block", () -> new MythosBlock(FabricBlockSettings
-            .of(Material.WOOL)
+            .copyOf(Blocks.WHITE_WOOL)
             .sounds(BlockSoundGroup.WOOL)
             .strength(0.8f)
     )),
@@ -49,18 +49,18 @@ public enum BlocksRegistry {
             FabricBlockSettings.copy(Blocks.POTTED_OXEYE_DAISY)
     )),
     PEGASUS_FEATHERS_BLOCK("pegasus_feathers_block", () -> new Block(FabricBlockSettings
-            .of(Material.WOOL)
+            .copyOf(Blocks.WHITE_WOOL)
             .sounds(BlockSoundGroup.WOOL)
             .strength(0.8f)
     )),
     TEARS_OF_HADES_ORE("tears_of_hades_ore", () -> new ExperienceDroppingBlock(FabricBlockSettings
-            .of(Material.STONE)
+            .copyOf(Blocks.STONE)
             .requiresTool().strength(3.0f, 3.0f)
             .sounds(BlockSoundGroup.METAL),
             UniformIntProvider.create(3, 7)
     )),
     TEARS_OF_HADES_BLOCK("tears_of_hades_block", () -> new Block(FabricBlockSettings
-            .of(Material.METAL, MapColor.GRAY)
+            .copyOf(Blocks.DIAMOND_BLOCK)
             .requiresTool().strength(5.0f, 6.0f)
             .sounds(BlockSoundGroup.METAL)
             ));
