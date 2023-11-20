@@ -22,7 +22,7 @@ public class MythosBlock extends Block {
     public void onSteppedOn(World world, BlockPos pos, BlockState state, Entity entity) {
         if (!world.isClient() && entity instanceof PlayerEntity player) {
             // Get Calliope's Love
-            if (player.getMainHandStack().equals(ItemsRegistry.HELLENIC_CODEX.get().getDefaultStack())
+            if (player.isHolding(ItemsRegistry.HELLENIC_CODEX.get())
                     && player.isSneaking() && isSurroundedByFlowers(world, pos)) {
                 summonLightning(player, world);
                 player.getMainHandStack().decrement(1);
@@ -31,7 +31,7 @@ public class MythosBlock extends Block {
             }
 
             // Get Orpheus Lyre
-            if (world.getRegistryKey().equals(World.NETHER) && player.getMainHandStack().equals(ItemsRegistry.APOLLOS_SON.get().getDefaultStack())
+            if (world.getRegistryKey().equals(World.NETHER) && player.isHolding(ItemsRegistry.APOLLOS_SON.get())
                     && player.isSneaking() && isSurroundedByMagma(world, pos)) {
                 summonLightning(player, world);
                 player.getMainHandStack().decrement(1);
