@@ -15,10 +15,10 @@ public class OrpheusPlacedFeatures {
                     HeightRangePlacementModifier.trapezoid(YOffset.aboveBottom(-80), YOffset.aboveBottom(80))));
 
     public static final RegistryEntry<PlacedFeature> TEARS_OF_HADES_ORE_PLACED_LARGE = PlacedFeatures.register("tears_of_hades_ore_placed_large",
-            OrpheusConfiguredFeatures.TEARS_OF_HADES_ORE_SMALL, modifiersWithRarity(9,
+            OrpheusConfiguredFeatures.TEARS_OF_HADES_ORE_LARGE, modifiersWithRarity(9,
                     HeightRangePlacementModifier.trapezoid(YOffset.aboveBottom(-80), YOffset.aboveBottom(80))));
     public static final RegistryEntry<PlacedFeature> TEARS_OF_HADES_ORE_PLACED_BURIED = PlacedFeatures.register("tears_of_hades_ore_placed_buried",
-            OrpheusConfiguredFeatures.TEARS_OF_HADES_ORE_SMALL, modifiersWithCount(4,
+            OrpheusConfiguredFeatures.TEARS_OF_HADES_ORE_BURIED, modifiersWithCount(4,
                     HeightRangePlacementModifier.trapezoid(YOffset.aboveBottom(-80), YOffset.aboveBottom(80))));
 
     private static List<PlacementModifier> modifiers(PlacementModifier countModifier, PlacementModifier heightModifier) {
