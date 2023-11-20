@@ -15,8 +15,15 @@ import net.minecraft.world.World;
 public class ViperEntity extends HostileEntity {
 
     public final AnimationState walkingAnimationState = new AnimationState();
+
     public ViperEntity(EntityType<? extends HostileEntity> entityType, World world) {
         super(entityType, world);
+    }
+
+    public static DefaultAttributeContainer.Builder createViperAttributes() {
+        return HostileEntity.createHostileAttributes()
+                .add(EntityAttributes.GENERIC_MAX_HEALTH, 8.0)
+                .add(EntityAttributes.GENERIC_MOVEMENT_SPEED, 0.3f);
     }
 
     @Override
@@ -46,14 +53,6 @@ public class ViperEntity extends HostileEntity {
     protected SoundEvent getDeathSound() {
         return SoundsRegistry.ENTITY_VIPER_DEATH.get();
     }
-
-
-    public static DefaultAttributeContainer.Builder createViperAttributes() {
-        return HostileEntity.createHostileAttributes()
-                .add(EntityAttributes.GENERIC_MAX_HEALTH, 8.0)
-                .add(EntityAttributes.GENERIC_MOVEMENT_SPEED, 0.3f);
-    }
-
 
     private boolean shouldWalk() {
         return isOnGround() && getVelocity().horizontalLengthSquared() > 1e-6d && !isInsideWaterOrBubbleColumn();

@@ -62,27 +62,17 @@ public enum BlocksRegistry {
             .of(Material.METAL, MapColor.GRAY)
             .requiresTool().strength(5.0f, 6.0f)
             .sounds(BlockSoundGroup.METAL)
-            ));
+    ));
 
-
-    private static FlammableBlockRegistry.Entry flammable(int burnChance, @SuppressWarnings("SameParameterValue") int spreadChance) {
-        return new FlammableBlockRegistry.Entry(burnChance, spreadChance);
-    }
-
-    private static boolean isValidFlammableEntry(FlammableBlockRegistry.Entry flammableRate) {
-        return flammableRate != null && flammableRate.getBurnChance() > 0 && flammableRate.getSpreadChance() > 0;
-    }
 
     private final String pathName;
     private final Supplier<Block> blockSupplier;
     private final FlammableBlockRegistry.Entry flammableRate;
     private final boolean isCutout;
     private Block block;
-
     BlocksRegistry(String pathName, Supplier<Block> blockSupplier) {
         this(pathName, blockSupplier, false, new FlammableBlockRegistry.Entry(0, 0));
     }
-
     BlocksRegistry(String pathName, Supplier<Block> blockSupplier, boolean isCutout) {
         this(pathName, blockSupplier, isCutout, new FlammableBlockRegistry.Entry(0, 0));
     }
@@ -92,6 +82,14 @@ public enum BlocksRegistry {
         this.blockSupplier = blockSupplier;
         this.flammableRate = flammableRate;
         this.isCutout = isCutout;
+    }
+
+    private static FlammableBlockRegistry.Entry flammable(int burnChance, @SuppressWarnings("SameParameterValue") int spreadChance) {
+        return new FlammableBlockRegistry.Entry(burnChance, spreadChance);
+    }
+
+    private static boolean isValidFlammableEntry(FlammableBlockRegistry.Entry flammableRate) {
+        return flammableRate != null && flammableRate.getBurnChance() > 0 && flammableRate.getSpreadChance() > 0;
     }
 
     public static void registerAll() {

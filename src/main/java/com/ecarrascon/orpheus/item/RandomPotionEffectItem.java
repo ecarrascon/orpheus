@@ -5,12 +5,8 @@ import net.minecraft.entity.effect.StatusEffect;
 import net.minecraft.entity.effect.StatusEffectInstance;
 import net.minecraft.entity.effect.StatusEffects;
 import net.minecraft.entity.player.PlayerEntity;
-import net.minecraft.item.GlassBottleItem;
 import net.minecraft.item.HoneyBottleItem;
 import net.minecraft.item.ItemStack;
-import net.minecraft.item.PotionItem;
-import net.minecraft.util.Hand;
-import net.minecraft.util.TypedActionResult;
 import net.minecraft.world.World;
 
 import java.util.Arrays;
@@ -22,7 +18,6 @@ public class RandomPotionEffectItem extends HoneyBottleItem {
     }
 
 
-
     @Override
     public ItemStack finishUsing(ItemStack stack, World world, LivingEntity user) {
         if (!world.isClient) {
@@ -30,7 +25,7 @@ public class RandomPotionEffectItem extends HoneyBottleItem {
         }
 
 
-        if (!((PlayerEntity)user).getAbilities().creativeMode) {
+        if (!((PlayerEntity) user).getAbilities().creativeMode) {
             stack.decrement(1);
         }
 
@@ -45,7 +40,7 @@ public class RandomPotionEffectItem extends HoneyBottleItem {
                 StatusEffects.ABSORPTION,
                 StatusEffects.RESISTANCE,
                 StatusEffects.REGENERATION
-                );
+        );
 
         StatusEffect randomEffect = possibleEffects.get(world.getRandom().nextBetween(0, possibleEffects.size() - 1));
 

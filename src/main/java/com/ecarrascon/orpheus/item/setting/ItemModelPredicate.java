@@ -19,7 +19,7 @@ public class ItemModelPredicate {
                     if (entity.getActiveItem() != stack) {
                         return 0.0f;
                     }
-                    return (float)(stack.getMaxUseTime() - entity.getItemUseTimeLeft()) / 20.0f;
+                    return (float) (stack.getMaxUseTime() - entity.getItemUseTimeLeft()) / 20.0f;
                 });
 
         FabricModelPredicateProviderRegistry.register(bow, new Identifier("pulling"),

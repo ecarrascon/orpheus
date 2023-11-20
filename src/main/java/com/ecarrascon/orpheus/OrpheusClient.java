@@ -1,8 +1,8 @@
 package com.ecarrascon.orpheus;
 
 import com.ecarrascon.orpheus.entity.OrpheusEntities;
-import com.ecarrascon.orpheus.entity.client.ViperModel;
 import com.ecarrascon.orpheus.entity.client.OrpheusModelLayers;
+import com.ecarrascon.orpheus.entity.client.ViperModel;
 import com.ecarrascon.orpheus.entity.client.ViperRenderer;
 import com.ecarrascon.orpheus.item.setting.ItemModelPredicate;
 import com.ecarrascon.orpheus.registry.BlocksRegistry;

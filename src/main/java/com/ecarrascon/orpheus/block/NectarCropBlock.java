@@ -3,13 +3,10 @@ package com.ecarrascon.orpheus.block;
 import com.ecarrascon.orpheus.registry.ItemsRegistry;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.CropBlock;
-import net.minecraft.client.particle.Particle;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.ItemConvertible;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.Items;
-import net.minecraft.particle.ParticleEffect;
-import net.minecraft.particle.ParticleTypes;
 import net.minecraft.util.ActionResult;
 import net.minecraft.util.Hand;
 import net.minecraft.util.hit.BlockHitResult;
@@ -38,7 +35,6 @@ public class NectarCropBlock extends CropBlock {
 
             if (!player.giveItemStack(brotioNectar))
                 player.dropItem(brotioNectar, false);
-
 
 
             world.setBlockState(pos, state.with(AGE, 0), 2);

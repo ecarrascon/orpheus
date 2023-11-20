@@ -59,6 +59,7 @@ public class Villager {
         return PointOfInterestHelper.register(new Identifier(Orpheus.MOD_ID, name),
                 1, 1, ImmutableSet.copyOf(block.getStateManager().getStates()));
     }
+
     public static void registerVillager() {
         Orpheus.LOGGER.debug("Registering Villager");
 

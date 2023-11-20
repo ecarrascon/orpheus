@@ -3,7 +3,6 @@ package com.ecarrascon.orpheus.item;
 import com.ecarrascon.orpheus.registry.ItemsRegistry;
 import net.minecraft.entity.EquipmentSlot;
 import net.minecraft.item.ArmorMaterial;
-import net.minecraft.item.Items;
 import net.minecraft.recipe.Ingredient;
 import net.minecraft.sound.SoundEvent;
 import net.minecraft.sound.SoundEvents;
@@ -16,6 +15,11 @@ public enum OrpheusArmorMaterials implements ArmorMaterial {
             2.5f, 0.05f, () -> Ingredient.ofItems(ItemsRegistry.HEPHAESTUS_ARMOR_FRAGMENT.get()));
 
     private static final int[] BASE_DURABILITY;
+
+    static {
+        BASE_DURABILITY = new int[]{13, 15, 16, 11};
+    }
+
     private final String name;
     private final int durabilityMultiplier;
     private final int[] protectionAmounts;
@@ -25,7 +29,7 @@ public enum OrpheusArmorMaterials implements ArmorMaterial {
     private final float knockbackResistance;
     private final Lazy<Ingredient> repairIngredientSupplier;
 
-    private OrpheusArmorMaterials(String name, int durabilityMultiplier, int[] protectionAmounts, int enchantability, SoundEvent equipSound, float toughness, float knockbackResistance, Supplier<Ingredient> repairIngredientSupplier) {
+    OrpheusArmorMaterials(String name, int durabilityMultiplier, int[] protectionAmounts, int enchantability, SoundEvent equipSound, float toughness, float knockbackResistance, Supplier<Ingredient> repairIngredientSupplier) {
         this.name = name;
         this.durabilityMultiplier = durabilityMultiplier;
         this.protectionAmounts = protectionAmounts;
@@ -74,9 +78,5 @@ public enum OrpheusArmorMaterials implements ArmorMaterial {
     @Override
     public float getKnockbackResistance() {
         return this.knockbackResistance;
-    }
-
-    static {
-        BASE_DURABILITY = new int[]{13, 15, 16, 11};
     }
 }

@@ -11,8 +11,8 @@ import org.spongepowered.asm.mixin.injection.Redirect;
 public abstract class ServerPlayerCopyFromMixin {
 
     // KeepInventory when Orpheus Lyre in inventory, "PlayerEntityDropInventoryMixin" makes that items not being dropped
-	@Redirect(method = "copyFrom", at = @At(value = "INVOKE", target = "net/minecraft/world/GameRules.getBoolean(Lnet/minecraft/world/GameRules$Key;)Z", ordinal = 0))
-	private boolean redirectCopyFromCondition(GameRules instance, GameRules.Key<GameRules.BooleanRule> rule, ServerPlayerEntity oldPlayer, boolean alive) {
+    @Redirect(method = "copyFrom", at = @At(value = "INVOKE", target = "net/minecraft/world/GameRules.getBoolean(Lnet/minecraft/world/GameRules$Key;)Z", ordinal = 0))
+    private boolean redirectCopyFromCondition(GameRules instance, GameRules.Key<GameRules.BooleanRule> rule, ServerPlayerEntity oldPlayer, boolean alive) {
         return ((ServerPlayerEntity) (Object) this).world.getGameRules().getBoolean(GameRules.KEEP_INVENTORY)
                 || oldPlayer.getInventory().contains(ItemsRegistry.ORPHEUS_LYRE.get().getDefaultStack());
 

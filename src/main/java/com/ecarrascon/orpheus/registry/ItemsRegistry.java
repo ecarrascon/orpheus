@@ -3,7 +3,6 @@ package com.ecarrascon.orpheus.registry;
 import com.ecarrascon.orpheus.Orpheus;
 import com.ecarrascon.orpheus.entity.OrpheusEntities;
 import com.ecarrascon.orpheus.item.*;
-import com.ecarrascon.orpheus.item.setting.ItemModelPredicate;
 import com.ecarrascon.orpheus.item.setting.ItemSettingsHelper;
 import net.minecraft.entity.EquipmentSlot;
 import net.minecraft.item.*;
@@ -65,7 +64,7 @@ public enum ItemsRegistry {
     HEPHAESTUS_BOOTS("hephaestus_boots", () -> new ArmorItem(OrpheusArmorMaterials.HEPHAESTUS, EquipmentSlot.FEET,
             ItemSettingsHelper.baseSettings())),
     HERACLITIAN_FLUX_POTION("heraclitian_flux_potion", () -> new RandomPotionEffectItem(ItemSettingsHelper.baseSettings())),
-    VIPERA_AMMODYTES_SPAWN_EGG("vipera_ammodytes_spawn_egg", () -> new SpawnEggItem(OrpheusEntities.VIPER,0xB6D7A8, 0xCEBB80, ItemSettingsHelper.baseSettings())),
+    VIPERA_AMMODYTES_SPAWN_EGG("vipera_ammodytes_spawn_egg", () -> new SpawnEggItem(OrpheusEntities.VIPER, 0xB6D7A8, 0xCEBB80, ItemSettingsHelper.baseSettings())),
     HELLENIC_CODEX("hellenic_codex", () -> new Item(ItemSettingsHelper.baseSettings())),
 
     LYRE("lyre", () -> new Item(ItemSettingsHelper.noStackableSettings()));

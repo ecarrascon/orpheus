@@ -1,6 +1,5 @@
 package com.ecarrascon.orpheus.item;
 
-import com.ecarrascon.orpheus.registry.ItemsRegistry;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.effect.StatusEffectInstance;
 import net.minecraft.entity.effect.StatusEffects;
@@ -26,7 +25,7 @@ public class BrotoiPalladium extends Item {
                 player.addStatusEffect(new StatusEffectInstance(StatusEffects.SLOWNESS, EFFECT_DURATION, 5));
                 timer = 0;
             }
-        } else if(!world.isClient()) {
+        } else if (!world.isClient()) {
             timer++;
         }
         super.inventoryTick(stack, world, entity, slot, selected);
