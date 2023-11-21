@@ -28,12 +28,13 @@ public class PandorasPithos extends Item {
     @Override
     public TypedActionResult<ItemStack> use(World world, PlayerEntity player, Hand hand) {
 
-        player.getMainHandStack().decrement(1);
-        summonLightning(player, world);
-        player.addStatusEffect(getRandomEffect(world));
-        getRandomItem(player, world);
-        spawnRandomEntity(player, world);
-
+        if (!world.isClient && !player.isSpectator()) {
+            player.getMainHandStack().decrement(1);
+            summonLightning(player, world);
+            player.addStatusEffect(getRandomEffect(world));
+            getRandomItem(player, world);
+            spawnRandomEntity(player, world);
+        }
 
         return super.use(world, player, hand);
     }

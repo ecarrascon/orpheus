@@ -24,7 +24,7 @@ public class LootsRegistry {
                 tableBuilder.pool(poolBuilder);
             }
         });
-
+        // Cow drops(33%) cow gut
         LootTableEvents.MODIFY.register((resourceManager, lootManager, id, tableBuilder, source) -> {
             if (source.isBuiltin() && COW_LOOT_TABLE_ID.equals(id)) {
                 LootPool.Builder poolBuilder = LootPool.builder()
