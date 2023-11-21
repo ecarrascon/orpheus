@@ -1,6 +1,7 @@
 package com.ecarrascon.orpheus.registry;
 
 import com.ecarrascon.orpheus.Orpheus;
+import com.ecarrascon.orpheus.item.PandorasPithosItem;
 import com.ecarrascon.orpheus.item.setting.ItemSettingsHelper;
 import com.google.common.collect.Sets;
 import net.minecraft.world.item.BlockItem;
@@ -79,7 +80,8 @@ public class ItemsRegistry {
 
     public static final RegistryObject<Item> HELLENIC_CODEX = registerWithTab("hellenic_codex",
             () -> new Item(ItemSettingsHelper.stackableItem()));
-
+    public static final RegistryObject<Item> PANDORAS_PITHOS = registerWithTab("pandoras_pithos",
+            () -> new PandorasPithosItem(ItemSettingsHelper.stackableItem()));
     public static final RegistryObject<Item> LYRE = registerWithTab("lyre",
             () -> new Item(ItemSettingsHelper.noStackableItem()));
 

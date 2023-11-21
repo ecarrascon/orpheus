@@ -13,7 +13,7 @@ import net.minecraftforge.registries.RegistryObject;
 public class BlocksRegistry {
     public static final DeferredRegister<Block> BLOCKS = DeferredRegister.create(ForgeRegistries.BLOCKS, Orpheus.MOD_ID);
     public static final RegistryObject<Block> DEEPSLATE_TEARS_OF_HADES_ORE = BLOCKS.register("deepslate_tears_of_hades_ore",
-            () -> new DropExperienceBlock(Block.Properties.copy(Blocks.STONE)
+            () -> new DropExperienceBlock(Block.Properties.copy(Blocks.DEEPSLATE)
                     .requiresCorrectToolForDrops()
                     .strength(3.0f, 3.0f),
                     UniformInt.of(3, 7)
