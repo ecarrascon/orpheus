@@ -3,10 +3,13 @@
   "key": {
     "X": {
       "item": "orpheus:hephaestus_armor_fragment"
+    },
+    "T": {
+      "item": "orpheus:tears_of_hades"
     }
   },
   "pattern": [
-    "X X",
+    "XTX",
     "XXX",
     "XXX"
   ],

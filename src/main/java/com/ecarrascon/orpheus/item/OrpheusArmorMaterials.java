@@ -11,8 +11,8 @@ import net.minecraft.util.Lazy;
 import java.util.function.Supplier;
 
 public enum OrpheusArmorMaterials implements ArmorMaterial {
-    HEPHAESTUS("hephaestus", 34, new int[]{3, 6, 8, 3}, 12, SoundEvents.ITEM_ARMOR_EQUIP_NETHERITE,
-            2.5f, 0.05f, () -> Ingredient.ofItems(ItemsRegistry.HEPHAESTUS_ARMOR_FRAGMENT.get()));
+    HEPHAESTUS("hephaestus", 33, new int[]{3, 6, 8, 3}, 25, SoundEvents.ITEM_ARMOR_EQUIP_NETHERITE,
+            3.5f, 0.0f, () -> Ingredient.ofItems(ItemsRegistry.HEPHAESTUS_ARMOR_FRAGMENT.get()));
 
     private static final int[] BASE_DURABILITY;
     private final String name;
