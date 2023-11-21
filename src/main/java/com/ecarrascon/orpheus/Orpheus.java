@@ -1,7 +1,7 @@
 package com.ecarrascon.orpheus;
 
-import com.ecarrascon.orpheus.item.OrpheusItems;
-import com.ecarrascon.orpheus.item.OrpheusTab;
+import com.ecarrascon.orpheus.registry.ItemsRegistry;
+import com.ecarrascon.orpheus.registry.TabRegistry;
 import com.mojang.logging.LogUtils;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.common.MinecraftForge;
@@ -27,8 +27,8 @@ public class Orpheus {
     public Orpheus() {
         IEventBus modEventBus = FMLJavaModLoadingContext.get().getModEventBus();
 
-        OrpheusTab.CREATIVE_MODE_TAB.register(modEventBus);
-        OrpheusItems.ITEMS.register(modEventBus);
+        TabRegistry.CREATIVE_MODE_TAB.register(modEventBus);
+        ItemsRegistry.ITEMS.register(modEventBus);
 
         modEventBus.addListener(this::commonSetup);
 
