@@ -3,6 +3,7 @@ package com.ecarrascon.orpheus.registry;
 import com.ecarrascon.orpheus.Orpheus;
 import com.ecarrascon.orpheus.item.setting.ItemSettingsHelper;
 import com.google.common.collect.Sets;
+import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.Item;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
@@ -16,6 +17,21 @@ public class ItemsRegistry {
             DeferredRegister.create(ForgeRegistries.ITEMS, Orpheus.MOD_ID);
     public static LinkedHashSet<RegistryObject<Item>> ORPHEUS_TAB_ITEMS = Sets.newLinkedHashSet();
 
+
+    // Block items
+    public static final RegistryObject<Item> EPIPHANY_TABLE = registerWithTab("epiphany_table",
+            () -> new BlockItem(BlocksRegistry.EPIPHANY_TABLE.get(), ItemSettingsHelper.stackableItem()));
+
+    public static final RegistryObject<Item> PEGASUS_FEATHERS_BLOCK = registerWithTab("pegasus_feathers_block",
+            () -> new BlockItem(BlocksRegistry.PEGASUS_FEATHERS_BLOCK.get(), ItemSettingsHelper.stackableItem()));
+
+    public static final RegistryObject<Item> TEARS_OF_HADES_BLOCK = registerWithTab("tears_of_hades_block",
+            () -> new BlockItem(BlocksRegistry.TEARS_OF_HADES_BLOCK.get(), ItemSettingsHelper.stackableItem()));
+
+    public static final RegistryObject<Item> TEARS_OF_HADES_ORE = registerWithTab("tears_of_hades_ore",
+            () -> new BlockItem(BlocksRegistry.TEARS_OF_HADES_ORE.get(), ItemSettingsHelper.stackableItem()));
+    public static final RegistryObject<Item> DEEPSLATE_TEARS_OF_HADES_ORE = registerWithTab("deepslate_tears_of_hades_ore",
+            () -> new BlockItem(BlocksRegistry.DEEPSLATE_TEARS_OF_HADES_ORE.get(), ItemSettingsHelper.stackableItem()));
 
     public static final RegistryObject<Item> PLAIN_STRING = registerWithTab("plain_string",
             () -> new Item(ItemSettingsHelper.stackableItem()));

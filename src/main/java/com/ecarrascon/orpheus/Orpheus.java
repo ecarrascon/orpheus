@@ -1,5 +1,6 @@
 package com.ecarrascon.orpheus;
 
+import com.ecarrascon.orpheus.registry.BlocksRegistry;
 import com.ecarrascon.orpheus.registry.ItemsRegistry;
 import com.ecarrascon.orpheus.registry.TabRegistry;
 import com.mojang.logging.LogUtils;
@@ -28,6 +29,7 @@ public class Orpheus {
         IEventBus modEventBus = FMLJavaModLoadingContext.get().getModEventBus();
 
         TabRegistry.CREATIVE_MODE_TAB.register(modEventBus);
+        BlocksRegistry.BLOCKS.register(modEventBus);
         ItemsRegistry.ITEMS.register(modEventBus);
 
         modEventBus.addListener(this::commonSetup);
