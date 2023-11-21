@@ -9,6 +9,8 @@ import net.minecraft.entity.EntityType;
 import net.minecraft.entity.LightningEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.ItemStack;
+import net.minecraft.sound.SoundCategory;
+import net.minecraft.sound.SoundEvents;
 import net.minecraft.tag.BlockTags;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
@@ -28,6 +30,7 @@ public class MythosBlock extends Block {
                 player.getMainHandStack().decrement(1);
                 giveCalliopesLoveItem(player, world);
                 world.breakBlock(pos, false);
+                world.playSound(null, pos, SoundEvents.ITEM_TRIDENT_RETURN, SoundCategory.BLOCKS, 1f, 1f);
             }
 
             // Get Orpheus Lyre
@@ -37,6 +40,7 @@ public class MythosBlock extends Block {
                 player.getMainHandStack().decrement(1);
                 giveOrpheusLyreItem(player, world);
                 world.breakBlock(pos, false);
+                world.playSound(null, pos, SoundEvents.ITEM_TRIDENT_RETURN, SoundCategory.BLOCKS, 1f, 1f);
             }
         }
         super.onSteppedOn(world, pos, state, entity);

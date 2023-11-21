@@ -7,6 +7,8 @@ import net.minecraft.entity.effect.StatusEffects;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.HoneyBottleItem;
 import net.minecraft.item.ItemStack;
+import net.minecraft.sound.SoundCategory;
+import net.minecraft.sound.SoundEvents;
 import net.minecraft.world.World;
 
 import java.util.Arrays;
@@ -22,11 +24,10 @@ public class RandomPotionEffectItem extends HoneyBottleItem {
     public ItemStack finishUsing(ItemStack stack, World world, LivingEntity user) {
         if (!world.isClient) {
             user.addStatusEffect(getRandomEffect(world));
-        }
-
-
-        if (!((PlayerEntity) user).getAbilities().creativeMode) {
-            stack.decrement(1);
+            world.playSound(null, user.getX(), user.getY(), user.getZ(), SoundEvents.BLOCK_AMETHYST_BLOCK_HIT, SoundCategory.PLAYERS, 1.0f, 1.0f);
+            if (!((PlayerEntity) user).getAbilities().creativeMode) {
+                stack.decrement(1);
+            }
         }
 
         return super.finishUsing(stack, world, user);
