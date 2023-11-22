@@ -1,6 +1,7 @@
 package com.ecarrascon.orpheus.registry;
 
 import com.ecarrascon.orpheus.Orpheus;
+import com.ecarrascon.orpheus.item.BrotoiPalladium;
 import com.ecarrascon.orpheus.item.PandorasPithosItem;
 import com.ecarrascon.orpheus.item.RandomPotionEffectItem;
 import com.ecarrascon.orpheus.item.TearsBowItem;
@@ -36,6 +37,10 @@ public class ItemsRegistry {
     public static final RegistryObject<Item> DEEPSLATE_TEARS_OF_HADES_ORE = registerWithTab("deepslate_tears_of_hades_ore",
             () -> new BlockItem(BlocksRegistry.DEEPSLATE_TEARS_OF_HADES_ORE.get(), ItemSettingsHelper.stackableItem()));
 
+
+    // Items
+    public static final RegistryObject<Item> BROTOI_PALLADIUM = registerWithTab("brotoi_palladium",
+            () -> new BrotoiPalladium(ItemSettingsHelper.noStackableItem()));
     public static final RegistryObject<Item> PLAIN_STRING = registerWithTab("plain_string",
             () -> new Item(ItemSettingsHelper.stackableItem()));
     public static final RegistryObject<Item> TEARS_OF_HADES = registerWithTab("tears_of_hades",
