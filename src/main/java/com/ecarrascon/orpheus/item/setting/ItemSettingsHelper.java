@@ -8,7 +8,7 @@ public class ItemSettingsHelper {
     }
 
     public static Item.Properties noStackableItem() {
-        return new Item.Properties();
+        return new Item.Properties().stacksTo(1);
     }
 
 

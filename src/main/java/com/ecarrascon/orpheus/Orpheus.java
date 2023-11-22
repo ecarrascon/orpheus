@@ -1,5 +1,6 @@
 package com.ecarrascon.orpheus;
 
+import com.ecarrascon.orpheus.item.setting.BowProperties;
 import com.ecarrascon.orpheus.registry.BlocksRegistry;
 import com.ecarrascon.orpheus.registry.ItemsRegistry;
 import com.ecarrascon.orpheus.registry.TabRegistry;
@@ -61,6 +62,8 @@ public class Orpheus {
     public static class ClientModEvents {
         @SubscribeEvent
         public static void onClientSetup(FMLClientSetupEvent event) {
+            // FIX!
+            BowProperties.addCustomBowProperties();
         }
     }
 }
