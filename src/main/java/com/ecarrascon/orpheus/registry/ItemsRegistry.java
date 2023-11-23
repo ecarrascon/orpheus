@@ -1,12 +1,10 @@
 package com.ecarrascon.orpheus.registry;
 
 import com.ecarrascon.orpheus.Orpheus;
-import com.ecarrascon.orpheus.item.BrotoiPalladiumItem;
-import com.ecarrascon.orpheus.item.PandorasPithosItem;
-import com.ecarrascon.orpheus.item.RandomPotionEffectItem;
-import com.ecarrascon.orpheus.item.TearsBowItem;
+import com.ecarrascon.orpheus.item.*;
 import com.ecarrascon.orpheus.item.setting.ItemSettingsHelper;
 import com.google.common.collect.Sets;
+import net.minecraft.world.item.ArmorItem;
 import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.Item;
 import net.minecraftforge.registries.DeferredRegister;
@@ -75,18 +73,21 @@ public class ItemsRegistry {
 
     public static final RegistryObject<Item> PALLADIUM_WOODEN_FRAGMENT = registerWithTab("palladium_wooden_fragment",
             () -> new Item(ItemSettingsHelper.stackableItem()));
-
-
     public static final RegistryObject<Item> COW_GUT = registerWithTab("cow_gut",
             () -> new Item(ItemSettingsHelper.stackableItem()));
     public static final RegistryObject<Item> CLEAN_COW_GUT = registerWithTab("clean_cow_gut",
             () -> new Item(ItemSettingsHelper.stackableItem()));
-
-
     public static final RegistryObject<Item> HEPHAESTUS_ARMOR_FRAGMENT = registerWithTab("hephaestus_armor_fragment",
             () -> new Item(ItemSettingsHelper.stackableItem()));
 
-
+    public static final RegistryObject<Item> HEPHAESTUS_HELMET = registerWithTab("hephaestus_helmet",
+            () -> new ArmorItem(OrpheusArmorMaterials.HEPHAESTUS, ArmorItem.Type.HELMET, new Item.Properties()));
+    public static final RegistryObject<Item> HEPHAESTUS_CHESTPLATE = registerWithTab("hephaestus_chestplate",
+            () -> new ArmorItem(OrpheusArmorMaterials.HEPHAESTUS, ArmorItem.Type.CHESTPLATE, new Item.Properties()));
+    public static final RegistryObject<Item> HEPHAESTUS_LEGGINGS = registerWithTab("hephaestus_leggings",
+            () -> new ArmorItem(OrpheusArmorMaterials.HEPHAESTUS, ArmorItem.Type.LEGGINGS, new Item.Properties()));
+    public static final RegistryObject<Item> HEPHAESTUS_BOOTS = registerWithTab("hephaestus_boots",
+            () -> new ArmorItem(OrpheusArmorMaterials.HEPHAESTUS, ArmorItem.Type.BOOTS, new Item.Properties()));
 
     public static final RegistryObject<Item> HELLENIC_CODEX = registerWithTab("hellenic_codex",
             () -> new Item(ItemSettingsHelper.stackableItem()));
