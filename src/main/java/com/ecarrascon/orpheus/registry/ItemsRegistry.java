@@ -30,7 +30,7 @@ public enum ItemsRegistry {
 
     // Items
     TEARS_OF_HADES("tears_of_hades", () -> new Item(ItemSettingsHelper.baseSettings())),
-    TEARS_BOW("tears_bow", () -> new TearsBow(ItemSettingsHelper.noStackableSettings().maxDamage(192))),
+    TEARS_BOW("tears_bow", () -> new TearsBow(ItemSettingsHelper.noStackableSettings().maxDamage(192))), // Less durability than normal bow
 
     ORPHEUS_LYRE("orpheus_lyre", () -> new Item(ItemSettingsHelper.epicFireProofSettings())),
     CALLIOPE_POEM_FRAGMENT("calliope_poem_fragment", () -> new Item(ItemSettingsHelper.baseSettings())),

@@ -22,15 +22,12 @@ import java.util.function.Supplier;
 public enum BlocksRegistry {
 
     DEEPSLATE_TEARS_OF_HADES_ORE("deepslate_tears_of_hades_ore", () -> new ExperienceDroppingBlock(FabricBlockSettings
-            .copyOf(Blocks.STONE)
-            .requiresTool().strength(3.0f, 3.0f)
-            .sounds(BlockSoundGroup.METAL),
+            .copyOf(Blocks.DEEPSLATE_DIAMOND_ORE)
+            .requiresTool(),
             UniformIntProvider.create(3, 7)
     )),
     EPIPHANY_TABLE("epiphany_table", () -> new Block(FabricBlockSettings
-            .copyOf(Blocks.STONE)
-            .sounds(BlockSoundGroup.WOOD)
-            .strength(2.5f)
+            .copyOf(Blocks.QUARTZ_BLOCK)
             .nonOpaque()
     )),
     MYTHOS_BLOCK("mythos_block", () -> new MythosBlock(FabricBlockSettings
@@ -54,9 +51,8 @@ public enum BlocksRegistry {
             .strength(0.8f)
     )),
     TEARS_OF_HADES_ORE("tears_of_hades_ore", () -> new ExperienceDroppingBlock(FabricBlockSettings
-            .copyOf(Blocks.STONE)
-            .requiresTool().strength(3.0f, 3.0f)
-            .sounds(BlockSoundGroup.METAL),
+            .copyOf(Blocks.DIAMOND_ORE)
+            .requiresTool(),
             UniformIntProvider.create(3, 7)
     )),
     TEARS_OF_HADES_BLOCK("tears_of_hades_block", () -> new Block(FabricBlockSettings
