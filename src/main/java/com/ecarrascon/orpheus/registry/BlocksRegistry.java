@@ -1,6 +1,7 @@
 package com.ecarrascon.orpheus.registry;
 
 import com.ecarrascon.orpheus.Orpheus;
+import com.ecarrascon.orpheus.block.MyhtosBlock;
 import net.minecraft.util.valueproviders.UniformInt;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
@@ -25,6 +26,10 @@ public class BlocksRegistry {
 
     public static final RegistryObject<Block> PEGASUS_FEATHERS_BLOCK = BLOCKS.register("pegasus_feathers_block",
             () -> new Block(Block.Properties.copy(Blocks.WHITE_WOOL)
+                    .strength(0.8f)
+            ));
+    public static final RegistryObject<Block> MYTHOS_BLOCK = BLOCKS.register("mythos_block",
+            () -> new MyhtosBlock(Block.Properties.copy(Blocks.WHITE_WOOL)
                     .strength(0.8f)
             ));
 

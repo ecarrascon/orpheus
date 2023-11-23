@@ -1,7 +1,7 @@
 package com.ecarrascon.orpheus.registry;
 
 import com.ecarrascon.orpheus.Orpheus;
-import com.ecarrascon.orpheus.item.BrotoiPalladium;
+import com.ecarrascon.orpheus.item.BrotoiPalladiumItem;
 import com.ecarrascon.orpheus.item.PandorasPithosItem;
 import com.ecarrascon.orpheus.item.RandomPotionEffectItem;
 import com.ecarrascon.orpheus.item.TearsBowItem;
@@ -26,6 +26,9 @@ public class ItemsRegistry {
     public static final RegistryObject<Item> EPIPHANY_TABLE = registerWithTab("epiphany_table",
             () -> new BlockItem(BlocksRegistry.EPIPHANY_TABLE.get(), ItemSettingsHelper.stackableItem()));
 
+    public static final RegistryObject<Item> MYTHOS_BLOCK = registerWithTab("mythos_block",
+            () -> new BlockItem(BlocksRegistry.MYTHOS_BLOCK.get(), ItemSettingsHelper.stackableItem()));
+
     public static final RegistryObject<Item> PEGASUS_FEATHERS_BLOCK = registerWithTab("pegasus_feathers_block",
             () -> new BlockItem(BlocksRegistry.PEGASUS_FEATHERS_BLOCK.get(), ItemSettingsHelper.stackableItem()));
 
@@ -40,19 +43,19 @@ public class ItemsRegistry {
 
     // Items
     public static final RegistryObject<Item> BROTOI_PALLADIUM = registerWithTab("brotoi_palladium",
-            () -> new BrotoiPalladium(ItemSettingsHelper.noStackableItem()));
+            () -> new BrotoiPalladiumItem(ItemSettingsHelper.noStackableItem()));
     public static final RegistryObject<Item> PLAIN_STRING = registerWithTab("plain_string",
             () -> new Item(ItemSettingsHelper.stackableItem()));
     public static final RegistryObject<Item> TEARS_OF_HADES = registerWithTab("tears_of_hades",
             () -> new Item(ItemSettingsHelper.stackableItem()));
     public static final RegistryObject<Item> ORPHEUS_LYRE = registerWithTab("orpheus_lyre",
-            () -> new Item(ItemSettingsHelper.stackableItem()));
+            () -> new Item(ItemSettingsHelper.epicItem()));
     public static final RegistryObject<Item> CALLIOPE_POEM_FRAGMENT = registerWithTab("calliope_poem_fragment",
             () -> new Item(ItemSettingsHelper.stackableItem()));
     public static final RegistryObject<Item> CALLIOPES_LOVE = registerWithTab("calliopes_love",
-            () -> new Item(ItemSettingsHelper.stackableItem()));
+            () -> new Item(ItemSettingsHelper.epicItem()));
     public static final RegistryObject<Item> APOLLOS_SON = registerWithTab("apollos_son",
-            () -> new Item(ItemSettingsHelper.stackableItem()));
+            () -> new Item(ItemSettingsHelper.epicItem()));
     public static final RegistryObject<Item> HOMERS_THE_ILIAD_SCROLL_FRAGMENT = registerWithTab("homers_the_iliad_scroll_fragment",
             () -> new Item(ItemSettingsHelper.stackableItem()));
     public static final RegistryObject<Item> HOMERS_THE_ODYSSEY_SCROLL_FRAGMENT = registerWithTab("homers_the_odyssey_scroll_fragment",

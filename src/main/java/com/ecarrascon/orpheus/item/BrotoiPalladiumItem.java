@@ -8,11 +8,11 @@ import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
 
-public class BrotoiPalladium extends Item {
+public class BrotoiPalladiumItem extends Item {
     private final int EFFECT_DURATION = 400; // Initial duration in ticks
     private int timer = EFFECT_DURATION;
 
-    public BrotoiPalladium(Properties pProperties) {
+    public BrotoiPalladiumItem(Properties pProperties) {
         super(pProperties);
     }
 
