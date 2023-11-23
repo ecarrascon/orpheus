@@ -5,6 +5,8 @@ import com.ecarrascon.orpheus.registry.BlocksRegistry;
 import com.ecarrascon.orpheus.registry.ItemsRegistry;
 import com.ecarrascon.orpheus.registry.TabRegistry;
 import com.mojang.logging.LogUtils;
+import net.minecraft.world.level.block.Blocks;
+import net.minecraft.world.level.block.FlowerPotBlock;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.event.BuildCreativeModeTabContentsEvent;
@@ -44,7 +46,9 @@ public class Orpheus {
     }
 
     private void commonSetup(final FMLCommonSetupEvent event) {
-
+        event.enqueueWork(() -> {
+            ((FlowerPotBlock) Blocks.FLOWER_POT).addPlant(BlocksRegistry.MOLY_HERB.getId(), BlocksRegistry.POTTED_MOLY_HERB);
+        });
     }
 
     // Add the example block item to the building blocks tab
@@ -62,8 +66,7 @@ public class Orpheus {
     public static class ClientModEvents {
         @SubscribeEvent
         public static void onClientSetup(FMLClientSetupEvent event) {
-            // FIX!
-            BowProperties.addCustomBowProperties();
+
         }
     }
 }

@@ -3,10 +3,9 @@ package com.ecarrascon.orpheus.registry;
 import com.ecarrascon.orpheus.Orpheus;
 import com.ecarrascon.orpheus.block.MyhtosBlock;
 import net.minecraft.util.valueproviders.UniformInt;
-import net.minecraft.world.level.block.Block;
-import net.minecraft.world.level.block.Blocks;
-import net.minecraft.world.level.block.DropExperienceBlock;
-import net.minecraft.world.level.block.FlowerBlock;
+import net.minecraft.world.effect.MobEffects;
+import net.minecraft.world.level.block.*;
+import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.RegistryObject;
@@ -45,4 +44,12 @@ public class BlocksRegistry {
                     .requiresCorrectToolForDrops()
                     .strength(5.0f, 6.0f)
             ));
+
+
+    public static final RegistryObject<Block> MOLY_HERB = BLOCKS.register("moly_herb",
+            () -> new FlowerBlock(() -> MobEffects.SLOW_FALLING, 50,
+                    BlockBehaviour.Properties.copy(Blocks.OXEYE_DAISY).noOcclusion().noCollission()));
+    public static final RegistryObject<Block> POTTED_MOLY_HERB = BLOCKS.register("potted_moly_herb",
+            () -> new FlowerPotBlock(() -> ((FlowerPotBlock) Blocks.FLOWER_POT), BlocksRegistry.MOLY_HERB,
+                    BlockBehaviour.Properties.copy(Blocks.POTTED_OXEYE_DAISY).noOcclusion()));
 }

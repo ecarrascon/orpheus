@@ -23,6 +23,8 @@ public class ItemsRegistry {
     // Block items
     public static final RegistryObject<Item> EPIPHANY_TABLE = registerWithTab("epiphany_table",
             () -> new BlockItem(BlocksRegistry.EPIPHANY_TABLE.get(), ItemSettingsHelper.stackableItem()));
+    public static final RegistryObject<Item> MOLY_HERB = registerWithTab("moly_herb",
+            () -> new BlockItem(BlocksRegistry.MOLY_HERB.get(), ItemSettingsHelper.stackableItem()));
 
     public static final RegistryObject<Item> MYTHOS_BLOCK = registerWithTab("mythos_block",
             () -> new BlockItem(BlocksRegistry.MYTHOS_BLOCK.get(), ItemSettingsHelper.stackableItem()));

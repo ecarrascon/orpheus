@@ -68,7 +68,7 @@ public class MyhtosBlock extends Block {
             for (int z = startZ; z <= endZ; z++) {
                 if (pos.getX() == x && pos.getZ() == z) continue;
                 BlockState blockState = world.getBlockState(new BlockPos(x, yPos, z));
-                if (!blockState.is(BlockTags.SMALL_FLOWERS) || !blockState.is(BlockTags.TALL_FLOWERS) || !blockState.is(BlockTags.FLOWERS)) {
+                if (!blockState.is(BlockTags.SMALL_FLOWERS)) {
                     return false;
                 }
             }
