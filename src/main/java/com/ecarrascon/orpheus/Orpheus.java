@@ -1,6 +1,7 @@
 package com.ecarrascon.orpheus;
 
 import com.ecarrascon.orpheus.entity.client.ViperRenderer;
+import com.ecarrascon.orpheus.item.setting.BowProperties;
 import com.ecarrascon.orpheus.registry.*;
 import com.mojang.logging.LogUtils;
 import net.minecraft.client.renderer.entity.EntityRenderers;
@@ -36,6 +37,7 @@ public class Orpheus {
         VillagersRegistry.register(modEventBus);
         LootRegistry.LOOT_MODIFIER_SERIALIZERS.register(modEventBus);
         EntitiesRegistry.ENTITY_TYPES.register(modEventBus);
+        SoundsRegistry.SOUND_EVENTS.register(modEventBus);
 
         modEventBus.addListener(this::commonSetup);
 
@@ -66,6 +68,7 @@ public class Orpheus {
         public static void onClientSetup(FMLClientSetupEvent event) {
             EntityRenderers.register(EntitiesRegistry.VIPER.get(), ViperRenderer::new);
 
+            BowProperties.addCustomBowProperties();
         }
     }
 }
