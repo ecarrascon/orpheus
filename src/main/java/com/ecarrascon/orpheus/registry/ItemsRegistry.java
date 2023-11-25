@@ -4,9 +4,9 @@ import com.ecarrascon.orpheus.Orpheus;
 import com.ecarrascon.orpheus.item.*;
 import com.ecarrascon.orpheus.item.setting.ItemSettingsHelper;
 import com.google.common.collect.Sets;
-import net.minecraft.world.item.ArmorItem;
-import net.minecraft.world.item.BlockItem;
-import net.minecraft.world.item.Item;
+import net.minecraft.world.food.FoodProperties;
+import net.minecraft.world.item.*;
+import net.minecraftforge.common.ForgeSpawnEggItem;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.RegistryObject;
@@ -42,6 +42,14 @@ public class ItemsRegistry {
 
 
     // Items
+    public static final RegistryObject<Item> VIPERA_AMMODYTES_SPAWN_EGG = registerWithTab("vipera_ammodytes_spawn_egg",
+            () -> new ForgeSpawnEggItem(EntitiesRegistry.VIPER,0xB6D7A8, 0xCEBB80, ItemSettingsHelper.stackableItem()));
+    public static final RegistryObject<Item> NECTAR_SEED = registerWithTab("nectar_seed",
+            () -> new ItemNameBlockItem(BlocksRegistry.NECTAR_CROP.get(), ItemSettingsHelper.stackableItem()));
+
+    public static final RegistryObject<Item> BROTOI_NECTAR = registerWithTab("brotoi_nectar",
+            () -> new HoneyBottleItem(ItemSettingsHelper.noStackableItem()
+                    .food(new FoodProperties.Builder().nutrition(5).saturationMod(19.4f).build())));
     public static final RegistryObject<Item> BROTOI_PALLADIUM = registerWithTab("brotoi_palladium",
             () -> new BrotoiPalladiumItem(ItemSettingsHelper.noStackableItem()));
     public static final RegistryObject<Item> PLAIN_STRING = registerWithTab("plain_string",
@@ -85,7 +93,7 @@ public class ItemsRegistry {
     public static final RegistryObject<Item> HEPHAESTUS_HELMET = registerWithTab("hephaestus_helmet",
             () -> new ArmorItem(OrpheusArmorMaterials.HEPHAESTUS, ArmorItem.Type.HELMET, new Item.Properties()));
     public static final RegistryObject<Item> HEPHAESTUS_CHESTPLATE = registerWithTab("hephaestus_chestplate",
-            () -> new ArmorItem(OrpheusArmorMaterials.HEPHAESTUS, ArmorItem.Type.CHESTPLATE, new Item.Properties()));
+            () -> new HephaestusArmorItem(OrpheusArmorMaterials.HEPHAESTUS, ArmorItem.Type.CHESTPLATE, new Item.Properties()));
     public static final RegistryObject<Item> HEPHAESTUS_LEGGINGS = registerWithTab("hephaestus_leggings",
             () -> new ArmorItem(OrpheusArmorMaterials.HEPHAESTUS, ArmorItem.Type.LEGGINGS, new Item.Properties()));
     public static final RegistryObject<Item> HEPHAESTUS_BOOTS = registerWithTab("hephaestus_boots",

@@ -1,10 +1,9 @@
 package com.ecarrascon.orpheus;
 
-import com.ecarrascon.orpheus.item.setting.BowProperties;
-import com.ecarrascon.orpheus.registry.BlocksRegistry;
-import com.ecarrascon.orpheus.registry.ItemsRegistry;
-import com.ecarrascon.orpheus.registry.TabRegistry;
+import com.ecarrascon.orpheus.entity.client.ViperRenderer;
+import com.ecarrascon.orpheus.registry.*;
 import com.mojang.logging.LogUtils;
+import net.minecraft.client.renderer.entity.EntityRenderers;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.FlowerPotBlock;
 import net.minecraftforge.api.distmarker.Dist;
@@ -34,14 +33,13 @@ public class Orpheus {
         TabRegistry.CREATIVE_MODE_TAB.register(modEventBus);
         BlocksRegistry.BLOCKS.register(modEventBus);
         ItemsRegistry.ITEMS.register(modEventBus);
+        VillagersRegistry.register(modEventBus);
+        LootRegistry.LOOT_MODIFIER_SERIALIZERS.register(modEventBus);
+        EntitiesRegistry.ENTITY_TYPES.register(modEventBus);
 
         modEventBus.addListener(this::commonSetup);
 
-
-        // Register ourselves for server and other game events we are interested in
         MinecraftForge.EVENT_BUS.register(this);
-
-        // Register the item to a creative tab
         modEventBus.addListener(this::addCreative);
     }
 
@@ -66,6 +64,7 @@ public class Orpheus {
     public static class ClientModEvents {
         @SubscribeEvent
         public static void onClientSetup(FMLClientSetupEvent event) {
+            EntityRenderers.register(EntitiesRegistry.VIPER.get(), ViperRenderer::new);
 
         }
     }

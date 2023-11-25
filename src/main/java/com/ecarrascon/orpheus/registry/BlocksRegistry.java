@@ -2,6 +2,7 @@ package com.ecarrascon.orpheus.registry;
 
 import com.ecarrascon.orpheus.Orpheus;
 import com.ecarrascon.orpheus.block.MyhtosBlock;
+import com.ecarrascon.orpheus.block.NectarCropBlock;
 import net.minecraft.util.valueproviders.UniformInt;
 import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.level.block.*;
@@ -18,9 +19,13 @@ public class BlocksRegistry {
                     .strength(3.0f, 3.0f),
                     UniformInt.of(3, 7)
             ));
+
+    public static final RegistryObject<Block> NECTAR_CROP = BLOCKS.register("nectar_crop",
+            () -> new NectarCropBlock(Block.Properties.copy(Blocks.WHEAT).noCollission().noOcclusion()
+            ));
     public static final RegistryObject<Block> EPIPHANY_TABLE = BLOCKS.register("epiphany_table",
-            () -> new Block(Block.Properties.copy(Blocks.STONE)
-                    .strength(2.5f)
+            () -> new Block(Block.Properties.copy(Blocks.QUARTZ_BLOCK)
+                    .noOcclusion()
             ));
 
     public static final RegistryObject<Block> PEGASUS_FEATHERS_BLOCK = BLOCKS.register("pegasus_feathers_block",
@@ -44,6 +49,8 @@ public class BlocksRegistry {
                     .requiresCorrectToolForDrops()
                     .strength(5.0f, 6.0f)
             ));
+
+
 
 
     public static final RegistryObject<Block> MOLY_HERB = BLOCKS.register("moly_herb",
