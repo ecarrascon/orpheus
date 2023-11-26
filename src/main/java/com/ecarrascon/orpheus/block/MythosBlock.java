@@ -1,6 +1,8 @@
 package com.ecarrascon.orpheus.block;
 
 import com.ecarrascon.orpheus.registry.ItemsRegistry;
+import com.ecarrascon.orpheus.util.PlayerUtils;
+import com.ecarrascon.orpheus.util.WorldUtils;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.Blocks;
@@ -25,9 +27,9 @@ public class MythosBlock extends Block {
         if (!world.isClient() && entity instanceof PlayerEntity player) {
             // Get Calliope's Love
             if (player.isHolding(ItemsRegistry.HELLENIC_CODEX.get())
-                    && player.isSneaking() && isSurroundedByFlowers(world, pos)) {
-                summonLightning(player, world);
-                player.getMainHandStack().decrement(1);
+                    && player.isSneaking() && WorldUtils.isSurroundedByBlocksTag(world, pos, BlockTags.FLOWERS, 1)) {
+                WorldUtils.summonLightning(player, world);
+                PlayerUtils.decrementHeldItem(player, ItemsRegistry.HELLENIC_CODEX.get());
                 giveCalliopesLoveItem(player, world);
                 world.breakBlock(pos, false);
                 world.playSound(null, pos, SoundEvents.ITEM_TRIDENT_RETURN, SoundCategory.BLOCKS, 1f, 1f);
@@ -36,9 +38,9 @@ public class MythosBlock extends Block {
 
             // Get Orpheus Lyre
             if (world.getRegistryKey().equals(World.NETHER) && player.isHolding(ItemsRegistry.APOLLOS_SON.get())
-                    && player.isSneaking() && isSurroundedByMagma(world, pos)) {
-                summonLightning(player, world);
-                player.getMainHandStack().decrement(1);
+                    && player.isSneaking() && WorldUtils.isSurroundedByBlocks(world, pos, Blocks.MAGMA_BLOCK, 0)) {
+                WorldUtils.summonLightning(player, world);
+                PlayerUtils.decrementHeldItem(player, ItemsRegistry.APOLLOS_SON.get());
                 giveOrpheusLyreItem(player, world);
                 world.breakBlock(pos, false);
                 world.playSound(null, pos, SoundEvents.ITEM_TRIDENT_RETURN, SoundCategory.BLOCKS, 1f, 1f);
@@ -47,52 +49,7 @@ public class MythosBlock extends Block {
         super.onSteppedOn(world, pos, state, entity);
     }
 
-    private void summonLightning(PlayerEntity player, World world) {
-        LightningEntity lightning = new LightningEntity(EntityType.LIGHTNING_BOLT, world);
-        lightning.setCosmetic(true);
-        lightning.setPosition(player.getPos());
-        world.spawnEntity(lightning);
-    }
 
-    private boolean isSurroundedByFlowers(World world, BlockPos pos) {
-        int yPos = pos.getY() + 1;
-
-        int startX = pos.getX() - 1;
-        int startZ = pos.getZ() - 1;
-        int endX = pos.getX() + 1;
-        int endZ = pos.getZ() + 1;
-
-        for (int x = startX; x <= endX; x++) {
-            for (int z = startZ; z <= endZ; z++) {
-                if (pos.getX() == x && pos.getZ() == z) continue;
-                BlockState blockState = world.getBlockState(new BlockPos(x, yPos, z));
-                if (!blockState.isIn(BlockTags.FLOWERS)) {
-                    return false;
-                }
-            }
-        }
-        return true;
-    }
-
-    private boolean isSurroundedByMagma(World world, BlockPos pos) {
-        int yPos = pos.getY();
-
-        int startX = pos.getX() - 1;
-        int startZ = pos.getZ() - 1;
-        int endX = pos.getX() + 1;
-        int endZ = pos.getZ() + 1;
-
-        for (int x = startX; x <= endX; x++) {
-            for (int z = startZ; z <= endZ; z++) {
-                if (pos.getX() == x && pos.getZ() == z) continue;
-                BlockState blockState = world.getBlockState(new BlockPos(x, yPos, z));
-                if (!blockState.equals(Blocks.MAGMA_BLOCK.getDefaultState())) {
-                    return false;
-                }
-            }
-        }
-        return true;
-    }
 
     private void giveCalliopesLoveItem(PlayerEntity player, World world) {
         ItemStack calliopesLove = ItemsRegistry.CALLIOPES_LOVE.get().getDefaultStack();

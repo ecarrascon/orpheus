@@ -1,6 +1,7 @@
 package com.ecarrascon.orpheus.block;
 
 import com.ecarrascon.orpheus.registry.ItemsRegistry;
+import com.ecarrascon.orpheus.util.PlayerUtils;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.CropBlock;
 import net.minecraft.entity.player.PlayerEntity;
@@ -31,22 +32,16 @@ public class NectarCropBlock extends CropBlock {
         if (isMature(state) && !world.isClient() && !player.isSpectator()
                 && player.isHolding(Items.HONEY_BOTTLE)) {
 
-            player.getMainHandStack().decrement(1);
+            PlayerUtils.decrementHeldItem(player, Items.HONEY_BOTTLE);
 
             ItemStack brotioNectar = ItemsRegistry.BROTOI_NECTAR.get().getDefaultStack();
             world.playSound(null, pos, SoundEvents.ITEM_HONEYCOMB_WAX_ON, SoundCategory.BLOCKS, 1f, 1f);
             if (!player.giveItemStack(brotioNectar))
                 player.dropItem(brotioNectar, false);
 
-
-
             world.setBlockState(pos, state.with(AGE, 0), 2);
-
-
         }
-
         return super.onUse(state, world, pos, player, hand, hit);
-
     }
 
 }
