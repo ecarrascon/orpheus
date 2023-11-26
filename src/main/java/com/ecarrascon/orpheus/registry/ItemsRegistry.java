@@ -52,7 +52,8 @@ public enum ItemsRegistry {
 
     COW_GUT("cow_gut", () -> new Item(ItemSettingsHelper.baseSettings())),
     CLEAN_COW_GUT("clean_cow_gut", () -> new Item(ItemSettingsHelper.baseSettings())),
-    COOKED_COW_GUT("cooked_cow_gut", () -> new Item(ItemSettingsHelper.baseSettings().food(FoodComponents.COOKED_BEEF))),
+    COOKED_COW_GUT("cooked_cow_gut", () -> new Item(ItemSettingsHelper.baseSettings()
+            .food(new FoodComponent.Builder().hunger(8).saturationModifier(0.9f).meat().build()))),
     PLAIN_STRING("plain_string", () -> new Item(ItemSettingsHelper.baseSettings())),
     NECTAR_SEED("nectar_seed", () -> new AliasedBlockItem(BlocksRegistry.NECTAR_CROP.get(), ItemSettingsHelper.baseSettings())),
     BROTOI_NECTAR("brotoi_nectar", () -> new HoneyBottleItem(ItemSettingsHelper.baseSettings()
