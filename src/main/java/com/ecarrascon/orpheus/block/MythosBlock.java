@@ -7,8 +7,6 @@ import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.Blocks;
 import net.minecraft.entity.Entity;
-import net.minecraft.entity.EntityType;
-import net.minecraft.entity.LightningEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.ItemStack;
 import net.minecraft.registry.tag.BlockTags;
@@ -59,9 +57,9 @@ public class MythosBlock extends Block {
     }
 
     private void giveOrpheusLyreItem(PlayerEntity player, World world) {
-        ItemStack calliopesLove = ItemsRegistry.ORPHEUS_LYRE.get().getDefaultStack();
-        if (!player.getInventory().insertStack(calliopesLove)) {
-            Block.dropStack(world, player.getBlockPos(), calliopesLove);
+        ItemStack orpheusLyre = ItemsRegistry.ORPHEUS_LYRE.get().getDefaultStack();
+        if (!player.getInventory().insertStack(orpheusLyre)) {
+            Block.dropStack(world, player.getBlockPos(), orpheusLyre);
         }
     }
 

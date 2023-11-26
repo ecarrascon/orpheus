@@ -20,15 +20,15 @@ public class RandomPotionEffectItem extends HoneyBottleItem {
     }
 
 
-
     @Override
     public ItemStack finishUsing(ItemStack stack, World world, LivingEntity user) {
         if (!world.isClient) {
             user.addStatusEffect(getRandomEffect(world));
-            world.playSound(null, user.getX(), user.getY(), user.getZ(), SoundEvents.BLOCK_AMETHYST_BLOCK_HIT, SoundCategory.PLAYERS, 1.0f, 1.0f);
-        if (!((PlayerEntity)user).getAbilities().creativeMode) {
-            stack.decrement(1);
-        }
+            world.playSound(null, user.getX(), user.getY(), user.getZ(), SoundEvents.BLOCK_AMETHYST_BLOCK_HIT,
+                    SoundCategory.PLAYERS, 1.0f, 1.0f);
+            if (!((PlayerEntity) user).getAbilities().creativeMode) {
+                stack.decrement(1);
+            }
         }
         return super.finishUsing(stack, world, user);
     }
