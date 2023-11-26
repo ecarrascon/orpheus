@@ -1,6 +1,7 @@
 package com.ecarrascon.orpheus.item;
 
 import com.ecarrascon.orpheus.registry.ItemsRegistry;
+import com.ecarrascon.orpheus.util.PlayerUtils;
 import net.minecraft.block.Block;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityType;
@@ -29,7 +30,7 @@ public class PandorasPithos extends Item {
     public TypedActionResult<ItemStack> use(World world, PlayerEntity player, Hand hand) {
 
         if (!world.isClient && !player.isSpectator()) {
-            player.getMainHandStack().decrement(1);
+            PlayerUtils.decrementHeldItem(player, ItemsRegistry.PANDORAS_PITHOS.get());
             summonLightning(player, world);
             player.addStatusEffect(getRandomEffect(world));
             getRandomItem(player, world);

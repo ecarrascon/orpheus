@@ -57,8 +57,7 @@ public enum BlocksRegistry {
     )),
     TEARS_OF_HADES_BLOCK("tears_of_hades_block", () -> new Block(FabricBlockSettings
             .copyOf(Blocks.DIAMOND_BLOCK)
-            .requiresTool().strength(5.0f, 6.0f)
-            .sounds(BlockSoundGroup.METAL)
+            .requiresTool()
             ));
 
 
