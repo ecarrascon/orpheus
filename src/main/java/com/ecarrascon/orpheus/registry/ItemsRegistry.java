@@ -30,7 +30,7 @@ public enum ItemsRegistry {
 
     // Items
     TEARS_OF_HADES("tears_of_hades", () -> new Item(ItemSettingsHelper.baseSettings())),
-    TEARS_BOW("tears_bow", () -> new TearsBow(ItemSettingsHelper.noStackableSettings().maxDamage(192))), // Less durability than normal bow
+    TEARS_BOW("tears_bow", () -> new TearsBowItem(ItemSettingsHelper.noStackableSettings().maxDamage(192))), // Less durability than normal bow
 
     ORPHEUS_LYRE("orpheus_lyre", () -> new Item(ItemSettingsHelper.epicFireProofSettings())),
     CALLIOPE_POEM_FRAGMENT("calliope_poem_fragment", () -> new Item(ItemSettingsHelper.baseSettings())),
@@ -46,9 +46,9 @@ public enum ItemsRegistry {
             Item(ItemSettingsHelper.baseSettings())),
     HERACLITIAN_FLUX_FRAGMENT("heraclitian_flux_fragment", () -> new Item(ItemSettingsHelper.baseSettings())),
     STOIC_MEDITATIVE_STONE("stoic_meditative_stone", () -> new Item(ItemSettingsHelper.baseSettings())),
-    PANDORAS_PITHOS("pandoras_pithos", () -> new PandorasPithos(ItemSettingsHelper.baseSettings())),
+    PANDORAS_PITHOS("pandoras_pithos", () -> new PandorasPithosItem(ItemSettingsHelper.baseSettings())),
     PALLADIUM_WOODEN_FRAGMENT("palladium_wooden_fragment", () -> new Item(ItemSettingsHelper.baseSettings())),
-    BROTOI_PALLADIUM("brotoi_palladium", () -> new BrotoiPalladium(ItemSettingsHelper.noStackableSettings())),
+    BROTOI_PALLADIUM("brotoi_palladium", () -> new BrotoiPalladiumItem(ItemSettingsHelper.noStackableSettings())),
 
     COW_GUT("cow_gut", () -> new Item(ItemSettingsHelper.baseSettings())),
     CLEAN_COW_GUT("clean_cow_gut", () -> new Item(ItemSettingsHelper.baseSettings())),
@@ -63,7 +63,7 @@ public enum ItemsRegistry {
             ItemSettingsHelper.noStackableSettings())),
     HEPHAESTUS_LEGGINGS("hephaestus_leggings", () -> new ArmorItem(OrpheusArmorMaterials.HEPHAESTUS, ArmorItem.Type.LEGGINGS,
             ItemSettingsHelper.noStackableSettings())),
-    HEPHAESTUS_BOOTS("hephaestus_boots", () -> new ArmorItem(OrpheusArmorMaterials.HEPHAESTUS, ArmorItem.Type.BOOTS,
+    HEPHAESTUS_BOOTS("hephaestus_boots", () -> new FullSetEffectHephaestusItem(OrpheusArmorMaterials.HEPHAESTUS, ArmorItem.Type.BOOTS,
             ItemSettingsHelper.noStackableSettings())),
     HERACLITIAN_FLUX_POTION("heraclitian_flux_potion", () -> new RandomPotionEffectItem(ItemSettingsHelper.baseSettings())),
     VIPERA_AMMODYTES_SPAWN_EGG("vipera_ammodytes_spawn_egg", () -> new SpawnEggItem(OrpheusEntities.VIPER,0xB6D7A8, 0xCEBB80, ItemSettingsHelper.baseSettings())),

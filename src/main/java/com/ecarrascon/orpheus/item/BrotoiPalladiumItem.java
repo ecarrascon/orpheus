@@ -1,6 +1,5 @@
 package com.ecarrascon.orpheus.item;
 
-import com.ecarrascon.orpheus.registry.ItemsRegistry;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.effect.StatusEffectInstance;
 import net.minecraft.entity.effect.StatusEffects;
@@ -9,12 +8,12 @@ import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
 
-public class BrotoiPalladium extends Item {
+public class BrotoiPalladiumItem extends Item {
 
     private final int EFFECT_DURATION = 400; // Initial duration in ticks
     private int timer = EFFECT_DURATION;
 
-    public BrotoiPalladium(Settings settings) {
+    public BrotoiPalladiumItem(Settings settings) {
         super(settings);
     }
 

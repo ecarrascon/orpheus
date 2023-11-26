@@ -2,10 +2,10 @@ package com.ecarrascon.orpheus.item;
 
 import com.ecarrascon.orpheus.registry.ItemsRegistry;
 import com.ecarrascon.orpheus.util.PlayerUtils;
+import com.ecarrascon.orpheus.util.WorldUtils;
 import net.minecraft.block.Block;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityType;
-import net.minecraft.entity.LightningEntity;
 import net.minecraft.entity.effect.StatusEffect;
 import net.minecraft.entity.effect.StatusEffectInstance;
 import net.minecraft.entity.effect.StatusEffects;
@@ -20,9 +20,9 @@ import net.minecraft.world.World;
 import java.util.Arrays;
 import java.util.List;
 
-public class PandorasPithos extends Item {
+public class PandorasPithosItem extends Item {
 
-    public PandorasPithos(Settings settings) {
+    public PandorasPithosItem(Settings settings) {
         super(settings);
     }
 
@@ -31,21 +31,13 @@ public class PandorasPithos extends Item {
 
         if (!world.isClient && !player.isSpectator()) {
             PlayerUtils.decrementHeldItem(player, ItemsRegistry.PANDORAS_PITHOS.get());
-            summonLightning(player, world);
+            WorldUtils.summonLightning(player, world);
             player.addStatusEffect(getRandomEffect(world));
             getRandomItem(player, world);
             spawnRandomEntity(player, world);
         }
 
         return super.use(world, player, hand);
-    }
-
-
-    private void summonLightning(PlayerEntity player, World world) {
-        LightningEntity lightning = new LightningEntity(EntityType.LIGHTNING_BOLT, world);
-        lightning.setCosmetic(true);
-        lightning.setPosition(player.getPos());
-        world.spawnEntity(lightning);
     }
 
     private StatusEffectInstance getRandomEffect(World world) {

@@ -14,8 +14,8 @@ import net.minecraft.sound.SoundEvents;
 import net.minecraft.stat.Stats;
 import net.minecraft.world.World;
 
-public class TearsBow extends BowItem {
-    public TearsBow(Settings settings) {
+public class TearsBowItem extends BowItem {
+    public TearsBowItem(Settings settings) {
         super(settings);
     }
 
