@@ -2,6 +2,7 @@ package com.ecarrascon.orpheus;
 
 import com.ecarrascon.orpheus.entity.OrpheusEntities;
 import com.ecarrascon.orpheus.entity.custom.ViperEntity;
+import com.ecarrascon.orpheus.event.ArrowImmuneEvent;
 import com.ecarrascon.orpheus.registry.BlocksRegistry;
 import com.ecarrascon.orpheus.registry.ItemsRegistry;
 import com.ecarrascon.orpheus.registry.LootsRegistry;
@@ -9,6 +10,7 @@ import com.ecarrascon.orpheus.registry.SoundsRegistry;
 import com.ecarrascon.orpheus.villager.Villager;
 import com.ecarrascon.orpheus.world.gen.OrpheusOreGeneration;
 import net.fabricmc.api.ModInitializer;
+import net.fabricmc.fabric.api.entity.event.v1.ServerLivingEntityEvents;
 import net.fabricmc.fabric.api.itemgroup.v1.FabricItemGroup;
 import net.fabricmc.fabric.api.object.builder.v1.entity.FabricDefaultAttributeRegistry;
 import net.minecraft.item.ItemGroup;
@@ -27,11 +29,14 @@ public class Orpheus implements ModInitializer {
 
 	public static final String MOD_ID = "orpheus";
 
+	public static ConfigData CONFIG_VALUES = new ConfigData();
+
 	public static final RegistryKey<ItemGroup> ITEM_GROUP = RegistryKey.of(RegistryKeys.ITEM_GROUP, new Identifier(MOD_ID, "main"));
 
 
 	@Override
 	public void onInitialize() {
+		CONFIG_VALUES = ConfigData.init();
 		Registry.register(Registries.ITEM_GROUP, ITEM_GROUP, FabricItemGroup.builder()
 				.displayName(Text.translatable("itemGroup.orpheus.main"))
 				.icon(() -> new ItemStack(ItemsRegistry.ORPHEUS_LYRE.get()))
@@ -46,6 +51,7 @@ public class Orpheus implements ModInitializer {
 		Villager.registerVillagerTradeOffer();
 		Villager.registerPhilosopherHouses();
 
+		ServerLivingEntityEvents.ALLOW_DAMAGE.register(new ArrowImmuneEvent());
 
 
 
