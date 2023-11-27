@@ -3,16 +3,21 @@ package com.ecarrascon.orpheus.item;
 import com.ecarrascon.orpheus.registry.ItemsRegistry;
 import com.ecarrascon.orpheus.util.PlayerUtils;
 import com.ecarrascon.orpheus.util.WorldUtils;
+import net.fabricmc.yarn.constants.ParrotVariants;
 import net.minecraft.block.Block;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.effect.StatusEffect;
 import net.minecraft.entity.effect.StatusEffectInstance;
 import net.minecraft.entity.effect.StatusEffects;
+import net.minecraft.entity.passive.CatEntity;
+import net.minecraft.entity.passive.CatVariant;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.Items;
+import net.minecraft.registry.tag.CatVariantTags;
+import net.minecraft.text.Text;
 import net.minecraft.util.Hand;
 import net.minecraft.util.TypedActionResult;
 import net.minecraft.world.World;
@@ -97,10 +102,26 @@ public class PandorasPithosItem extends Item {
         for (int i = 0; i < random; i++) {
             Entity randomEntity = randomEntityType.create(world);
             if (randomEntity != null) {
-                randomEntity.setPosition(player.getPos().getX(), player.getPos().getY(), player.getPos().getZ());
+                randomEntity.setPosition(player.getPos());
                 world.spawnEntity(randomEntity);
+                if (witherPossiblity == 1 && i == 0) {
+                    // Hi! If you are reading this, you are such a netrunner.
+                    // Second, all this "cat" thing is just an Easter Egg, my cat is called Zeus and yeah, funny!
+                    CatEntity zeus = getZeus(player, world);
+                    world.spawnEntity(zeus);
+                }
             }
         }
+    }
+
+
+    private CatEntity getZeus(PlayerEntity player, World world) {
+        CatEntity zeus = new CatEntity(EntityType.CAT, world);
+        zeus.setCustomName(Text.of("Zeus"));
+        zeus.setHealth(500f);
+        zeus.setGlowing(true);
+        zeus.setPosition(player.getPos());
+        return zeus;
     }
 
 }
