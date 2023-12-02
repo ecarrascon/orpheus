@@ -1,6 +1,9 @@
 package com.ecarrascon.orpheus.item;
 
 import com.ecarrascon.orpheus.registry.ItemsRegistry;
+import com.ecarrascon.orpheus.util.PlayerUtils;
+import com.ecarrascon.orpheus.util.WorldUtils;
+import net.minecraft.network.chat.Component;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResultHolder;
 import net.minecraft.world.effect.MobEffect;
@@ -8,7 +11,7 @@ import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.EntityType;
-import net.minecraft.world.entity.LightningBolt;
+import net.minecraft.world.entity.animal.Cat;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
@@ -27,8 +30,8 @@ public class PandorasPithosItem extends Item {
     @Override
     public InteractionResultHolder<ItemStack> use(Level pLevel, Player pPlayer, InteractionHand pUsedHand) {
         if (!pLevel.isClientSide() && !pPlayer.isSpectator()) {
-            pPlayer.getItemInHand(pUsedHand).shrink(1);
-            summonLightning(pLevel, pPlayer);
+            PlayerUtils.decrementHeldItem(pPlayer, ItemsRegistry.PANDORAS_PITHOS.get());
+            WorldUtils.summonLightning(pLevel, pPlayer);
             pPlayer.addEffect(getRandomEffect(pLevel));
             getRandomItem(pPlayer, pLevel);
             spawnRandomEntity(pPlayer, pLevel);
@@ -36,13 +39,6 @@ public class PandorasPithosItem extends Item {
         return super.use(pLevel, pPlayer, pUsedHand);
     }
 
-    private void summonLightning(Level pLevel, Player pPlayer) {
-        LightningBolt lightning = new LightningBolt(EntityType.LIGHTNING_BOLT, pLevel);
-        lightning.setVisualOnly(true);
-        lightning.setPos(pPlayer.position());
-        pLevel.addFreshEntity(lightning);
-
-    }
 
     private void spawnRandomEntity(Player player, Level world) {
         List<EntityType<?>> possibleEntities = Arrays.asList(
@@ -65,10 +61,23 @@ public class PandorasPithosItem extends Item {
             if (randomEntity != null) {
                 randomEntity.setPos(player.position());
                 world.addFreshEntity(randomEntity);
+                if (witherPossiblity == 1 && i == 0) {
+                    // Hi! If you are reading this, you are such a netrunner.
+                    // Second, all this "cat" thing is just an Easter Egg, my cat is called Zeus and yeah, funny!
+                    Cat zeus = getZeus(player, world);
+                    world.addFreshEntity(zeus);
+                }
             }
         }
     }
-
+    private Cat getZeus(Player player, Level world) {
+        Cat zeus = new Cat(EntityType.CAT, world);
+        zeus.setCustomName(Component.nullToEmpty("Zeus"));
+        zeus.setHealth(500f);
+        zeus.setGlowingTag(true);
+        zeus.setPos(player.position());
+        return zeus;
+    }
     private void getRandomItem(Player player, Level world) {
         List<ItemStack> possibleItems = Arrays.asList(
                 Items.DIAMOND.getDefaultInstance(),

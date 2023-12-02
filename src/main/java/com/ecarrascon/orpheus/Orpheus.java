@@ -1,5 +1,6 @@
 package com.ecarrascon.orpheus;
 
+import com.ecarrascon.orpheus.config.ConfigDataCommon;
 import com.ecarrascon.orpheus.entity.client.ViperRenderer;
 import com.ecarrascon.orpheus.item.setting.BowProperties;
 import com.ecarrascon.orpheus.registry.*;
@@ -13,7 +14,9 @@ import net.minecraftforge.event.BuildCreativeModeTabContentsEvent;
 import net.minecraftforge.event.server.ServerStartingEvent;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
+import net.minecraftforge.fml.ModLoadingContext;
 import net.minecraftforge.fml.common.Mod;
+import net.minecraftforge.fml.config.ModConfig;
 import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
 import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
@@ -30,7 +33,7 @@ public class Orpheus {
 
     public Orpheus() {
         IEventBus modEventBus = FMLJavaModLoadingContext.get().getModEventBus();
-
+        ModLoadingContext.get().registerConfig(ModConfig.Type.COMMON, ConfigDataCommon.SPEC, "orpheus-config.toml");
         TabRegistry.CREATIVE_MODE_TAB.register(modEventBus);
         BlocksRegistry.BLOCKS.register(modEventBus);
         ItemsRegistry.ITEMS.register(modEventBus);

@@ -6,6 +6,7 @@
     "PlayerEntityDropInventoryMixin",
     "ServerPlayerCopyFromMixin"
   ],
+  "refmap": "orpheus.mixins.refmap.json",
   "injectors": {
     "defaultRequire": 1
   }

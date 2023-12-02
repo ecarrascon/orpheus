@@ -52,6 +52,9 @@ public class ItemsRegistry {
                     .food(new FoodProperties.Builder().nutrition(5).saturationMod(19.4f).build())));
     public static final RegistryObject<Item> BROTOI_PALLADIUM = registerWithTab("brotoi_palladium",
             () -> new BrotoiPalladiumItem(ItemSettingsHelper.noStackableItem()));
+    public static final RegistryObject<Item> COOKED_COW_GUT = registerWithTab("cooked_cow_gut",
+            () -> new Item(ItemSettingsHelper.noStackableItem()
+                    .food(new FoodProperties.Builder().nutrition(8).saturationMod(0.9f).meat().build())));
     public static final RegistryObject<Item> PLAIN_STRING = registerWithTab("plain_string",
             () -> new Item(ItemSettingsHelper.stackableItem()));
     public static final RegistryObject<Item> TEARS_OF_HADES = registerWithTab("tears_of_hades",
