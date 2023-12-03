@@ -48,7 +48,7 @@
   "block.orpheus.tears_of_hades_block": "Tears of Hades Block",
 
 
-  "entity.orpheus.viper.ambient": "Viper Hissing",
-  "entity.orpheus.viper.death": "Viper Death",
-  "entity.orpheus.viper.hurt": "Viper Hurt"
+  "sounds.orpheus.entity.viper.ambient": "Viper Hissing",
+  "sounds.orpheus.entity.viper.death": "Viper Death",
+  "sounds.orpheus.entity.viper.hurt": "Viper Hurt"
 }

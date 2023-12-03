@@ -48,7 +48,7 @@
   "block.orpheus.tears_of_hades_block": "Bloque de Lágrimas de Hades",
 
 
-  "entity.orpheus.viper.ambient": "Siseo de Vibora",
-  "entity.orpheus.viper.death": "Muerte de Vibora",
-  "entity.orpheus.viper.hurt": "Vibora dañada"
+  "sounds.orpheus.entity.viper.ambient": "Siseo de Vibora",
+  "sounds.orpheus.entity.viper.death": "Muerte de Vibora",
+  "sounds.orpheus.entity.viper.hurt": "Vibora dañada"
 }
