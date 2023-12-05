@@ -1,0 +1,12 @@
+{
+	"required": true,
+	"package": "com.ecarrascon.orpheus.mixin",
+	"compatibilityLevel": "JAVA_17",
+	"mixins": [
+		"PlayerEntityDropInventoryMixin",
+		"ServerPlayerCopyFromMixin"
+	],
+	"injectors": {
+		"defaultRequire": 1
+	}
+}
