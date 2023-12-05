@@ -1,0 +1,5 @@
+// 1.20.2	2023-12-02T23:20:41.9111527	Global Loot Modifiers : orpheus
+b4388acd22d584020354da2e2f262ba3643ee9fe data/neoforge/loot_modifiers/global_loot_modifiers.json
+3064a1c5ef4ab7410068172d1a8550206f603b0e data/orpheus/loot_modifiers/armor_fragment_from_suspicious_sand.json
+207d4be19c6e3a20891efba795190a5465501889 data/orpheus/loot_modifiers/cow_gut_from_cow.json
+63a33b2bbf018d3732828ba92ec83ac77b7936aa data/orpheus/loot_modifiers/scute_from_turtle.json
