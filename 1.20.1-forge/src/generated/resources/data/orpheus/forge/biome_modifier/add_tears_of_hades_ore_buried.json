@@ -1,0 +1,6 @@
+{
+  "type": "forge:add_features",
+  "biomes": "#minecraft:is_overworld",
+  "features": "orpheus:tears_of_hades_ore_placed_buried",
+  "step": "underground_ores"
+}
