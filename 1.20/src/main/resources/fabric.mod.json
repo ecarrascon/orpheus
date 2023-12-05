@@ -1,0 +1,40 @@
+{
+	"schemaVersion": 1,
+	"id": "orpheus",
+	"version": "${version}",
+	"name": "Orpheus",
+	"description": "Embark on a mythical journey to acquire the legendary Orpheus Lyre!",
+	"authors": [
+		"ECarrascon"
+	],
+	"contact": {
+		"homepage": "https://legacy.curseforge.com/minecraft/mc-mods/orpheus",
+		"sources": "https://github.com/ecarrascon/orpheus"
+	},
+	"license": "MIT",
+	"icon": "assets/orpheus/icon.png",
+	"environment": "*",
+	"entrypoints": {
+		"main": [
+          "com.ecarrascon.orpheus.Orpheus"
+		],
+		"client": [
+			"com.ecarrascon.orpheus.OrpheusClient"
+		],
+		"fabric-datagen": [
+			"com.ecarrascon.orpheus.OrpheusDataGenerator"
+		]
+	},
+	"mixins": [
+		"orpheus.mixins.json"
+	],
+	"depends": {
+		"fabricloader": ">=0.14.24",
+		"minecraft": "~1.20",
+		"java": ">=17",
+		"fabric-api": "*"
+	},
+	"suggests": {
+		"another-mod": "*"
+	}
+}
