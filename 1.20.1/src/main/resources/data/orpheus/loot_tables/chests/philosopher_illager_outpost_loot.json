@@ -1,0 +1,116 @@
+{
+  "type": "minecraft:chest",
+  "pools": [
+    {
+      "rolls": {
+        "type": "minecraft:uniform",
+        "min": 1,
+        "max": 3
+      },
+      "bonus_rolls": 0,
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "weight": 20,
+          "name": "orpheus:homers_the_iliad_scroll_fragment"
+        },
+        {
+          "type": "minecraft:item",
+          "weight": 20,
+          "name": "orpheus:homers_the_odyssey_scroll_fragment"
+        },
+        {
+          "type": "minecraft:item",
+          "weight": 15,
+          "name": "orpheus:platos_republic_scroll_fragment"
+        },
+        {
+          "type": "minecraft:item",
+          "weight": 15,
+          "name": "orpheus:aristotles_nicomachean_ethics_scroll_fragment"
+        },
+        {
+          "type": "minecraft:item",
+          "weight": 10,
+          "name": "orpheus:heraclitian_flux_fragment"
+        },
+        {
+          "type": "minecraft:item",
+          "weight": 10,
+          "name": "orpheus:stoic_meditative_stone"
+        },
+        {
+          "type": "minecraft:item",
+          "weight": 5,
+          "name": "orpheus:calliope_poem_fragment"
+        },
+        {
+          "type": "minecraft:item",
+          "weight": 5,
+          "name": "orpheus:thucydides_peloponnesian_war_scroll_fragment"
+        }
+      ]
+    },
+    {
+      "rolls": {
+        "type": "minecraft:uniform",
+        "min": 1,
+        "max": 4
+      },
+      "bonus_rolls": 0,
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "weight": 25,
+          "name": "orpheus:homers_the_iliad_scroll_fragment"
+        },
+        {
+          "type": "minecraft:item",
+          "weight": 25,
+          "name": "orpheus:homers_the_odyssey_scroll_fragment"
+        },
+        {
+          "type": "minecraft:item",
+          "weight": 20,
+          "name": "orpheus:platos_republic_scroll_fragment"
+        },
+        {
+          "type": "minecraft:item",
+          "weight": 15,
+          "name": "orpheus:calliope_poem_fragment"
+        },
+        {
+          "type": "minecraft:item",
+          "weight": 15,
+          "name": "orpheus:thucydides_peloponnesian_war_scroll_fragment"
+        }
+      ]
+    },
+    {
+      "rolls": 3,
+      "bonus_rolls": 0,
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "weight": 30,
+          "name": "orpheus:homers_the_iliad_scroll_fragment"
+        },
+        {
+          "type": "minecraft:item",
+          "weight": 30,
+          "name": "orpheus:homers_the_odyssey_scroll_fragment"
+        },
+        {
+          "type": "minecraft:item",
+          "weight": 20,
+          "name": "orpheus:heraclitian_flux_fragment"
+        },
+        {
+          "type": "minecraft:item",
+          "weight": 20,
+          "name": "orpheus:stoic_meditative_stone"
+        }
+      ]
+    }
+  ]
+}
