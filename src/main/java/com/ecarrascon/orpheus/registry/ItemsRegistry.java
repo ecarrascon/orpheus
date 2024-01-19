@@ -6,7 +6,6 @@ import com.ecarrascon.orpheus.item.setting.ItemSettingsHelper;
 import com.google.common.collect.Sets;
 import net.minecraft.world.food.FoodProperties;
 import net.minecraft.world.item.*;
-import net.minecraftforge.common.ForgeSpawnEggItem;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.RegistryObject;
@@ -42,8 +41,6 @@ public class ItemsRegistry {
 
 
     // Items
-    public static final RegistryObject<Item> VIPERA_AMMODYTES_SPAWN_EGG = registerWithTab("vipera_ammodytes_spawn_egg",
-            () -> new ForgeSpawnEggItem(EntitiesRegistry.VIPER,0xB6D7A8, 0xCEBB80, ItemSettingsHelper.stackableItem()));
     public static final RegistryObject<Item> NECTAR_SEED = registerWithTab("nectar_seed",
             () -> new ItemNameBlockItem(BlocksRegistry.NECTAR_CROP.get(), ItemSettingsHelper.stackableItem()));
 

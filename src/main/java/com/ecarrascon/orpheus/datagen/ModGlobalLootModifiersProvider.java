@@ -21,12 +21,12 @@ public class ModGlobalLootModifiersProvider extends GlobalLootModifierProvider {
     protected void start() {
         add("cow_gut_from_cow", new AddItemModifier(new LootItemCondition[]{
                 new LootTableIdCondition.Builder(new ResourceLocation("entities/cow")).build(),
-                LootItemRandomChanceCondition.randomChance(0.3f).build()},
+                LootItemRandomChanceCondition.randomChance(0.1f).build()},
                 ItemsRegistry.COW_GUT.get()));
 
         add("scute_from_turtle", new AddItemModifier(new LootItemCondition[]{
                 new LootTableIdCondition.Builder(new ResourceLocation("entities/turtle")).build(),
-                LootItemRandomChanceCondition.randomChance(0.3f).build()},
+                LootItemRandomChanceCondition.randomChance(0.4f).build()},
                 Items.SCUTE));
 
         add("armor_fragment_from_suspicious_sand", new AddSusSandItemModifier(new LootItemCondition[]{

@@ -1,10 +1,26 @@
 {
   "itemGroup.orpheus.main": "Orpheus",
 
+  "advancements.orpheus.obtain_fragment.title": "Orpheus",
+  "advancements.orpheus.obtain_fragment.description": "Perhaps a willing trader will part with this fragment.",
+  "advancements.orpheus.obtain_mythos.title": "Mythos, sacred block",
+  "advancements.orpheus.obtain_mythos.description": "Atop this sacred block, I sense the gods attuning their ears to my presence.",
+  "advancements.orpheus.obtain_calliopes.title": "Calliope, muse of epic poetry",
+  "advancements.orpheus.obtain_calliopes.description": "Surrounded by flowers and bowing reverently with a codex in hand, I seek Calliope's attention.",
+  "advancements.orpheus.obtain_son.title": "Him, legendary musician",
+  "advancements.orpheus.obtain_son.description": "In the Underworld, I will encircle myself with blocks of magma, ensuring He hears my call.",
+  "advancements.orpheus.obtain_codex.title": "Codex",
+  "advancements.orpheus.obtain_codex.description": "The muse of epic poetry",
+  "advancements.orpheus.obtain_lyre.title": "I am..",
+  "advancements.orpheus.obtain_lyre.description": "Immortal?",
+  "advancements.orpheus.obtain_gut.title": "Guts, yeah just guts",
+  "advancements.orpheus.obtain_gut.description": "With wisdom and skill, I shall... Nah just guts",
+  "advancements.orpheus.obtain_tear.title":"Even him cried",
+  "advancements.orpheus.obtain_tear.description":"Why this ore is not in the Nether? Like... Would be cooler, right?",
+
   "item.orpheus.orpheus_lyre": "Orpheus Lyre",
   "item.orpheus.tears_of_hades": "Tears Of Hades",
   "item.orpheus.tears_bow": "Tears Bow",
-  "item.orpheus.vipera_ammodytes_spawn_egg": "Vipera Ammodytes Spawn Egg",
   "item.orpheus.hellenic_codex": "Hellenic Codex",
   "item.orpheus.aristotles_nicomachean_ethics_scroll_fragment": "Aristotle's Nicomachean Ethics Scroll Fragment",
   "item.orpheus.brotoi_nectar": "Brotoi Nectar",
@@ -34,8 +50,7 @@
   "item.orpheus.hephaestus_leggings": "Hephaestus Leggings",
   "item.orpheus.hephaestus_boots": "Hephaestus Boots",
 
-  "entity.minecraft.villager.orpheus.philosopher": "Philosopher",
-  "entity.orpheus.viper": "Vipera Ammodytes",
+  "entity.minecraft.villager.philosopher": "Philosopher",
 
   "block.orpheus.moly_herb": "Moly Herb",
   "block.orpheus.epiphany_table": "Epiphany Table",
@@ -45,10 +60,5 @@
   "block.orpheus.mythos_block": "Mythos Block",
   "block.orpheus.deepslate_tears_of_hades_ore": "Deepslate Tears of Hades Ore",
   "block.orpheus.tears_of_hades_ore": "Tears of Hades Ore",
-  "block.orpheus.tears_of_hades_block": "Tears of Hades Block",
-
-
-  "entity.orpheus.viper.ambient": "Viper Hissing",
-  "entity.orpheus.viper.death": "Viper Death",
-  "entity.orpheus.viper.hurt": "Viper Hurt"
+  "block.orpheus.tears_of_hades_block": "Tears of Hades Block"
 }
