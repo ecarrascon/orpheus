@@ -13,22 +13,22 @@ public class LootsRegistry {
     private static final Identifier COW_LOOT_TABLE_ID = EntityType.COW.getLootTableId();
 
 
-    // Turtle drops(33%) scute
+    // Turtle drops(40%) scute
     public static void registerAll() {
         LootTableEvents.MODIFY.register((resourceManager, lootManager, id, tableBuilder, source) -> {
             if (source.isBuiltin() && TURTLE_LOOT_TABLE_ID.equals(id)) {
                 LootPool.Builder poolBuilder = LootPool.builder()
-                        .conditionally(RandomChanceLootCondition.builder(0.3f))
+                        .conditionally(RandomChanceLootCondition.builder(0.4f))
                         .with(ItemEntry.builder(Items.SCUTE));
 
                 tableBuilder.pool(poolBuilder);
             }
         });
-        // Cow drops(33%) cow gut
+        // Cow drops(10%) cow gut
         LootTableEvents.MODIFY.register((resourceManager, lootManager, id, tableBuilder, source) -> {
             if (source.isBuiltin() && COW_LOOT_TABLE_ID.equals(id)) {
                 LootPool.Builder poolBuilder = LootPool.builder()
-                        .conditionally(RandomChanceLootCondition.builder(0.3f))
+                        .conditionally(RandomChanceLootCondition.builder(0.1f))
                         .with(ItemEntry.builder(ItemsRegistry.COW_GUT.get()));
 
                 tableBuilder.pool(poolBuilder);

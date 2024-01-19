@@ -1,7 +1,6 @@
 package com.ecarrascon.orpheus.registry;
 
 import com.ecarrascon.orpheus.Orpheus;
-import com.ecarrascon.orpheus.entity.OrpheusEntities;
 import com.ecarrascon.orpheus.item.*;
 import com.ecarrascon.orpheus.item.setting.ItemSettingsHelper;
 import net.fabricmc.fabric.api.itemgroup.v1.ItemGroupEvents;
@@ -68,14 +67,12 @@ public enum ItemsRegistry {
     HEPHAESTUS_BOOTS("hephaestus_boots", () -> new FullSetEffectHephaestusItem(OrpheusArmorMaterials.HEPHAESTUS, ArmorItem.Type.BOOTS,
             ItemSettingsHelper.noStackableSettings())),
     HERACLITIAN_FLUX_POTION("heraclitian_flux_potion", () -> new RandomPotionEffectItem(ItemSettingsHelper.baseSettings())),
-    VIPERA_AMMODYTES_SPAWN_EGG("vipera_ammodytes_spawn_egg", () -> new SpawnEggItem(OrpheusEntities.VIPER,0xB6D7A8, 0xCEBB80, ItemSettingsHelper.baseSettings())),
     HELLENIC_CODEX("hellenic_codex", () -> new Item(ItemSettingsHelper.baseSettings())),
 
     LYRE("lyre", () -> new Item(ItemSettingsHelper.noStackableSettings()));
 
     private final String pathName;
     private final Supplier<Item> itemSupplier;
-    private final Integer burnTime;
     private Item item;
 
     ItemsRegistry(String pathName, Supplier<Item> itemSupplier) {
@@ -85,7 +82,6 @@ public enum ItemsRegistry {
     ItemsRegistry(String pathName, Supplier<Item> itemSupplier, Integer burnTime) {
         this.pathName = pathName;
         this.itemSupplier = itemSupplier;
-        this.burnTime = burnTime;
     }
 
     public static void registerAll() {
@@ -107,7 +103,4 @@ public enum ItemsRegistry {
     }
 
 
-    public String getId() {
-        return Registries.ITEM.getId(get()).toString();
-    }
 }
