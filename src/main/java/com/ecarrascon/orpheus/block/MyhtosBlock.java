@@ -26,80 +26,88 @@ public class MyhtosBlock extends Block {
     }
 
     @Override
-    public void onPlace(BlockState pState, Level pLevel, BlockPos pPos, BlockState pOldState, boolean pIsMoving) {
-        if (!pLevel.isClientSide() && pLevel.dimension().equals(Level.OVERWORLD)) {
-            pLevel.setBlock(pPos, pState.setValue(DIMENSION, MythosStateEnum.OVERWORLD), 2);
-        }
-        if (!pLevel.isClientSide() && pLevel.dimension().equals(Level.NETHER)) {
-            pLevel.setBlock(pPos, pState.setValue(DIMENSION, MythosStateEnum.NETHER), 2);
+    public void onPlace(BlockState state, Level world, BlockPos pos, BlockState oldState, boolean isMoving) {
+        if (!world.isClientSide()) {
+            if (world.dimension().equals(Level.OVERWORLD)) {
+                world.setBlock(pos, state.setValue(DIMENSION, MythosStateEnum.OVERWORLD), 3);
+            } else if (world.dimension().equals(Level.NETHER)) {
+                world.setBlock(pos, state.setValue(DIMENSION, MythosStateEnum.NETHER), 3);
+            }
         }
 
-        super.onPlace(pState, pLevel, pPos, pOldState, pIsMoving);
+        super.onPlace(state, world, pos, oldState, isMoving);
     }
 
     @Override
-    public void stepOn(Level pLevel, BlockPos pPos, BlockState pState, Entity pEntity) {
-        if (!pLevel.isClientSide() && pEntity instanceof Player player) {
-            updateBlockStateBasedOnDimension(pState, pLevel, pPos);
-            // Get Calliope's Love
-            if (pLevel.dimension().equals(Level.OVERWORLD) && WorldUtils.isSurroundedByBlocksTag(pLevel, pPos, BlockTags.SMALL_FLOWERS, 1)) {
-                pLevel.setBlock(pPos, pState.setValue(DIMENSION, MythosStateEnum.OVERWORLD_ACTIVE), 2);
-
-                if (player.isHolding(ItemsRegistry.HELLENIC_CODEX.get())
-                        && player.isShiftKeyDown() ) {
-                    WorldUtils.summonLightning(pLevel, player);
-                    PlayerUtils.decrementHeldItem(player, ItemsRegistry.HELLENIC_CODEX.get());
-                    giveCalliopesLoveItem(player, pLevel);
-                    pLevel.destroyBlock(pPos, false);
-                    pLevel.playSound(null, pPos, SoundEvents.TRIDENT_RETURN, SoundSource.BLOCKS, 1f, 1f);
-
-                }
-            }
-
-            // Get Orpheus Lyre
-            if (pLevel.dimension().equals(Level.NETHER) && WorldUtils.isSurroundedByBlocks(pLevel, pPos, Blocks.MAGMA_BLOCK, 0)) {
-                pLevel.setBlock(pPos, pState.setValue(DIMENSION, MythosStateEnum.NETHER_ACTIVE), 2);
-
-                if (player.isHolding(ItemsRegistry.APOLLOS_SON.get())
-                        && player.isShiftKeyDown() ) {
-                    WorldUtils.summonLightning(pLevel, player);
-                    PlayerUtils.decrementHeldItem(player, ItemsRegistry.APOLLOS_SON.get());
-                    giveOrpheusLyreItem(player, pLevel);
-                    pLevel.destroyBlock(pPos, false);
-                    pLevel.playSound(null, pPos, SoundEvents.TRIDENT_RETURN, SoundSource.BLOCKS, 1f, 1f);
-                }
-            }
+    public void stepOn(Level world, BlockPos pos, BlockState state, Entity entity) {
+        if (entity instanceof Player player && !world.isClientSide()) {
+            updateBlockStateBasedOnDimension(state, world, pos);
+            tryGodsCall(world, pos, state, player);
         }
-        super.stepOn(pLevel, pPos, pState, pEntity);
+
+        super.stepOn(world, pos, state, entity);
     }
 
-    private void updateBlockStateBasedOnDimension(BlockState pState, Level pLevel, BlockPos pPos) {
-        if (pLevel.dimension().equals(Level.OVERWORLD)) {
-            pLevel.setBlock(pPos, pState.setValue(DIMENSION, MythosStateEnum.OVERWORLD), 2);
-        }
-        if (pLevel.dimension().equals(Level.NETHER)) {
-            pLevel.setBlock(pPos, pState.setValue(DIMENSION, MythosStateEnum.NETHER), 2);
-
+    private void updateBlockStateBasedOnDimension(BlockState state, Level world, BlockPos pos) {
+        if (world.dimension().equals(Level.OVERWORLD)) {
+            world.setBlock(pos, state.setValue(DIMENSION, MythosStateEnum.OVERWORLD), 3);
+        } else if (world.dimension().equals(Level.NETHER)) {
+            world.setBlock(pos, state.setValue(DIMENSION, MythosStateEnum.NETHER), 3);
         }
     }
 
-    private void giveCalliopesLoveItem(Player player, Level world) {
+    private void tryGodsCall(Level world, BlockPos pos, BlockState state, Player player) {
+        if (world.dimension().equals(Level.OVERWORLD)) {
+            tryCalliopeCall(world, pos, state, player);
+        } else if (world.dimension().equals(Level.NETHER)) {
+            tryOrpheusCall(world, pos, state, player);
+        }
+    }
+
+    private void tryCalliopeCall(Level world, BlockPos pos, BlockState state, Player player) {
+        if (WorldUtils.isSurroundedByBlocksTag(world, pos, BlockTags.FLOWERS, 1)) {
+            world.setBlock(pos, state.setValue(DIMENSION, MythosStateEnum.OVERWORLD_ACTIVE), 3);
+
+            if (player.isHolding(ItemsRegistry.HELLENIC_CODEX.get()) && player.isShiftKeyDown()) {
+                activateCalliopeCall(world, pos, player);
+            }
+        }
+    }
+
+    private void tryOrpheusCall(Level world, BlockPos pos, BlockState state, Player player) {
+        if (WorldUtils.isSurroundedByBlocks(world, pos, Blocks.MAGMA_BLOCK, 0)) {
+            world.setBlock(pos, state.setValue(DIMENSION, MythosStateEnum.NETHER_ACTIVE), 3);
+
+            if (player.isHolding(ItemsRegistry.APOLLOS_SON.get()) && player.isShiftKeyDown()) {
+                activateOrpheusCall(world, pos, player);
+            }
+        }
+    }
+
+    private void activateCalliopeCall(Level world, BlockPos pos, Player player) {
+        WorldUtils.summonLightning(world, player);
+        PlayerUtils.decrementHeldItem(player, ItemsRegistry.HELLENIC_CODEX.get());
         ItemStack calliopesLove = ItemsRegistry.CALLIOPES_LOVE.get().getDefaultInstance();
         if (!player.getInventory().add(calliopesLove)) {
-            Block.dropResources(player.getFeetBlockState(), world, player.blockPosition(), null, null, calliopesLove);
+            Block.popResource(world, player.blockPosition(), calliopesLove);
         }
+        world.destroyBlock(pos, false);
+        world.playSound(null, pos, SoundEvents.TRIDENT_RETURN, SoundSource.BLOCKS, 1f, 1f);
     }
 
-    private void giveOrpheusLyreItem(Player player, Level world) {
+    private void activateOrpheusCall(Level world, BlockPos pos, Player player) {
+        WorldUtils.summonLightning(world, player);
+        PlayerUtils.decrementHeldItem(player, ItemsRegistry.APOLLOS_SON.get());
         ItemStack orpheusLyre = ItemsRegistry.ORPHEUS_LYRE.get().getDefaultInstance();
         if (!player.getInventory().add(orpheusLyre)) {
-            Block.dropResources(player.getFeetBlockState(), world, player.blockPosition(), null, null, orpheusLyre);
+            Block.popResource(world, player.blockPosition(), orpheusLyre);
         }
+        world.destroyBlock(pos, false);
+        world.playSound(null, pos, SoundEvents.TRIDENT_RETURN, SoundSource.BLOCKS, 1f, 1f);
     }
 
     @Override
-    protected void createBlockStateDefinition(StateDefinition.Builder<Block, BlockState> pBuilder) {
-        pBuilder.add(DIMENSION);
-
+    protected void createBlockStateDefinition(StateDefinition.Builder<Block, BlockState> builder) {
+        builder.add(DIMENSION);
     }
 }
