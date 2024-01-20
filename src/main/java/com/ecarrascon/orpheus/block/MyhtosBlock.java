@@ -28,8 +28,12 @@ public class MyhtosBlock extends Block {
     @Override
     public void onPlace(BlockState state, Level world, BlockPos pos, BlockState oldState, boolean isMoving) {
         if (!world.isClientSide()) {
-            if (world.dimension().equals(Level.OVERWORLD)) {
+            if (world.dimension().equals(Level.OVERWORLD) && WorldUtils.isSurroundedByBlocksTag(world, pos, BlockTags.FLOWERS, 1)) {
+                world.setBlock(pos, state.setValue(DIMENSION, MythosStateEnum.OVERWORLD_ACTIVE), 3);
+            } else if (world.dimension().equals(Level.OVERWORLD)) {
                 world.setBlock(pos, state.setValue(DIMENSION, MythosStateEnum.OVERWORLD), 3);
+            } else if (world.dimension().equals(Level.NETHER ) && WorldUtils.isSurroundedByBlocks(world, pos, Blocks.MAGMA_BLOCK, 0)) {
+                world.setBlock(pos, state.setValue(DIMENSION, MythosStateEnum.NETHER_ACTIVE), 3);
             } else if (world.dimension().equals(Level.NETHER)) {
                 world.setBlock(pos, state.setValue(DIMENSION, MythosStateEnum.NETHER), 3);
             }
