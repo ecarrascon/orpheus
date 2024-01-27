@@ -10,12 +10,14 @@ import net.minecraft.tags.BlockTags;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.context.BlockPlaceContext;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.StateDefinition;
 import net.minecraft.world.level.block.state.properties.EnumProperty;
+import org.jetbrains.annotations.Nullable;
 
 public class MyhtosBlock extends Block {
     public static final EnumProperty<MythosStateEnum> DIMENSION = EnumProperty.create("dimension", MythosStateEnum.class);
@@ -25,21 +27,21 @@ public class MyhtosBlock extends Block {
         this.registerDefaultState(this.defaultBlockState().setValue(DIMENSION, MythosStateEnum.OVERWORLD));
     }
 
+
+    @Nullable
     @Override
-    public void onPlace(BlockState state, Level world, BlockPos pos, BlockState oldState, boolean isMoving) {
+    public BlockState getStateForPlacement(BlockPlaceContext pContext) {
+        Level world = pContext.getLevel();
+
         if (!world.isClientSide()) {
-            if (world.dimension().equals(Level.OVERWORLD) && WorldUtils.isSurroundedByBlocksTag(world, pos, BlockTags.FLOWERS, 1)) {
-                world.setBlock(pos, state.setValue(DIMENSION, MythosStateEnum.OVERWORLD_ACTIVE), 3);
-            } else if (world.dimension().equals(Level.OVERWORLD)) {
-                world.setBlock(pos, state.setValue(DIMENSION, MythosStateEnum.OVERWORLD), 3);
-            } else if (world.dimension().equals(Level.NETHER ) && WorldUtils.isSurroundedByBlocks(world, pos, Blocks.MAGMA_BLOCK, 0)) {
-                world.setBlock(pos, state.setValue(DIMENSION, MythosStateEnum.NETHER_ACTIVE), 3);
+            if (world.dimension().equals(Level.OVERWORLD)) {
+                this.registerDefaultState(this.defaultBlockState().setValue(DIMENSION, MythosStateEnum.OVERWORLD));
             } else if (world.dimension().equals(Level.NETHER)) {
-                world.setBlock(pos, state.setValue(DIMENSION, MythosStateEnum.NETHER), 3);
+                this.registerDefaultState(this.defaultBlockState().setValue(DIMENSION, MythosStateEnum.NETHER));
             }
         }
 
-        super.onPlace(state, world, pos, oldState, isMoving);
+        return super.getStateForPlacement(pContext);
     }
 
     @Override
