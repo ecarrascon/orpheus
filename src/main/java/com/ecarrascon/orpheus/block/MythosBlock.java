@@ -9,6 +9,7 @@ import net.minecraft.block.Blocks;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.player.PlayerEntity;
+import net.minecraft.item.ItemPlacementContext;
 import net.minecraft.item.ItemStack;
 import net.minecraft.registry.tag.BlockTags;
 import net.minecraft.sound.SoundCategory;
@@ -28,17 +29,18 @@ public class MythosBlock extends Block {
         setDefaultState(this.stateManager.getDefaultState().with(DIMENSION, MythosStateEnum.OVERWORLD));
     }
 
+    @Nullable
     @Override
-    public void onPlaced(World world, BlockPos pos, BlockState state, @Nullable LivingEntity placer, ItemStack itemStack) {
-        if (!world.isClient()) {
-            if (world.getRegistryKey().equals(World.OVERWORLD)) {
-                world.setBlockState(pos, state.with(DIMENSION, MythosStateEnum.OVERWORLD));
-            } else if (world.getRegistryKey().equals(World.NETHER)) {
-                world.setBlockState(pos, state.with(DIMENSION, MythosStateEnum.NETHER));
+    public BlockState getPlacementState(ItemPlacementContext ctx) {
+        if (!ctx.getWorld().isClient()) {
+            if (ctx.getWorld().getRegistryKey().equals(World.OVERWORLD)) {
+                this.setDefaultState(this.getDefaultState().with(DIMENSION, MythosStateEnum.OVERWORLD));
+            } else if (ctx.getWorld().getRegistryKey().equals(World.NETHER)) {
+                this.setDefaultState(this.getDefaultState().with(DIMENSION, MythosStateEnum.NETHER));
             }
         }
 
-        super.onPlaced(world, pos, state, placer, itemStack);
+        return super.getPlacementState(ctx);
     }
 
     @Override
