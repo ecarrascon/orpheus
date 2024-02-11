@@ -1,6 +1,8 @@
 package com.ecarrascon.orpheus.block;
 
 import com.ecarrascon.orpheus.registry.ItemsRegistry;
+import com.ecarrascon.orpheus.util.PlayerUtils;
+import com.ecarrascon.orpheus.util.WorldUtils;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.Blocks;
@@ -8,103 +10,110 @@ import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.LightningEntity;
 import net.minecraft.entity.player.PlayerEntity;
+import net.minecraft.item.ItemPlacementContext;
 import net.minecraft.item.ItemStack;
 import net.minecraft.sound.SoundCategory;
 import net.minecraft.sound.SoundEvents;
+import net.minecraft.state.StateManager;
+import net.minecraft.state.property.EnumProperty;
 import net.minecraft.tag.BlockTags;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
+import org.jetbrains.annotations.Nullable;
 
 public class MythosBlock extends Block {
+
+    public static final EnumProperty<MythosStateEnum> DIMENSION = EnumProperty.of("dimension", MythosStateEnum.class);
+
     public MythosBlock(Settings settings) {
         super(settings);
+        setDefaultState(this.stateManager.getDefaultState().with(DIMENSION, MythosStateEnum.OVERWORLD));
+    }
+
+    @Nullable
+    @Override
+    public BlockState getPlacementState(ItemPlacementContext ctx) {
+        if (!ctx.getWorld().isClient()) {
+            if (ctx.getWorld().getRegistryKey().equals(World.OVERWORLD)) {
+                this.setDefaultState(this.getDefaultState().with(DIMENSION, MythosStateEnum.OVERWORLD));
+            } else if (ctx.getWorld().getRegistryKey().equals(World.NETHER)) {
+                this.setDefaultState(this.getDefaultState().with(DIMENSION, MythosStateEnum.NETHER));
+            }
+        }
+
+        return super.getPlacementState(ctx);
     }
 
     @Override
     public void onSteppedOn(World world, BlockPos pos, BlockState state, Entity entity) {
-        if (!world.isClient() && entity instanceof PlayerEntity player) {
-            // Get Calliope's Love
-            if (player.getMainHandStack().isItemEqual(ItemsRegistry.HELLENIC_CODEX.get().getDefaultStack())
-                    && player.isSneaking() && isSurroundedByFlowers(world, pos)) {
-                summonLightning(player, world);
-                player.getMainHandStack().decrement(1);
-                giveCalliopesLoveItem(player, world);
-                world.breakBlock(pos, false);
-                world.playSound(null, pos, SoundEvents.ITEM_TRIDENT_RETURN, SoundCategory.BLOCKS, 1f, 1f);
-            }
-
-            // Get Orpheus Lyre
-            if (world.getRegistryKey().equals(World.NETHER) && player.getMainHandStack().isItemEqual(ItemsRegistry.APOLLOS_SON.get().getDefaultStack())
-                    && player.isSneaking() && isSurroundedByMagma(world, pos)) {
-                summonLightning(player, world);
-                player.getMainHandStack().decrement(1);
-                giveOrpheusLyreItem(player, world);
-                world.breakBlock(pos, false);
-                world.playSound(null, pos, SoundEvents.ITEM_TRIDENT_RETURN, SoundCategory.BLOCKS, 1f, 1f);
-            }
+        if (entity instanceof PlayerEntity player && !world.isClient()) {
+            updateBlockStateBasedOnDimension(world, pos, state);
+            tryGodsCall(world, pos, state, player);
         }
         super.onSteppedOn(world, pos, state, entity);
     }
 
-    private void summonLightning(PlayerEntity player, World world) {
-        LightningEntity lightning = new LightningEntity(EntityType.LIGHTNING_BOLT, world);
-        lightning.setCosmetic(true);
-        lightning.setPosition(player.getPos());
-        world.spawnEntity(lightning);
+    private void updateBlockStateBasedOnDimension(World world, BlockPos pos, BlockState state) {
+        if (world.getRegistryKey().equals(World.OVERWORLD)) {
+            world.setBlockState(pos, state.with(DIMENSION, MythosStateEnum.OVERWORLD));
+        } else if (world.getRegistryKey().equals(World.NETHER)) {
+            world.setBlockState(pos, state.with(DIMENSION, MythosStateEnum.NETHER));
+        }
     }
 
-    private boolean isSurroundedByFlowers(World world, BlockPos pos) {
-        int yPos = pos.getY() + 1;
+    private void tryGodsCall(World world, BlockPos pos, BlockState state, PlayerEntity player) {
+        if (world.getRegistryKey().equals(World.OVERWORLD)) {
+            tryCalliopeCall(world, pos, state, player);
+        } else if (world.getRegistryKey().equals(World.NETHER)) {
+            tryOrpheusCall(world, pos, state, player);
+        }
+    }
 
-        int startX = pos.getX() - 1;
-        int startZ = pos.getZ() - 1;
-        int endX = pos.getX() + 1;
-        int endZ = pos.getZ() + 1;
+    private void tryCalliopeCall(World world, BlockPos pos, BlockState state, PlayerEntity player) {
+        if (WorldUtils.isSurroundedByBlocksTag(world, pos, BlockTags.FLOWERS, 1)) {
+            world.setBlockState(pos, state.with(DIMENSION, MythosStateEnum.OVERWORLD_ACTIVE));
 
-        for (int x = startX; x <= endX; x++) {
-            for (int z = startZ; z <= endZ; z++) {
-                if (pos.getX() == x && pos.getZ() == z) continue;
-                BlockState blockState = world.getBlockState(new BlockPos(x, yPos, z));
-                if (!blockState.isIn(BlockTags.FLOWERS)) {
-                    return false;
-                }
+            if (player.isHolding(ItemsRegistry.HELLENIC_CODEX.get()) && player.isSneaking()) {
+                activateCalliopeCall(world, pos, player);
             }
         }
-        return true;
     }
 
-    private boolean isSurroundedByMagma(World world, BlockPos pos) {
-        int yPos = pos.getY();
+    private void tryOrpheusCall(World world, BlockPos pos, BlockState state, PlayerEntity player) {
+        if (WorldUtils.isSurroundedByBlocks(world, pos, Blocks.MAGMA_BLOCK, 0)) {
+            world.setBlockState(pos, state.with(DIMENSION, MythosStateEnum.NETHER_ACTIVE));
 
-        int startX = pos.getX() - 1;
-        int startZ = pos.getZ() - 1;
-        int endX = pos.getX() + 1;
-        int endZ = pos.getZ() + 1;
-
-        for (int x = startX; x <= endX; x++) {
-            for (int z = startZ; z <= endZ; z++) {
-                if (pos.getX() == x && pos.getZ() == z) continue;
-                BlockState blockState = world.getBlockState(new BlockPos(x, yPos, z));
-                if (!blockState.equals(Blocks.MAGMA_BLOCK.getDefaultState())) {
-                    return false;
-                }
+            if (player.isHolding(ItemsRegistry.APOLLOS_SON.get()) && player.isSneaking()) {
+                activateOrpheusCall(world, pos, player);
             }
         }
-        return true;
     }
 
-    private void giveCalliopesLoveItem(PlayerEntity player, World world) {
+    private void activateCalliopeCall(World world, BlockPos pos, PlayerEntity player) {
+        WorldUtils.summonLightning(player, world);
+        PlayerUtils.decrementHeldItem(player, ItemsRegistry.HELLENIC_CODEX.get());
         ItemStack calliopesLove = ItemsRegistry.CALLIOPES_LOVE.get().getDefaultStack();
         if (!player.getInventory().insertStack(calliopesLove)) {
             Block.dropStack(world, player.getBlockPos(), calliopesLove);
         }
+        world.breakBlock(pos, false);
+        world.playSound(null, pos, SoundEvents.ITEM_TRIDENT_RETURN, SoundCategory.BLOCKS, 1f, 1f);
     }
 
-    private void giveOrpheusLyreItem(PlayerEntity player, World world) {
-        ItemStack calliopesLove = ItemsRegistry.ORPHEUS_LYRE.get().getDefaultStack();
-        if (!player.getInventory().insertStack(calliopesLove)) {
-            Block.dropStack(world, player.getBlockPos(), calliopesLove);
+    private void activateOrpheusCall(World world, BlockPos pos, PlayerEntity player) {
+        WorldUtils.summonLightning(player, world);
+        PlayerUtils.decrementHeldItem(player, ItemsRegistry.APOLLOS_SON.get());
+        ItemStack orpheusLyre = ItemsRegistry.ORPHEUS_LYRE.get().getDefaultStack();
+        if (!player.getInventory().insertStack(orpheusLyre)) {
+            Block.dropStack(world, player.getBlockPos(), orpheusLyre);
         }
+        world.breakBlock(pos, false);
+        world.playSound(null, pos, SoundEvents.ITEM_TRIDENT_RETURN, SoundCategory.BLOCKS, 1f, 1f);
     }
 
+    @Override
+    protected void appendProperties(StateManager.Builder<Block, BlockState> builder) {
+        builder.add(DIMENSION);
+    }
 }
+

@@ -1,7 +1,6 @@
 package com.ecarrascon.orpheus.registry;
 
 import com.ecarrascon.orpheus.Orpheus;
-import com.ecarrascon.orpheus.entity.OrpheusEntities;
 import com.ecarrascon.orpheus.item.*;
 import com.ecarrascon.orpheus.item.setting.ItemSettingsHelper;
 import net.minecraft.entity.EquipmentSlot;
@@ -50,6 +49,8 @@ public enum ItemsRegistry {
 
     COW_GUT("cow_gut", () -> new Item(ItemSettingsHelper.baseSettings())),
     CLEAN_COW_GUT("clean_cow_gut", () -> new Item(ItemSettingsHelper.baseSettings())),
+    COOKED_COW_GUT("cooked_cow_gut", () -> new Item(ItemSettingsHelper.baseSettings()
+            .food(new FoodComponent.Builder().hunger(8).saturationModifier(0.9f).meat().build()))),
     PLAIN_STRING("plain_string", () -> new Item(ItemSettingsHelper.baseSettings())),
     NECTAR_SEED("nectar_seed", () -> new AliasedBlockItem(BlocksRegistry.NECTAR_CROP.get(), ItemSettingsHelper.baseSettings())),
     BROTOI_NECTAR("brotoi_nectar", () -> new HoneyBottleItem(ItemSettingsHelper.baseSettings()
@@ -61,10 +62,9 @@ public enum ItemsRegistry {
             ItemSettingsHelper.baseSettings())),
     HEPHAESTUS_LEGGINGS("hephaestus_leggings", () -> new ArmorItem(OrpheusArmorMaterials.HEPHAESTUS, EquipmentSlot.LEGS,
             ItemSettingsHelper.baseSettings())),
-    HEPHAESTUS_BOOTS("hephaestus_boots", () -> new ArmorItem(OrpheusArmorMaterials.HEPHAESTUS, EquipmentSlot.FEET,
+    HEPHAESTUS_BOOTS("hephaestus_boots", () -> new FullSetEffectHephaestusItem(OrpheusArmorMaterials.HEPHAESTUS, EquipmentSlot.FEET,
             ItemSettingsHelper.baseSettings())),
     HERACLITIAN_FLUX_POTION("heraclitian_flux_potion", () -> new RandomPotionEffectItem(ItemSettingsHelper.baseSettings())),
-    VIPERA_AMMODYTES_SPAWN_EGG("vipera_ammodytes_spawn_egg", () -> new SpawnEggItem(OrpheusEntities.VIPER, 0xB6D7A8, 0xCEBB80, ItemSettingsHelper.baseSettings())),
     HELLENIC_CODEX("hellenic_codex", () -> new Item(ItemSettingsHelper.baseSettings())),
 
     LYRE("lyre", () -> new Item(ItemSettingsHelper.noStackableSettings()));

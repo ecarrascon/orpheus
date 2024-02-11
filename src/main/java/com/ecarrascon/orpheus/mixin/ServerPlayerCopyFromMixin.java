@@ -1,5 +1,6 @@
 package com.ecarrascon.orpheus.mixin;
 
+import com.ecarrascon.orpheus.Orpheus;
 import com.ecarrascon.orpheus.registry.ItemsRegistry;
 import net.minecraft.server.network.ServerPlayerEntity;
 import net.minecraft.world.GameRules;
@@ -13,8 +14,9 @@ public abstract class ServerPlayerCopyFromMixin {
     // KeepInventory when Orpheus Lyre in inventory, "PlayerEntityDropInventoryMixin" makes that items not being dropped
     @Redirect(method = "copyFrom", at = @At(value = "INVOKE", target = "net/minecraft/world/GameRules.getBoolean(Lnet/minecraft/world/GameRules$Key;)Z", ordinal = 0))
     private boolean redirectCopyFromCondition(GameRules instance, GameRules.Key<GameRules.BooleanRule> rule, ServerPlayerEntity oldPlayer, boolean alive) {
-        return ((ServerPlayerEntity) (Object) this).world.getGameRules().getBoolean(GameRules.KEEP_INVENTORY)
-                || oldPlayer.getInventory().contains(ItemsRegistry.ORPHEUS_LYRE.get().getDefaultStack());
+        return ((ServerPlayerEntity) (Object) this).getServer().getGameRules().getBoolean(GameRules.KEEP_INVENTORY)
+                || (oldPlayer.getInventory().contains(ItemsRegistry.ORPHEUS_LYRE.get().getDefaultStack())
+                && Orpheus.CONFIG_VALUES.getOrpheusLyrePower().matches(".*(?:keep|both).*"));
 
     }
 

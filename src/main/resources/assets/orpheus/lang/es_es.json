@@ -1,15 +1,18 @@
 {
   "itemGroup.orpheus.main": "Orfeo",
 
+  "advancements.orpheus.obtain_fragment.title": "Orfeo",
+  "advancements.orpheus.obtain_fragment.description": "Estoy seguro que un aldeano me daria algo bueno por un fragmento de estos",
+
   "item.orpheus.orpheus_lyre": "Lira de Orfeo",
   "item.orpheus.tears_of_hades": "Lágrimas de Hades",
   "item.orpheus.tears_bow": "Arco de Lágrimas",
-  "item.orpheus.vipera_ammodytes_spawn_egg": "Huevo de Engendro de Vípera Ammodytes",
   "item.orpheus.hellenic_codex": "Códice Helénico",
   "item.orpheus.aristotles_nicomachean_ethics_scroll_fragment": "Fragmento de Pergamino de la Ética Nicomaquea de Aristóteles",
   "item.orpheus.brotoi_nectar": "Néctar Brotoi",
   "item.orpheus.brotoi_palladium": "Brotoi Paladión",
   "item.orpheus.calliope_poem_fragment": "Fragmento del Poema de Calíope",
+  "item.orpheus.cooked_cow_gut": "Tripa de Vaca Cocinada",
   "item.orpheus.clean_cow_gut": "Tripa de Vaca Limpia",
   "item.orpheus.cow_gut": "Tripa de Vaca",
   "item.orpheus.heraclitian_flux_fragment": "Fragmento del Flujo de Heráclito",
@@ -34,20 +37,14 @@
   "item.orpheus.hephaestus_boots": "Botas de Hefesto",
 
   "entity.minecraft.villager.philosopher": "Filósofo",
-  "entity.orpheus.viper": "Vípera Ammodytes",
 
-  "block.orpheus.moly_herb": "Hierba Moly",
+  "block.orpheus.moly_herb": "Moly",
   "block.orpheus.epiphany_table": "Mesa de Epifanía",
   "block.orpheus.nectar_crop": "Cultivo de Néctar",
-  "block.orpheus.potted_moly_herb": "Hierba Moly en Maceta",
+  "block.orpheus.potted_moly_herb": "Moly en Maceta",
   "block.orpheus.pegasus_feathers_block": "Bloque de Plumas de Pegaso",
-  "block.orpheus.mythos_block": "Bloque de Mito",
-  "block.orpheus.deepslate_tears_of_hades_ore": "Mineral de Lágrimas de Hades en Pizarra",
+  "block.orpheus.mythos_block": "Bloque Mitológico",
+  "block.orpheus.deepslate_tears_of_hades_ore": "Mineral de Lágrimas de Hades en Deepslate",
   "block.orpheus.tears_of_hades_ore": "Mineral de Lágrimas de Hades",
-  "block.orpheus.tears_of_hades_block": "Bloque de Lágrimas de Hades",
-
-
-  "entity.orpheus.viper.ambient": "Siseo de Vibora",
-  "entity.orpheus.viper.death": "Muerte de Vibora",
-  "entity.orpheus.viper.hurt": "Vibora dañada"
+  "block.orpheus.tears_of_hades_block": "Bloque de Lágrimas de Hades"
 }
