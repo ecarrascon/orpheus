@@ -4,7 +4,6 @@
   "item.orpheus.orpheus_lyre": "Lira de Orfeo",
   "item.orpheus.tears_of_hades": "Lágrimas de Hades",
   "item.orpheus.tears_bow": "Arco de Lágrimas",
-  "item.orpheus.vipera_ammodytes_spawn_egg": "Huevo de Engendro de Vípera Ammodytes",
   "item.orpheus.hellenic_codex": "Códice Helénico",
   "item.orpheus.aristotles_nicomachean_ethics_scroll_fragment": "Fragmento de Pergamino de la Ética Nicomaquea de Aristóteles",
   "item.orpheus.brotoi_nectar": "Néctar Brotoi",
@@ -35,7 +34,6 @@
   "item.orpheus.hephaestus_boots": "Botas de Hefesto",
 
   "entity.minecraft.villager.orpheus.philosopher": "Filósofo",
-  "entity.orpheus.viper": "Vípera Ammodytes",
 
   "block.orpheus.moly_herb": "Hierba Moly",
   "block.orpheus.epiphany_table": "Mesa de Epifanía",
@@ -45,10 +43,5 @@
   "block.orpheus.mythos_block": "Bloque de Mito",
   "block.orpheus.deepslate_tears_of_hades_ore": "Mineral de Lágrimas de Hades en Pizarra",
   "block.orpheus.tears_of_hades_ore": "Mineral de Lágrimas de Hades",
-  "block.orpheus.tears_of_hades_block": "Bloque de Lágrimas de Hades",
-
-
-  "entity.orpheus.viper.ambient": "Siseo de Vibora",
-  "entity.orpheus.viper.death": "Muerte de Vibora",
-  "entity.orpheus.viper.hurt": "Vibora dañada"
+  "block.orpheus.tears_of_hades_block": "Bloque de Lágrimas de Hades"
 }
