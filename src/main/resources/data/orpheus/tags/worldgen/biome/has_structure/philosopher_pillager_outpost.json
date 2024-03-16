@@ -1,11 +1,17 @@
 {
   "replace": false,
   "values": [
-    "minecraft:taiga",
-    "#minecraft:is_badlands",
-    "minecraft:plains",
-    "minecraft:savanna",
+    "#minecraft:is_taiga",
     "#minecraft:is_forest",
-    "#minecraft:is_hill"
+    "#minecraft:is_mountain",
+    "#minecraft:is_hill",
+    "#minecraft:is_badlands",
+    "#minecraft:is_jungle",
+    "minecraft:plains",
+    "minecraft:sunflower_plains",
+    "minecraft:savanna",
+    "minecraft:swamp",
+    "minecraft:desert",
+    "minecraft:snowy_plains"
   ]
 }
