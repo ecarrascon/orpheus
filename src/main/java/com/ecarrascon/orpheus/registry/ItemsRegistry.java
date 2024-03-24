@@ -45,7 +45,7 @@ public class ItemsRegistry {
             () -> new ItemNameBlockItem(BlocksRegistry.NECTAR_CROP.get(), ItemSettingsHelper.stackableItem()));
 
     public static final RegistryObject<Item> BROTOI_NECTAR = registerWithTab("brotoi_nectar",
-            () -> new HoneyBottleItem(ItemSettingsHelper.noStackableItem()
+            () -> new HoneyBottleItem(ItemSettingsHelper.stackableItem().stacksTo(23)
                     .food(new FoodProperties.Builder().nutrition(5).saturationMod(19.4f).build())));
     public static final RegistryObject<Item> BROTOI_PALLADIUM = registerWithTab("brotoi_palladium",
             () -> new BrotoiPalladiumItem(ItemSettingsHelper.noStackableItem()));
