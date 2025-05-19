@@ -7,6 +7,7 @@ public class ConfigDataCommon {
     public static final ForgeConfigSpec SPEC;
 
     public static final ForgeConfigSpec.ConfigValue<String> ORPHEUS_LYRE_POWER;
+    public static final ForgeConfigSpec.ConfigValue<Boolean> ONE_TIME_USE;
 
 
     static {
@@ -16,6 +17,10 @@ public class ConfigDataCommon {
                         "If you input \"protect\" it will grant you immunity to arrows. If you input the word \"both\", " +
                         "you will have both effects.")
                 .define("Orpheus Lyre Power", "keep");
+        ONE_TIME_USE = BUILDER
+                .comment("If true, the Orpheus Lyre will be consumed (broken) when its keep-inventory effect is applied. " +
+                        "If false, the Lyre will not be consumed and can be used repeatedly.")
+                .define("Orpheus Lyre One Time Use", false);
 
 
         BUILDER.pop();

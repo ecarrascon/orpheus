@@ -22,4 +22,16 @@ eclipse
 run
 
 # Files from Forge MDK
-forge*changelog.txt
+forge*changelog.tx
+
+build/
+run/
+out/
+.gradle/
+output/
+bin/
+libs/
+
+.idea/
+classes/
+.vscode
