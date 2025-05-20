@@ -13,6 +13,7 @@ public class ConfigData {
     private static final File CONFIG_DATA_FILE = new File(FabricLoader.getInstance().getConfigDir().toFile(), "orpheus-config.json");
 
     private String orpheusLyrePower = "keep";
+    private Boolean oneTimeUse = false;
 
     public ConfigData() {
     }
@@ -44,5 +45,7 @@ public class ConfigData {
         return orpheusLyrePower;
     }
 
-
+    public Boolean getOneTimeUse() {
+        return oneTimeUse;
+    }
 }
